@@ -13,6 +13,8 @@ import transformers
 from torch.nn.attention import SDPBackend, sdpa_kernel
 from transformers import AutoTokenizer, Qwen3_5ForCausalLM, TextStreamer
 
+from .sampling import PresencePenalty
+
 
 class ChatSession:
     def __init__(self):
@@ -100,6 +102,7 @@ class ChatSession:
                 **inputs, max_new_tokens=self.config["max_new_tokens"], do_sample=True,
                 temperature=self.config["temperature"], top_p=self.config["top_p"],
                 top_k=self.config["top_k"], eos_token_id=end_id,
+                logits_processor=[PresencePenalty(self.config["presence_penalty"], prompt_tokens)],
                 pad_token_id=self.tokenizer.pad_token_id or end_id,
                 use_cache=True, streamer=streamer,
             )

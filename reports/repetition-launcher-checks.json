@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "scenario": "Actual chat.bat: original two prompts, reset, Japanese greeting, exit",
+  "turns": [
+    {
+      "event": "turn",
+      "user": "hi",
+      "assistant": "Hello! How can I assist you today?",
+      "metrics": {
+        "prompt_tokens": 30,
+        "generated_tokens": 10,
+        "seconds": 0.7195425000099931,
+        "generated_tokens_per_second": 13.897719731442018,
+        "peak_allocated_mib": 1498.63623046875,
+        "omitted_old_turns": 0,
+        "hit_output_limit": false,
+        "weight_updates": 0
+      }
+    },
+    {
+      "event": "turn",
+      "user": "im chris, who are you",
+      "assistant": "Hi! I'm Qwen3.5, a large language model developed by Tongyi Lab. I'm designed to assist you with a wide range of tasks like answering questions, generating text, coding, analyzing data, and more. How can I help you today?",
+      "metrics": {
+        "prompt_tokens": 56,
+        "generated_tokens": 55,
+        "seconds": 1.5516110000025947,
+        "generated_tokens_per_second": 35.4470289266498,
+        "peak_allocated_mib": 1499.47021484375,
+        "omitted_old_turns": 0,
+        "hit_output_limit": false,
+        "weight_updates": 0
+      }
+    },
+    {
+      "event": "turn",
+      "user": "日本語で短い挨拶をしてください。",
+      "assistant": "こんにちは！お元気ですか？",
+      "metrics": {
+        "prompt_tokens": 36,
+        "generated_tokens": 7,
+        "seconds": 0.2600683000055142,
+        "generated_tokens_per_second": 26.916006294698665,
+        "peak_allocated_mib": 1498.67138671875,
+        "omitted_old_turns": 0,
+        "hit_output_limit": false,
+        "weight_updates": 0
+      }
+    }
+  ],
+  "config": {
+    "model_id": "Qwen/Qwen3.5-0.8B",
+    "model_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "context_tokens": 2048,
+    "max_new_tokens": 256,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "presence_penalty": 2.0,
+    "seed": 42,
+    "system_prompt": "You are a helpful assistant. Give clear, concise answers."
+  },
+  "model_load_events": 1,
+  "source_sha256": {
+    "qwenbrain\\chat.py": "9fb726b581513f62e0d828535accbc62b2dddce69b75f77469823cf832d01145",
+    "qwenbrain\\sampling.py": "fdc0cc35d5a303b7d2c959203a4d58f615513e45f83f9a3789ccd73a1ebc3aca",
+    "configs\\chat.json": "6b6fedb93ceabb6a8a17c9fbe2c29d6efeb8f212df177e825f9c1b63626c47b1"
+  }
+}

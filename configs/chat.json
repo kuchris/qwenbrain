@@ -6,6 +6,7 @@
   "temperature": 0.7,
   "top_p": 0.8,
   "top_k": 20,
+  "presence_penalty": 2.0,
   "seed": 42,
   "system_prompt": "You are a helpful assistant. Give clear, concise answers."
 }

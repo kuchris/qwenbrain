@@ -27,6 +27,11 @@ complete turns are removed from the prompt when necessary. A new message that
 cannot fit on its own is rejected with an explanation. Thinking is disabled.
 These are local prototype limits, not Qwen's maximum advertised context length.
 
+Generation uses a response-only presence penalty to reduce repeated-sentence loops.
+After a code or sampling-config update, exit with `/quit` and reopen `chat.bat`;
+`/reset` clears context but does not reload code or configuration. See
+[the repetition fix](reports/repetition-fix.md) for the reproduced failure and checks.
+
 See [the milestone evidence](reports/milestone-1.md) for measurements and limits.
 
 ## Confirmed direction

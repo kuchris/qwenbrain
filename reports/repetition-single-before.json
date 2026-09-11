@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "configuration": {
+    "model_id": "Qwen/Qwen3.5-0.8B",
+    "model_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "context_tokens": 2048,
+    "max_new_tokens": 256,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "seed": 42,
+    "system_prompt": "You are a helpful assistant. Give clear, concise answers."
+  },
+  "cases": [
+    {
+      "seed": 42,
+      "passed": true,
+      "turns": [
+        {
+          "user": "im chris, who are you",
+          "assistant": "Hello! I'm Qwen3.5, a large language model developed by Tongyi Lab. How can I assist you today? \ud83d\ude0a",
+          "metrics": {
+            "prompt_tokens": 36,
+            "generated_tokens": 30,
+            "seconds": 1.1614650000119582,
+            "generated_tokens_per_second": 25.82944815357426,
+            "peak_allocated_mib": 1498.94287109375,
+            "omitted_old_turns": 0,
+            "hit_output_limit": false,
+            "weight_updates": 0
+          },
+          "max_repeated_six_word_span": 1
+        }
+      ]
+    }
+  ],
+  "scope": "Bounded reproduction: repeated six-word span three times or reaching the token limit fails. Not a general language-quality score."
+}
