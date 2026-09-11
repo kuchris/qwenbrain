@@ -1,4 +1,4 @@
-"""Persistent local Qwen chat. Milestone 1: inference only, no weight updates."""
+"""Persistent local Qwen inference; the CLI adds ordered per-message LoRA updates."""
 
 import json
 import time
@@ -122,8 +122,11 @@ class ChatSession:
 
 
 def main():
+    from .online import OnlineLearner
+
     print("Loading local Qwen3.5-0.8B...", flush=True)
     session = ChatSession()
+    learner = OnlineLearner(session)
     transcript = ROOT / "data/conversations" / f"chat-{time.time_ns()}.jsonl"
     transcript.parent.mkdir(parents=True, exist_ok=True)
 
@@ -131,9 +134,11 @@ def main():
         with transcript.open("a", encoding="utf-8") as output:
             output.write(json.dumps(item, ensure_ascii=False) + "\n")
 
-    record({"event": "start", "config": session.config, "metadata": session.metadata})
-    print(f"Model loaded once on {session.metadata['gpu']}. Learning is OFF for this first milestone.")
-    print("Enter a message. /reset clears context; blank input or /quit exits.")
+    record({"event": "start", "config": session.config, "metadata": session.metadata,
+            "learning_config": learner.config})
+    print(f"Model loaded once on {session.metadata['gpu']}. Learning ON; adapter v{learner.version}.")
+    print("Each message: reply, then one candidate update. Please wait for the learning result.")
+    print("/reset clears context, keeps learned weights; blank input or /quit exits.")
     print(f"Conversation saved locally: {transcript.relative_to(ROOT)}", flush=True)
     while True:
         try:
@@ -150,17 +155,25 @@ def main():
             continue
         try:
             print("Qwen: ", end="", flush=True)
-            answer, metrics = session.reply(message, stream=True)
+            answer, metrics, learning = learner.turn(message, stream=True, record=record)
         except ValueError as error:
             print(error)
             continue
-        record({"event": "turn", "user": message, "assistant": answer, "metrics": metrics})
-        print(f"[{metrics['generated_tokens']} tokens, {metrics['seconds']:.2f}s, learning OFF]", flush=True)
+        except KeyboardInterrupt:
+            print("\nInterrupted. Reopen chat to load the last saved adapter.")
+            break
+        print(f"[{metrics['generated_tokens']} tokens, {metrics['seconds']:.2f}s, reply adapter v{metrics['adapter_version']}]", flush=True)
+        loss = (f" | loss {learning['loss_before']:.3f} -> {learning['loss_after']:.3f}"
+                if "loss_after" in learning else "")
+        print(f"[Learning: {learning['status']}{loss} | {learning['total_seconds']:.2f}s | adapter v{learner.version}]", flush=True)
+        if learning.get("reason"):
+            print(f"[Kept previous adapter: {learning['reason']}]")
         if metrics["omitted_old_turns"]:
             print(f"Older context trimmed: {metrics['omitted_old_turns']} turn(s).")
         if metrics["hit_output_limit"]:
             print("[Reply reached the 256-token output limit.]")
     record({"event": "end"})
+    learner.close()
     print("Chat closed.")
 
 

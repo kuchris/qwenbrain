@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "input": [
+    "hi",
+    "/reset",
+    "/quit"
+  ],
+  "checkpoint": "runs/cli-check-1789129845890974900/live.safetensors",
+  "saved_version": 1,
+  "stdout": "Loading local Qwen3.5-0.8B...\nModel loaded once on NVIDIA GeForce RTX 5070 Ti. Learning ON; adapter v0.\nEach message: reply, then one candidate update. Please wait for the learning result.\n/reset clears context, keeps learned weights; blank input or /quit exits.\nConversation saved locally: data\\conversations\\chat-1789129847873862200.jsonl\nQwen: Hello! How can I assist you today?\n[10 tokens, 0.59s, reply adapter v0]\n[Learning: accepted | loss 8.016 -> 4.598 | 1.63s | adapter v1]\nConversation context cleared. Model remains loaded.\nChat closed.\n",
+  "scope": "Real CLI main and GPU with scripted input and isolated checkpoint; chat.bat separately checked with reset/quit."
+}

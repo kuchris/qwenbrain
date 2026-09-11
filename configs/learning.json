@@ -1,0 +1,13 @@
+{
+  "rank": 8,
+  "alpha": 16,
+  "target_modules": "all-linear",
+  "learning_rate": 0.0001,
+  "gradient_clip": 1.0,
+  "max_guard_loss_increase": 0.15,
+  "guard_texts": [
+    "Two plus two equals four. Three plus five equals eight.",
+    "The capital of France is Paris. The capital of Japan is Tokyo.",
+    "A helpful assistant gives clear answers and asks for clarification when needed."
+  ]
+}

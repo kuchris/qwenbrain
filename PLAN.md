@@ -1,13 +1,14 @@
 # QwenBrain: per-message adaptation experiment
 
-Status: persistent local GPU chat is implemented and verified; the automatic
-adaptation loop below is still a design. See [milestone 1 evidence](reports/milestone-1.md).
+Status: persistent local GPU chat and the sequential automatic adaptation loop
+are implemented. See [milestone 1 evidence](reports/milestone-1.md) and
+[milestone 3 evidence](reports/milestone-3.md).
 The separate [one-message LoRA check](reports/milestone-2.md) also passes: the
 adapter changes, base weights remain bit-identical, and disk reload reproduces
 the updated model. The fresh-context probes do not establish project-name recall.
 The user requires **every submitted chat message to
 automatically trigger an update**, replacing the earlier correction-only proposal.
-The current chat explicitly reports learning OFF until that loop is implemented.
+The current chat reports learning ON, candidate outcomes, and accepted versions.
 The completed from-scratch MHA/MLA work remains in the sibling llmtrain project.
 
 Storage requirement: all model weights/tokenizers/configs, adapters, checkpoints,
@@ -41,11 +42,11 @@ Loss masking must be explicit: a conventional assistant-only SFT mask would omit
 the user tokens that this experiment intends to learn from. See the
 [TRL loss-mask documentation](https://huggingface.co/docs/trl/sft_trainer).
 
-## Proposed first execution loop
+## Implemented first execution loop
 
 1. Keep the text-only Qwen3.5-0.8B base weights frozen in VRAM. Use one base
    instance with separate serving and candidate LoRA adapters.
-2. For each message, copy the accepted adapter into the candidate and perform
+2. Generate a reply using the accepted adapter, then copy it into the candidate and perform
    one small optimizer step on the message objective. Initially use a fresh
    optimizer per attempt so a rejected attempt leaves no optimizer history.
 3. Record scored tokens, loss, finite gradients, parameter delta, elapsed time,
@@ -55,18 +56,21 @@ the user tokens that this experiment intends to learn from. See the
    fixed probes. Accept or reject it using recorded thresholds established before
    the live experiment. Every message still triggers a learning attempt even if
    the candidate is rejected. No manual per-message confirmation is required.
-5. Generate the reply using one accepted adapter version. For this first version,
-   the update finishes before generation, so its latency is visible to the user.
-   Queue new messages while GPU work is running; do not claim simultaneous training
-   and generation on the shared model instance.
+5. Return to the input prompt after learning finishes, showing the reply's adapter
+   version and the accepted version for the next turn. The synchronous terminal
+   loop has no application-level background queue or simultaneous training and generation.
 6. Rebuild the bounded conversation's KV/recurrent state after an adapter change;
    do not mix old cached state with new weights. Save accepted adapter versions
-   locally so updates survive process restart and can be rolled back.
+   locally so updates survive process restart. One atomically replaced checkpoint
+   stores the latest accepted version; rejected candidates leave it unchanged.
 
-All choices above beyond the trigger requirement are an initial proposed protocol.
-Learning rate, target modules/rank, context limit, and automatic acceptance
-thresholds need a bounded calibration experiment before live use. This document
-does not claim that a generic regression check can guarantee learning safety.
+The initial experimental settings are recorded in `configs/learning.json`.
+Candidates must reduce new-message loss, have finite changed weights, and keep
+each fixed reference-text loss within 0.15 nats/token of its original baseline.
+That baseline is persisted to prevent the allowed drift from accumulating at
+every turn or restart. This provisional threshold is not calibrated as a general
+quality guarantee. Wider calibration and useful-retention evaluation remain work
+for milestone 4.
 
 ## Evidence required
 

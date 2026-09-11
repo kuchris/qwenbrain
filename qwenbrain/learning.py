@@ -1,4 +1,4 @@
-"""One-message LoRA mechanics; not yet connected to the interactive chat loop."""
+"""Content-only next-token targets and one bounded LoRA optimizer step."""
 
 import json
 import time
@@ -56,11 +56,21 @@ def build_message_batch(tokenizer, history, message, max_tokens):
     }
 
 
-def attach_adapter(model, config):
+def attach_adapter(model, config, adapter_name="default"):
     return get_peft_model(model, LoraConfig(
         r=config["rank"], lora_alpha=config["alpha"], target_modules=config["target_modules"],
         lora_dropout=0.0, bias="none", task_type="CAUSAL_LM",
-    ))
+    ), adapter_name=adapter_name)
+
+
+def select_scored_logits(batch):
+    """Project only predecessor positions needed for a single message's loss.
+
+    Explicit shift_labels overrides HF's usual shift; labels are aligned once.
+    The full history still goes through the transformer as conditioning context.
+    """
+    positions = (batch["labels"][0] != -100).nonzero().flatten()
+    return {**batch, "logits_to_keep": positions - 1, "shift_labels": batch["labels"][:, positions]}
 
 
 def update_once(model, batch, config):

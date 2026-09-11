@@ -4,16 +4,19 @@ A local experiment in a conversational model that learns from each user message.
 The question is whether small automatic weight updates produce useful retention
 and adaptation while keeping chat responsive.
 
-**Status:** persistent local chat and the first one-message LoRA update check pass.
-The update changes adapter weights, keeps original Qwen weights unchanged, and
-survives saving/reloading. **Automatic per-message learning is not connected to
-chat yet.** `chat.bat` continues to perform inference with frozen base weights.
+**Status:** `chat.bat` now replies and then automatically attempts one LoRA update
+for each submitted message. The base stays frozen in VRAM. A separate candidate
+adapter is checked before replacing the serving adapter. Accepted updates are
+saved locally and loaded at the next launch. Useful recall remains an experiment,
+not a consequence of an accepted update.
 
 ## Run
 
 Double-click [chat.bat](chat.bat), wait for the model to load, and enter messages.
-The model stays in VRAM until the process exits. `/reset` clears the conversation
-without reloading the model. A blank line or `/quit` closes the chat.
+The model stays in VRAM until the process exits. Wait for the learning result
+after each reply before entering the next message. `/reset` clears the conversation
+without reloading the model or erasing learned weights. A blank line or `/quit`
+closes the chat. Commands do not trigger training.
 
 Setup has already been run on this machine. On a fresh checkout with `uv` available,
 run [setup.bat](setup.bat) once to install the pinned environment and download the
@@ -21,7 +24,8 @@ pinned model into this folder. Chat itself loads local files only and works offl
 
 Messages and replies are saved as UTF-8 JSONL files in `data/conversations/`.
 They are ignored by Git. Each launch starts a fresh conversation; saved transcripts
-are not automatically restored or used for training at this milestone.
+are not automatically restored or replayed for training. Only the newly submitted
+message is a prediction target; older conversation turns provide context.
 
 The initial chat budget is 2,048 total tokens, reserving 256 for a reply. Old
 complete turns are removed from the prompt when necessary. A new message that
@@ -42,6 +46,41 @@ loss and fresh-context answers. It does not change the adapter used by `chat.bat
 The first update lowered message loss but did not establish recall of the supplied
 project name. See [milestone 2 results](reports/milestone-2.md).
 
+## Automatic learning
+
+Each reply uses the last accepted adapter. After the reply, the app copies that
+adapter into a candidate, trains one step on your new message's content, checks
+the candidate, and either saves/promotes it or keeps the previous adapter.
+Generation and learning run sequentially on one shared base. Both small LoRA
+adapters stay in GPU memory. Each generation builds fresh KV/recurrent state from
+the bounded conversation, so no cached state survives an adapter change.
+
+Settings are in [configs/learning.json](configs/learning.json): rank 8, alpha 16,
+learning rate 0.0001, gradient clipping 1.0, and a fresh AdamW optimizer per message.
+A candidate needs finite changed weights and lower new-message loss. Its loss on
+each of three fixed reference texts must stay within **0.15 nats/token** of the
+original baseline, which persists across restarts. This provisional threshold is
+a small regression check; passing it does not establish general quality or recall.
+Questions train their wording, not a verified answer. Generated replies are not
+training targets. Rejected updates still count as attempts and are logged.
+
+Training recomputes intermediate activations during backward to reduce GPU memory.
+It projects vocabulary logits only for the positions predicting the new content,
+while the full bounded history still conditions the transformer. The explicitly
+aligned targets are checked against the original full-logit masked loss.
+
+The single [live adapter](adapters/live.safetensors) contains the latest accepted
+weights, version number, model/config identity, and original guard baselines.
+It is atomically replaced after acceptance. Rejected candidates and save failures
+leave the previous serving weights and checkpoint intact. This is rollback of a
+failed candidate, not a historical archive of all accepted versions. A Windows
+file lock prevents two learning chats from writing the same checkpoint. Changed
+model/learning configuration is rejected when loading an incompatible checkpoint.
+
+The GPU checks use separate checkpoints under `runs/`; synthetic test facts never
+enter your live adapter. Run [check-learning.bat](check-learning.bat) to repeat them.
+See [milestone 3 evidence](reports/milestone-3.md) for results and limitations.
+
 ## Confirmed direction
 
 - Use Qwen3.5-0.8B as the pretrained starting model.
@@ -54,7 +93,7 @@ project name. See [milestone 2 results](reports/milestone-2.md).
 - Build in small explained milestones for a hands-on, job-seeking portfolio.
 - Work locally on the RTX 5070 Ti. Paid compute needs a separately agreed budget.
 
-The initial proposal is one frozen base model with serving and candidate LoRA
+The implementation uses one frozen base model with serving and candidate LoRA
 adapters, trained by next-token prediction on new user-message content. Training
 and generation take turns on the shared model. A failed candidate can be rejected
 automatically; an update attempt does not guarantee acceptance or improvement.
@@ -76,9 +115,8 @@ improves the model.
    Test retention with the original messages removed from the prompt, unrelated
    task regressions, reply latency, memory, and restart persistence.
 
-The first two milestones now pass: local chat and one correctly masked LoRA
-update. Next, implement adapter versioning and automatic candidate checks before
-connecting update attempts to every chat message.
+The automatic update loop implements milestone 3. Milestone 4 expands retention
+and regression evaluation beyond the initial three-fact probe.
 
 ## Project-local storage
 
