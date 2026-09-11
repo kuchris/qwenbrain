@@ -64,6 +64,15 @@ tests learning eight new facts with and without replay of the old eight. It uses
 the latest completed comparison's seed-42 final Q&A adapter and creates separate
 outputs under `runs/retention-*/`. See [the retention results](reports/retention-results.md).
 
+Double-click [compare-stopping.bat](compare-stopping.bat) to compare answer-only
+Q&A training against supervising the answer plus its end-of-response token. It
+uses eight fresh synthetic facts and three seeds, writes separate adapters under
+`runs/stopping-*/`, and leaves live learning unchanged. See
+[the fixed stopping protocol](reports/stopping-protocol.md).
+The [completed stopping comparison](reports/stopping-results.md) scored 48/48
+with end-token supervision versus 44/48 without it at 16 exposures. Longer
+training still caused unrelated answer regressions; live learning is unchanged.
+
 ## Automatic learning
 
 Each reply uses the last accepted adapter. After the reply, the app copies that
