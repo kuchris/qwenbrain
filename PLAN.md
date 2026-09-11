@@ -5,6 +5,13 @@ automatically trigger an update**, replacing the earlier correction-only proposa
 The Qwen chat service and automatic update loop are not implemented in this repo.
 The completed from-scratch MHA/MLA work remains in the sibling llmtrain project.
 
+Storage requirement: all model weights/tokenizers/configs, adapters, checkpoints,
+conversation and training data, and model-related caches stay under
+`C:\Users\kyost\Desktop\git\qwenbrain`. Use `project-env.bat` before Python
+starts; all future launchers and save paths must follow the layout in README.md.
+Do not depend on weights or data in another project's folder or the user's
+default Hugging Face cache. Large/private runtime artifacts stay ignored by Git.
+
 ## Requirement and proposed objective
 
 Confirmed requirement: ordinary conversation and questions trigger learning,
