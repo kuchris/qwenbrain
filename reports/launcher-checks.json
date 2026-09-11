@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "offline": true,
+  "launch_working_directory": "C:\\Users\\kyost\\Desktop\\git",
+  "model_load_events": 1,
+  "event_order": [
+    "start",
+    "turn",
+    "turn",
+    "reset",
+    "turn",
+    "end"
+  ],
+  "turns": [
+    {
+      "event": "turn",
+      "user": "My project is called Atlas. Reply briefly.",
+      "assistant": "Atlas is a project focused on advanced data visualization and analysis tools, enabling users to explore and visualize complex datasets effectively.",
+      "metrics": {
+        "prompt_tokens": 38,
+        "generated_tokens": 24,
+        "seconds": 1.0566326999978628,
+        "generated_tokens_per_second": 22.71366388722263,
+        "peak_allocated_mib": 1498.89404296875,
+        "omitted_old_turns": 0,
+        "hit_output_limit": false,
+        "weight_updates": 0
+      }
+    },
+    {
+      "event": "turn",
+      "user": "What is my project called?",
+      "assistant": "My project is called **Atlas**.",
+      "metrics": {
+        "prompt_tokens": 77,
+        "generated_tokens": 8,
+        "seconds": 0.3063051000062842,
+        "generated_tokens_per_second": 26.11774991613222,
+        "peak_allocated_mib": 1501.27197265625,
+        "omitted_old_turns": 0,
+        "hit_output_limit": false,
+        "weight_updates": 0
+      }
+    },
+    {
+      "event": "turn",
+      "user": "日本語で短い挨拶をしてください。",
+      "assistant": "こんにちは！",
+      "metrics": {
+        "prompt_tokens": 36,
+        "generated_tokens": 3,
+        "seconds": 0.19122280000010505,
+        "generated_tokens_per_second": 15.688505763948399,
+        "peak_allocated_mib": 1498.62451171875,
+        "omitted_old_turns": 0,
+        "hit_output_limit": false,
+        "weight_updates": 0
+      }
+    }
+  ],
+  "exit_code": 0,
+  "transcript": "data/conversations/chat-1789127687011129800.jsonl",
+  "source_sha256": {
+    "qwenbrain\\chat.py": "bd98fe12fcbe27d4c6a300bc921461655b23de31bedbcfe99b2aa4ca0860465f",
+    "qwenbrain\\paths.py": "9623c70041e0db077b3a7cece6fd491590df7ef7d22234b007eb319272febec1",
+    "chat.bat": "abed9e7a6d089b372363cc6fb31959a914cc719d939b90a4d0c626992a48734a",
+    "configs\\chat.json": "e80606a179d83390254aba61d8b7cfab2e41778f01e58e4d5a7a38bec7a2b91e",
+    "uv.lock": "48812116e983d4ab291f185b5a72fc5efd52f0d39f682f71202bcf532bdbaa90"
+  },
+  "scope": "Actual batch launcher, same process handles English/Japanese and reset. Chat only; no weight updates."
+}

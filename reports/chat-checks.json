@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "metadata": {
+    "model_id": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "parameters": 752393024,
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "dtype": "BF16",
+    "text_only": true,
+    "load_seconds": 1.0156199999910314,
+    "allocated_after_load_mib": 1459.09765625,
+    "peak_load_allocated_mib": 1459.09765625,
+    "unexpected_checkpoint_keys": [],
+    "load_warnings": [],
+    "attention_backend": "SDPA math for full-attention layers; DeltaNet uses installed Transformers implementation",
+    "learning_enabled": false
+  },
+  "turns": [
+    {
+      "user": "My project is called Atlas. Reply with OK.",
+      "assistant": "I can help with your project \"Atlas\" and provide feedback on your code or ideas. Please let me know what you'd like to discuss or work on!",
+      "metrics": {
+        "prompt_tokens": 39,
+        "generated_tokens": 33,
+        "seconds": 1.270500799990259,
+        "generated_tokens_per_second": 25.974009619083287,
+        "peak_allocated_mib": 1499.01318359375,
+        "omitted_old_turns": 0,
+        "hit_output_limit": false,
+        "weight_updates": 0
+      }
+    },
+    {
+      "user": "What is my project called? Reply with only its name.",
+      "assistant": "Atlas",
+      "metrics": {
+        "prompt_tokens": 93,
+        "generated_tokens": 2,
+        "seconds": 0.14072299998952076,
+        "generated_tokens_per_second": 14.21231781690935,
+        "peak_allocated_mib": 1502.6884765625,
+        "omitted_old_turns": 0,
+        "hit_output_limit": false,
+        "weight_updates": 0
+      }
+    }
+  ],
+  "checks": [
+    "offline local model loading",
+    "all parameters frozen/BF16/on CUDA",
+    "same model object reused across turns",
+    "conversation history retained",
+    "reset removes old context without model reload",
+    "complete old turns omitted at budget",
+    "overlong new message rejected without changing history",
+    "parameter versions unchanged and no gradients"
+  ],
+  "scope": "Inference-only milestone. Recall uses prompt context; no LoRA or per-message training yet."
+}

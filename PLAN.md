@@ -1,8 +1,10 @@
 # QwenBrain: per-message adaptation experiment
 
-Status: design only. The user requires **every submitted chat message to
+Status: persistent local GPU chat is implemented and verified; the automatic
+adaptation loop below is still a design. See [milestone 1 evidence](reports/milestone-1.md).
+The user requires **every submitted chat message to
 automatically trigger an update**, replacing the earlier correction-only proposal.
-The Qwen chat service and automatic update loop are not implemented in this repo.
+The current chat explicitly reports learning OFF until that loop is implemented.
 The completed from-scratch MHA/MLA work remains in the sibling llmtrain project.
 
 Storage requirement: all model weights/tokenizers/configs, adapters, checkpoints,

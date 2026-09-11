@@ -4,8 +4,30 @@ A local experiment in a conversational model that learns from each user message.
 The question is whether small automatic weight updates produce useful retention
 and adaptation while keeping chat responsive.
 
-**Status:** project initialized; design transferred from `llmtrain`. No model has
-been loaded and no training or chat service has been implemented in this project.
+**Status:** milestone 1 is complete. Qwen3.5-0.8B is downloaded locally and the
+persistent GPU chat launcher is verified. **Automatic learning is not implemented
+yet:** this milestone performs inference with frozen weights.
+
+## Run
+
+Double-click [chat.bat](chat.bat), wait for the model to load, and enter messages.
+The model stays in VRAM until the process exits. `/reset` clears the conversation
+without reloading the model. A blank line or `/quit` closes the chat.
+
+Setup has already been run on this machine. On a fresh checkout with `uv` available,
+run [setup.bat](setup.bat) once to install the pinned environment and download the
+pinned model into this folder. Chat itself loads local files only and works offline.
+
+Messages and replies are saved as UTF-8 JSONL files in `data/conversations/`.
+They are ignored by Git. Each launch starts a fresh conversation; saved transcripts
+are not automatically restored or used for training at this milestone.
+
+The initial chat budget is 2,048 total tokens, reserving 256 for a reply. Old
+complete turns are removed from the prompt when necessary. A new message that
+cannot fit on its own is rejected with an explanation. Thinking is disabled.
+These are local prototype limits, not Qwen's maximum advertised context length.
+
+See [the milestone evidence](reports/milestone-1.md) for measurements and limits.
 
 ## Confirmed direction
 
@@ -41,9 +63,8 @@ improves the model.
    Test retention with the original messages removed from the prompt, unrelated
    task regressions, reply latency, memory, and restart persistence.
 
-The first milestone is model loading and chat only; it should pass before the
-automatic learning loop is implemented. Provide a Windows `.bat` launcher when
-the chat entry point exists so repeated testing needs no long command.
+The first milestone is model loading and chat only, and now passes. Next, prove
+one correctly masked LoRA update before wiring updates into every chat message.
 
 ## Project-local storage
 
@@ -72,16 +93,19 @@ if errorlevel 1 exit /b 1
 
 It resolves paths relative to the batch file, so launching from another working
 directory still uses this project. It does not change Windows user/system
-environment settings. A manually launched Python process must receive the same
-environment; merely opening this directory does not configure library caches.
+environment settings. The Python chat/download entry points also call
+`qwenbrain.paths.configure_storage()` before importing the model libraries,
+so direct module invocation uses the same project-local paths. New Python entry
+points must do the same; merely opening this directory does not configure caches.
 Model loaders must use this configured Hub cache or an explicit path inside
 `models/`, and save operations must target this project's data directories.
 
 The paths use Hugging Face's documented
 [cache environment variables](https://huggingface.co/docs/huggingface_hub/main/package_reference/environment_variables).
 Large weights, adapters, conversation data, checkpoints, logs, and caches are
-ignored by Git. No model has been downloaded yet, and no existing shared cache
-has been moved or copied into this project.
+ignored by Git. The pinned model files (1.65 GiB) have been downloaded here;
+their manifest is in `models/download-manifest.json`, with a tracked copy in
+`reports/download-manifest.json`. No model data from another project is required.
 
 ## Existing work
 
