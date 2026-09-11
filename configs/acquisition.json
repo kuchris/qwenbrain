@@ -1,0 +1,45 @@
+{
+  "protocol": "acquisition-v1",
+  "milestones": [1, 4, 16, 64],
+  "pilot_seeds": [42],
+  "confirmation_seeds": [42, 43, 44],
+  "max_new_tokens": 24,
+  "pilot": [
+    {"subject": "Mara Voss", "value": "Cedar"},
+    {"subject": "Ivo Pell", "value": "Topaz"},
+    {"subject": "Neri Dax", "value": "Harbor"},
+    {"subject": "Sela Orr", "value": "Cobalt"}
+  ],
+  "confirmation": [
+    {"subject": "Tova Renn", "value": "Maple"},
+    {"subject": "Kian Vale", "value": "Quartz"},
+    {"subject": "Lumi Senn", "value": "Willow"},
+    {"subject": "Arvo Tess", "value": "Beacon"},
+    {"subject": "Nola Fenn", "value": "Copper"},
+    {"subject": "Davi Moss", "value": "Orchid"},
+    {"subject": "Eira Dunn", "value": "Falcon"},
+    {"subject": "Ravi Keel", "value": "Marble"}
+  ],
+  "statements": [
+    "{subject}'s project is named {value}.",
+    "The project that {subject} works on is called {value}.",
+    "{value} is the name of {subject}'s project.",
+    "For {subject}, the project name is {value}."
+  ],
+  "training_questions": [
+    "What is {subject}'s project called?",
+    "What is the name of {subject}'s project?",
+    "Name the project belonging to {subject}.",
+    "What project does {subject} work on?"
+  ],
+  "test_questions": [
+    "Which project belongs to {subject}? Reply with only its name.",
+    "Give the name of the project that {subject} is working on. Reply with only its name."
+  ],
+  "controls": [
+    {"question": "What is 2 + 2? Reply with only the number.", "answer": "4"},
+    {"question": "What is 3 + 5? Reply with only the number.", "answer": "8"},
+    {"question": "What is the capital of France? Reply with only the city name.", "answer": "Paris"},
+    {"question": "What is the capital of Japan? Reply with only the city name.", "answer": "Tokyo"}
+  ]
+}

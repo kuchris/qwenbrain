@@ -46,6 +46,24 @@ loss and fresh-context answers. It does not change the adapter used by `chat.bat
 The first update lowered message loss but did not establish recall of the supplied
 project name. See [milestone 2 results](reports/milestone-2.md).
 
+Double-click [compare-learning.bat](compare-learning.bat) for the separate offline
+acquisition experiment: raw statements, varied statements, and grounded Q&A at
+1/4/16/64 exposures, followed by confirmation on fresh synthetic facts. It writes
+its own adapters and results under `runs/acquisition-*/` and never trains the live
+adapter. See [the fixed protocol](reports/acquisition-protocol.md) and
+[the research behind it](reports/online-learning-research.md).
+
+The [completed acquisition comparison](reports/acquisition-results.md) found
+43/48 held-out answers correct after 16 Q&A exposures, versus 0/48 for raw
+statements. These are eight synthetic facts, two question wordings, and three
+seeds. Raw training did learn statement completion; transfer to chat questions
+was the gap. The experiment does not change live learning.
+
+After a completed Q&A acquisition comparison, [compare-retention.bat](compare-retention.bat)
+tests learning eight new facts with and without replay of the old eight. It uses
+the latest completed comparison's seed-42 final Q&A adapter and creates separate
+outputs under `runs/retention-*/`. See [the retention results](reports/retention-results.md).
+
 ## Automatic learning
 
 Each reply uses the last accepted adapter. After the reply, the app copies that

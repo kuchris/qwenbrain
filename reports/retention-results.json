@@ -1,0 +1,4410 @@
+{
+  "protocol": "retention-v1",
+  "seed": 42,
+  "old_facts": [
+    {
+      "subject": "Tova Renn",
+      "value": "Maple"
+    },
+    {
+      "subject": "Kian Vale",
+      "value": "Quartz"
+    },
+    {
+      "subject": "Lumi Senn",
+      "value": "Willow"
+    },
+    {
+      "subject": "Arvo Tess",
+      "value": "Beacon"
+    },
+    {
+      "subject": "Nola Fenn",
+      "value": "Copper"
+    },
+    {
+      "subject": "Davi Moss",
+      "value": "Orchid"
+    },
+    {
+      "subject": "Eira Dunn",
+      "value": "Falcon"
+    },
+    {
+      "subject": "Ravi Keel",
+      "value": "Marble"
+    }
+  ],
+  "new_facts": [
+    {
+      "subject": "Milo Hart",
+      "value": "Juniper"
+    },
+    {
+      "subject": "Zara Penn",
+      "value": "Granite"
+    },
+    {
+      "subject": "Oren Fisk",
+      "value": "Saffron"
+    },
+    {
+      "subject": "Vera Lark",
+      "value": "Tundra"
+    },
+    {
+      "subject": "Enzo Reed",
+      "value": "Nimbus"
+    },
+    {
+      "subject": "Alma Kent",
+      "value": "Sequoia"
+    },
+    {
+      "subject": "Nico Ward",
+      "value": "Lagoon"
+    },
+    {
+      "subject": "Rhea Pike",
+      "value": "Silver"
+    }
+  ],
+  "initial_checkpoint": "runs/acquisition-1789131725328701100/confirmation-qa-42.safetensors",
+  "initial_checkpoint_sha256": "8528dce9f9d3617fb271c18a467c9a3d4d01149f84b30013ea9ff4499438877e",
+  "learning": {
+    "rank": 8,
+    "alpha": 16,
+    "target_modules": "all-linear",
+    "learning_rate": 0.0001,
+    "gradient_clip": 1.0,
+    "max_guard_loss_increase": 0.15,
+    "guard_texts": [
+      "Two plus two equals four. Three plus five equals eight.",
+      "The capital of France is Paris. The capital of Japan is Tokyo.",
+      "A helpful assistant gives clear answers and asks for clarification when needed."
+    ]
+  },
+  "evaluation_config": {
+    "protocol": "acquisition-v1",
+    "milestones": [
+      1,
+      4,
+      16,
+      64
+    ],
+    "pilot_seeds": [
+      42
+    ],
+    "confirmation_seeds": [
+      42,
+      43,
+      44
+    ],
+    "max_new_tokens": 24,
+    "pilot": [
+      {
+        "subject": "Mara Voss",
+        "value": "Cedar"
+      },
+      {
+        "subject": "Ivo Pell",
+        "value": "Topaz"
+      },
+      {
+        "subject": "Neri Dax",
+        "value": "Harbor"
+      },
+      {
+        "subject": "Sela Orr",
+        "value": "Cobalt"
+      }
+    ],
+    "confirmation": [
+      {
+        "subject": "Tova Renn",
+        "value": "Maple"
+      },
+      {
+        "subject": "Kian Vale",
+        "value": "Quartz"
+      },
+      {
+        "subject": "Lumi Senn",
+        "value": "Willow"
+      },
+      {
+        "subject": "Arvo Tess",
+        "value": "Beacon"
+      },
+      {
+        "subject": "Nola Fenn",
+        "value": "Copper"
+      },
+      {
+        "subject": "Davi Moss",
+        "value": "Orchid"
+      },
+      {
+        "subject": "Eira Dunn",
+        "value": "Falcon"
+      },
+      {
+        "subject": "Ravi Keel",
+        "value": "Marble"
+      }
+    ],
+    "statements": [
+      "{subject}'s project is named {value}.",
+      "The project that {subject} works on is called {value}.",
+      "{value} is the name of {subject}'s project.",
+      "For {subject}, the project name is {value}."
+    ],
+    "training_questions": [
+      "What is {subject}'s project called?",
+      "What is the name of {subject}'s project?",
+      "Name the project belonging to {subject}.",
+      "What project does {subject} work on?"
+    ],
+    "test_questions": [
+      "Which project belongs to {subject}? Reply with only its name.",
+      "Give the name of the project that {subject} is working on. Reply with only its name."
+    ],
+    "controls": [
+      {
+        "question": "What is 2 + 2? Reply with only the number.",
+        "answer": "4"
+      },
+      {
+        "question": "What is 3 + 5? Reply with only the number.",
+        "answer": "8"
+      },
+      {
+        "question": "What is the capital of France? Reply with only the city name.",
+        "answer": "Paris"
+      },
+      {
+        "question": "What is the capital of Japan? Reply with only the city name.",
+        "answer": "Tokyo"
+      }
+    ]
+  },
+  "padded_length": 46,
+  "batch_size": 8,
+  "milestones": [
+    16,
+    64
+  ],
+  "base_sha256_before": "e688359ff145012ef37eba75aa5fd3db12690acf22b80e33441be418973bfc17",
+  "runs": [
+    {
+      "arm": "no_replay",
+      "checkpoints": [
+        {
+          "steps": 16,
+          "old_examples": 0,
+          "new_examples": 128,
+          "padded_tokens": 5888,
+          "nonpadding_tokens": 5392,
+          "target_tokens": 272,
+          "training_seconds": 11.509158099855995,
+          "old": {
+            "answers": [
+              {
+                "subject": "Tova Renn",
+                "question": "Which project belongs to Tova Renn? Reply with only its name.",
+                "expected": "Maple",
+                "answer": "Maple Squirrel.",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -0.011402130126953125,
+                  "Quartz": -6.668021202087402,
+                  "Willow": -5.44891357421875,
+                  "Beacon": -6.324044227600098,
+                  "Copper": -5.168134689331055,
+                  "Orchid": -4.445135116577148,
+                  "Falcon": -6.044215202331543,
+                  "Marble": -5.546006202697754
+                },
+                "gold_logp": -0.011402130126953125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Tova Renn",
+                "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+                "expected": "Maple",
+                "answer": "Maple Squirrel",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -0.001003265380859375,
+                  "Quartz": -7.719788551330566,
+                  "Willow": -6.157264709472656,
+                  "Beacon": -7.3447675704956055,
+                  "Copper": -5.969809532165527,
+                  "Orchid": -5.417367458343506,
+                  "Falcon": -6.844855308532715,
+                  "Marble": -6.501340866088867
+                },
+                "gold_logp": -0.001003265380859375,
+                "rank_correct": true
+              },
+              {
+                "subject": "Kian Vale",
+                "question": "Which project belongs to Kian Vale? Reply with only its name.",
+                "expected": "Quartz",
+                "answer": "Quartz.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -9.500031471252441,
+                  "Quartz": -2.956390380859375e-05,
+                  "Willow": -9.062535285949707,
+                  "Beacon": -9.937532424926758,
+                  "Copper": -7.812530517578125,
+                  "Orchid": -6.583379745483398,
+                  "Falcon": -8.500052452087402,
+                  "Marble": -8.500053405761719
+                },
+                "gold_logp": -2.956390380859375e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Kian Vale",
+                "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+                "expected": "Quartz",
+                "answer": "Quartz",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -10.468757629394531,
+                  "Quartz": -6.67572021484375e-06,
+                  "Willow": -9.625036239624023,
+                  "Beacon": -10.625007629394531,
+                  "Copper": -8.843756675720215,
+                  "Orchid": -6.937530040740967,
+                  "Falcon": -8.812515258789062,
+                  "Marble": -9.40626335144043
+                },
+                "gold_logp": -6.67572021484375e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Lumi Senn",
+                "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+                "expected": "Willow",
+                "answer": "Willow.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -7.437769889831543,
+                  "Quartz": -8.40652847290039,
+                  "Willow": -0.0002689361572265625,
+                  "Beacon": -7.469018936157227,
+                  "Copper": -8.094035148620605,
+                  "Orchid": -5.72949743270874,
+                  "Falcon": -9.219019889831543,
+                  "Marble": -8.656533241271973
+                },
+                "gold_logp": -0.0002689361572265625,
+                "rank_correct": true
+              },
+              {
+                "subject": "Lumi Senn",
+                "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+                "expected": "Willow",
+                "answer": "Willow.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -8.250195503234863,
+                  "Quartz": -8.781469345092773,
+                  "Willow": -0.00019550323486328125,
+                  "Beacon": -8.187695503234863,
+                  "Copper": -8.343955993652344,
+                  "Orchid": -5.625173091888428,
+                  "Falcon": -9.968949317932129,
+                  "Marble": -8.687703132629395
+                },
+                "gold_logp": -0.00019550323486328125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Arvo Tess",
+                "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+                "expected": "Beacon",
+                "answer": "Beacon.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -8.625121116638184,
+                  "Quartz": -7.906378746032715,
+                  "Willow": -7.562621116638184,
+                  "Beacon": -0.0001201629638671875,
+                  "Copper": -7.593873977661133,
+                  "Orchid": -5.5417633056640625,
+                  "Falcon": -8.375121116638184,
+                  "Marble": -7.968873977661133
+                },
+                "gold_logp": -0.0001201629638671875,
+                "rank_correct": true
+              },
+              {
+                "subject": "Arvo Tess",
+                "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+                "expected": "Beacon",
+                "answer": "Beacon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -9.218777656555176,
+                  "Quartz": -8.218781471252441,
+                  "Willow": -7.750028610229492,
+                  "Beacon": -2.765655517578125e-05,
+                  "Copper": -8.062528610229492,
+                  "Orchid": -5.937528133392334,
+                  "Falcon": -8.718777656555176,
+                  "Marble": -8.718779563903809
+                },
+                "gold_logp": -2.765655517578125e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nola Fenn",
+                "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+                "expected": "Copper",
+                "answer": "Copper Belt",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -12.250001907348633,
+                  "Quartz": -11.00008773803711,
+                  "Willow": -11.625000953674316,
+                  "Beacon": -12.156253814697266,
+                  "Copper": 0.0,
+                  "Orchid": -8.68763542175293,
+                  "Falcon": -10.75119400024414,
+                  "Marble": -11.0313138961792
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nola Fenn",
+                "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+                "expected": "Copper",
+                "answer": "Copper Belt",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -11.343750953674316,
+                  "Quartz": -10.343774795532227,
+                  "Willow": -11.093751907348633,
+                  "Beacon": -11.87500286102295,
+                  "Copper": 0.0,
+                  "Orchid": -8.313060760498047,
+                  "Falcon": -10.031816482543945,
+                  "Marble": -10.468772888183594
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Davi Moss",
+                "question": "Which project belongs to Davi Moss? Reply with only its name.",
+                "expected": "Orchid",
+                "answer": "Tundra.",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -9.393363952636719,
+                  "Quartz": -5.877740859985352,
+                  "Willow": -7.627750396728516,
+                  "Beacon": -7.221488952636719,
+                  "Copper": -6.940237998962402,
+                  "Orchid": -2.4184927940368652,
+                  "Falcon": -8.12775993347168,
+                  "Marble": -7.065239906311035
+                },
+                "gold_logp": -2.4184927940368652,
+                "rank_correct": true
+              },
+              {
+                "subject": "Davi Moss",
+                "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+                "expected": "Orchid",
+                "answer": "Tundra.",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -8.775731086730957,
+                  "Quartz": -4.76010799407959,
+                  "Willow": -6.541370391845703,
+                  "Beacon": -6.916355133056641,
+                  "Copper": -5.728855133056641,
+                  "Orchid": -1.6734040975570679,
+                  "Falcon": -6.572610855102539,
+                  "Marble": -7.041360855102539
+                },
+                "gold_logp": -1.6734040975570679,
+                "rank_correct": true
+              },
+              {
+                "subject": "Eira Dunn",
+                "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+                "expected": "Falcon",
+                "answer": "Falcon 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -8.93763256072998,
+                  "Quartz": -7.343961715698242,
+                  "Willow": -8.656381607055664,
+                  "Beacon": -8.656381607055664,
+                  "Copper": -6.187633514404297,
+                  "Orchid": -5.750101089477539,
+                  "Falcon": -0.00013256072998046875,
+                  "Marble": -7.031920433044434
+                },
+                "gold_logp": -0.00013256072998046875,
+                "rank_correct": true
+              },
+              {
+                "subject": "Eira Dunn",
+                "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+                "expected": "Falcon",
+                "answer": "Falcon 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -9.562581062316895,
+                  "Quartz": -8.125102043151855,
+                  "Willow": -9.000082969665527,
+                  "Beacon": -8.718830108642578,
+                  "Copper": -6.0625810623168945,
+                  "Orchid": -6.166744232177734,
+                  "Falcon": -8.0108642578125e-05,
+                  "Marble": -7.906397819519043
+                },
+                "gold_logp": -8.0108642578125e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Ravi Keel",
+                "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+                "expected": "Marble",
+                "answer": "Marble",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -6.375424385070801,
+                  "Quartz": -6.531715393066406,
+                  "Willow": -7.719337463378906,
+                  "Beacon": -8.000711441040039,
+                  "Copper": -6.469180107116699,
+                  "Orchid": -5.250317573547363,
+                  "Falcon": -7.969175338745117,
+                  "Marble": -0.000423431396484375
+                },
+                "gold_logp": -0.000423431396484375,
+                "rank_correct": true
+              },
+              {
+                "subject": "Ravi Keel",
+                "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+                "expected": "Marble",
+                "answer": "Marble",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -7.406327247619629,
+                  "Quartz": -7.625087738037109,
+                  "Willow": -8.50039291381836,
+                  "Beacon": -8.156984329223633,
+                  "Copper": -7.562582015991211,
+                  "Orchid": -5.687572002410889,
+                  "Falcon": -9.406333923339844,
+                  "Marble": -7.62939453125e-05
+                },
+                "gold_logp": -7.62939453125e-05,
+                "rank_correct": true
+              }
+            ],
+            "exact_match": 0.5,
+            "controls": [
+              {
+                "question": "What is 2 + 2? Reply with only the number.",
+                "answer": "4",
+                "output": "4",
+                "exact_match": true
+              },
+              {
+                "question": "What is 3 + 5? Reply with only the number.",
+                "answer": "8",
+                "output": "8",
+                "exact_match": true
+              },
+              {
+                "question": "What is the capital of France? Reply with only the city name.",
+                "answer": "Paris",
+                "output": "Falcon",
+                "exact_match": false
+              },
+              {
+                "question": "What is the capital of Japan? Reply with only the city name.",
+                "answer": "Tokyo",
+                "output": "Tokyo",
+                "exact_match": true
+              }
+            ],
+            "control_accuracy": 0.75,
+            "rank_accuracy": 1.0,
+            "mean_gold_logp": -0.2566039487719536
+          },
+          "new": {
+            "answers": [
+              {
+                "subject": "Milo Hart",
+                "question": "Which project belongs to Milo Hart? Reply with only its name.",
+                "expected": "Juniper",
+                "answer": "Juniper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -7.62939453125e-06,
+                  "Granite": -7.250008583068848,
+                  "Saffron": -6.738156795501709,
+                  "Tundra": -8.843756675720215,
+                  "Nimbus": -9.18789291381836,
+                  "Sequoia": -6.187516212463379,
+                  "Lagoon": -11.65712833404541,
+                  "Silver": -16.312511444091797
+                },
+                "gold_logp": -7.62939453125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Milo Hart",
+                "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+                "expected": "Juniper",
+                "answer": "Juniper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -1.430511474609375e-05,
+                  "Granite": -6.437516212463379,
+                  "Saffron": -5.752924919128418,
+                  "Tundra": -7.781264305114746,
+                  "Nimbus": -8.531564712524414,
+                  "Sequoia": -4.916685104370117,
+                  "Lagoon": -10.594854354858398,
+                  "Silver": -13.875024795532227
+                },
+                "gold_logp": -1.430511474609375e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Zara Penn",
+                "question": "Which project belongs to Zara Penn? Reply with only its name.",
+                "expected": "Granite",
+                "answer": "Granite.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -3.377058982849121,
+                  "Granite": -0.0020465850830078125,
+                  "Saffron": -2.7516353130340576,
+                  "Tundra": -4.5645647048950195,
+                  "Nimbus": -4.658434867858887,
+                  "Sequoia": -2.959728240966797,
+                  "Lagoon": -5.190656661987305,
+                  "Silver": -9.941587448120117
+                },
+                "gold_logp": -0.0020465850830078125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Zara Penn",
+                "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+                "expected": "Granite",
+                "answer": "Granite.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -3.6900577545166016,
+                  "Granite": -0.0025434494018554688,
+                  "Saffron": -2.9810447692871094,
+                  "Tundra": -4.627554893493652,
+                  "Nimbus": -5.002678871154785,
+                  "Sequoia": -2.2100818157196045,
+                  "Lagoon": -5.190883636474609,
+                  "Silver": -9.442577362060547
+                },
+                "gold_logp": -0.0025434494018554688,
+                "rank_correct": true
+              },
+              {
+                "subject": "Oren Fisk",
+                "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+                "expected": "Saffron",
+                "answer": "Saffron.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.312507629394531,
+                  "Granite": -8.250016212463379,
+                  "Saffron": -4.450480446394067e-06,
+                  "Tundra": -6.937532424926758,
+                  "Nimbus": -7.625408172607422,
+                  "Sequoia": -6.250042915344238,
+                  "Lagoon": -7.875845909118652,
+                  "Silver": -15.937507629394531
+                },
+                "gold_logp": -4.450480446394067e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Oren Fisk",
+                "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+                "expected": "Saffron",
+                "answer": "Saffron.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -9.343759536743164,
+                  "Granite": -8.750015258789062,
+                  "Saffron": -3.814697265625e-06,
+                  "Tundra": -6.937648773193359,
+                  "Nimbus": -7.3756256103515625,
+                  "Sequoia": -5.500034332275391,
+                  "Lagoon": -8.127391815185547,
+                  "Silver": -15.500005722045898
+                },
+                "gold_logp": -3.814697265625e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Vera Lark",
+                "question": "Which project belongs to Vera Lark? Reply with only its name.",
+                "expected": "Tundra",
+                "answer": "Tundra.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.687514305114746,
+                  "Granite": -9.625008583068848,
+                  "Saffron": -6.128762722015381,
+                  "Tundra": -1.9073486328125e-06,
+                  "Nimbus": -8.813420295715332,
+                  "Sequoia": -6.3958940505981445,
+                  "Lagoon": -9.095230102539062,
+                  "Silver": -19.000003814697266
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Vera Lark",
+                "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+                "expected": "Tundra",
+                "answer": "Tundra",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.406267166137695,
+                  "Granite": -9.31251049041748,
+                  "Saffron": -6.106741905212402,
+                  "Tundra": -1.9073486328125e-06,
+                  "Nimbus": -8.470008850097656,
+                  "Sequoia": -5.916730880737305,
+                  "Lagoon": -8.407232284545898,
+                  "Silver": -16.562503814697266
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Enzo Reed",
+                "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+                "expected": "Nimbus",
+                "answer": "Nimbus 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -12.062504768371582,
+                  "Granite": -11.312519073486328,
+                  "Saffron": -6.854766845703125,
+                  "Tundra": -10.407866477966309,
+                  "Nimbus": -1.9073486328125e-06,
+                  "Sequoia": -8.479288101196289,
+                  "Lagoon": -11.594051361083984,
+                  "Silver": -23.125
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Enzo Reed",
+                "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+                "expected": "Nimbus",
+                "answer": "Nimbus 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -10.125007629394531,
+                  "Granite": -9.937521934509277,
+                  "Saffron": -5.791898250579834,
+                  "Tundra": -8.375686645507812,
+                  "Nimbus": -3.814697265625e-06,
+                  "Sequoia": -6.875150203704834,
+                  "Lagoon": -10.531637191772461,
+                  "Silver": -19.875003814697266
+                },
+                "gold_logp": -3.814697265625e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Alma Kent",
+                "question": "Which project belongs to Alma Kent? Reply with only its name.",
+                "expected": "Sequoia",
+                "answer": "Sequoia.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -5.562528610229492,
+                  "Granite": -6.750024795532227,
+                  "Saffron": -4.544373989105225,
+                  "Tundra": -7.843938827514648,
+                  "Nimbus": -8.659322738647461,
+                  "Sequoia": -2.288818359375e-05,
+                  "Lagoon": -8.975409507751465,
+                  "Silver": -14.687541961669922
+                },
+                "gold_logp": -2.288818359375e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Alma Kent",
+                "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+                "expected": "Sequoia",
+                "answer": "Sequoia.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -4.750102996826172,
+                  "Granite": -6.468853950500488,
+                  "Saffron": -3.8368098735809326,
+                  "Tundra": -7.031566619873047,
+                  "Nimbus": -8.596575736999512,
+                  "Sequoia": -7.2479248046875e-05,
+                  "Lagoon": -8.003435134887695,
+                  "Silver": -12.750192642211914
+                },
+                "gold_logp": -7.2479248046875e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nico Ward",
+                "question": "Which project belongs to Nico Ward? Reply with only its name.",
+                "expected": "Lagoon",
+                "answer": "Lagoon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -7.031274795532227,
+                  "Granite": -7.062525749206543,
+                  "Saffron": -5.230302333831787,
+                  "Tundra": -6.5000505447387695,
+                  "Nimbus": -5.375536918640137,
+                  "Sequoia": -6.271231651306152,
+                  "Lagoon": -3.4332275390625e-05,
+                  "Silver": -12.750036239624023
+                },
+                "gold_logp": -3.4332275390625e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nico Ward",
+                "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+                "expected": "Lagoon",
+                "answer": "Lagoon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -7.5937652587890625,
+                  "Granite": -7.437517166137695,
+                  "Saffron": -5.646569728851318,
+                  "Tundra": -6.500075340270996,
+                  "Nimbus": -6.312699317932129,
+                  "Sequoia": -6.188211441040039,
+                  "Lagoon": -1.71661376953125e-05,
+                  "Silver": -14.18751335144043
+                },
+                "gold_logp": -1.71661376953125e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Rhea Pike",
+                "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+                "expected": "Silver",
+                "answer": "Silver Hawk",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -5.31256103515625,
+                  "Granite": -7.500053405761719,
+                  "Saffron": -3.7118678092956543,
+                  "Tundra": -5.687563896179199,
+                  "Nimbus": -8.031830787658691,
+                  "Sequoia": -5.937589168548584,
+                  "Lagoon": -8.907989501953125,
+                  "Silver": -9.5367431640625e-05
+                },
+                "gold_logp": -9.5367431640625e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Rhea Pike",
+                "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+                "expected": "Silver",
+                "answer": "Silver Hawk",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -6.3125505447387695,
+                  "Granite": -8.406270027160645,
+                  "Saffron": -4.211263179779053,
+                  "Tundra": -7.218778610229492,
+                  "Nimbus": -8.562752723693848,
+                  "Sequoia": -6.479266166687012,
+                  "Lagoon": -8.938396453857422,
+                  "Silver": -3.0517578125e-05
+                },
+                "gold_logp": -3.0517578125e-05,
+                "rank_correct": true
+              }
+            ],
+            "exact_match": 0.75,
+            "controls": [
+              {
+                "question": "What is 2 + 2? Reply with only the number.",
+                "answer": "4",
+                "output": "4",
+                "exact_match": true
+              },
+              {
+                "question": "What is 3 + 5? Reply with only the number.",
+                "answer": "8",
+                "output": "8",
+                "exact_match": true
+              },
+              {
+                "question": "What is the capital of France? Reply with only the city name.",
+                "answer": "Paris",
+                "output": "Falcon",
+                "exact_match": false
+              },
+              {
+                "question": "What is the capital of Japan? Reply with only the city name.",
+                "answer": "Tokyo",
+                "output": "Tokyo",
+                "exact_match": true
+              }
+            ],
+            "control_accuracy": 0.75,
+            "rank_accuracy": 1.0,
+            "mean_gold_logp": -0.0003064076105943059
+          }
+        },
+        {
+          "steps": 64,
+          "old_examples": 0,
+          "new_examples": 512,
+          "padded_tokens": 23552,
+          "nonpadding_tokens": 21568,
+          "target_tokens": 1088,
+          "training_seconds": 45.05225699979928,
+          "old": {
+            "answers": [
+              {
+                "subject": "Tova Renn",
+                "question": "Which project belongs to Tova Renn? Reply with only its name.",
+                "expected": "Maple",
+                "answer": "Maple Saffron.",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -0.6329269409179688,
+                  "Quartz": -5.547589302062988,
+                  "Willow": -4.430120468139648,
+                  "Beacon": -5.1800737380981445,
+                  "Copper": -2.9777746200561523,
+                  "Orchid": -3.3598315715789795,
+                  "Falcon": -4.265035629272461,
+                  "Marble": -4.31472635269165
+                },
+                "gold_logp": -0.6329269409179688,
+                "rank_correct": true
+              },
+              {
+                "subject": "Tova Renn",
+                "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+                "expected": "Maple",
+                "answer": "Maple Saffron.",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -0.021364212036132812,
+                  "Quartz": -6.724693298339844,
+                  "Willow": -4.818602561950684,
+                  "Beacon": -5.943309783935547,
+                  "Copper": -3.990389823913574,
+                  "Orchid": -4.5198211669921875,
+                  "Falcon": -5.115769386291504,
+                  "Marble": -5.148329734802246
+                },
+                "gold_logp": -0.021364212036132812,
+                "rank_correct": true
+              },
+              {
+                "subject": "Kian Vale",
+                "question": "Which project belongs to Kian Vale? Reply with only its name.",
+                "expected": "Quartz",
+                "answer": "Quartz",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -6.4276933670043945,
+                  "Quartz": -0.005817413330078125,
+                  "Willow": -6.427760124206543,
+                  "Beacon": -7.396446228027344,
+                  "Copper": -5.2558183670043945,
+                  "Orchid": -4.920673370361328,
+                  "Falcon": -5.865215301513672,
+                  "Marble": -5.990447044372559
+                },
+                "gold_logp": -0.005817413330078125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Kian Vale",
+                "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+                "expected": "Quartz",
+                "answer": "Quartz",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -7.126776695251465,
+                  "Quartz": -0.0017766952514648438,
+                  "Willow": -6.814515113830566,
+                  "Beacon": -7.626778602600098,
+                  "Copper": -5.751776695251465,
+                  "Orchid": -5.178386211395264,
+                  "Falcon": -6.236159324645996,
+                  "Marble": -6.595582008361816
+                },
+                "gold_logp": -0.0017766952514648438,
+                "rank_correct": true
+              },
+              {
+                "subject": "Lumi Senn",
+                "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+                "expected": "Willow",
+                "answer": "Willow.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -7.158237457275391,
+                  "Quartz": -8.16610336303711,
+                  "Willow": -0.0019903182983398438,
+                  "Beacon": -6.111364364624023,
+                  "Copper": -6.486715316772461,
+                  "Orchid": -4.4813055992126465,
+                  "Falcon": -7.564497947692871,
+                  "Marble": -8.048888206481934
+                },
+                "gold_logp": -0.0019903182983398438,
+                "rank_correct": true
+              },
+              {
+                "subject": "Lumi Senn",
+                "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+                "expected": "Willow",
+                "answer": "Willow.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -7.672480583190918,
+                  "Quartz": -8.94612979888916,
+                  "Willow": -0.0006074905395507812,
+                  "Beacon": -6.641231536865234,
+                  "Copper": -6.813455581665039,
+                  "Orchid": -4.407022476196289,
+                  "Falcon": -8.391264915466309,
+                  "Marble": -8.578743934631348
+                },
+                "gold_logp": -0.0006074905395507812,
+                "rank_correct": true
+              },
+              {
+                "subject": "Arvo Tess",
+                "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+                "expected": "Beacon",
+                "answer": "Beacon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -6.926685333251953,
+                  "Quartz": -7.192368507385254,
+                  "Willow": -6.457950592041016,
+                  "Beacon": -0.004809379577636719,
+                  "Copper": -5.661075592041016,
+                  "Orchid": -4.315746307373047,
+                  "Falcon": -7.114185333251953,
+                  "Marble": -6.395438194274902
+                },
+                "gold_logp": -0.004809379577636719,
+                "rank_correct": true
+              },
+              {
+                "subject": "Arvo Tess",
+                "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+                "expected": "Beacon",
+                "answer": "Beacon.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -7.6415863037109375,
+                  "Quartz": -7.8603715896606445,
+                  "Willow": -6.641605377197266,
+                  "Beacon": -0.0009613037109375,
+                  "Copper": -6.4853410720825195,
+                  "Orchid": -4.7819132804870605,
+                  "Falcon": -7.735337257385254,
+                  "Marble": -7.313464164733887
+                },
+                "gold_logp": -0.0009613037109375,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nola Fenn",
+                "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+                "expected": "Copper",
+                "answer": "Copper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -9.265880584716797,
+                  "Quartz": -8.063019752502441,
+                  "Willow": -8.656514167785645,
+                  "Beacon": -8.875260353088379,
+                  "Copper": -0.00025177001953125,
+                  "Orchid": -6.324134826660156,
+                  "Falcon": -7.597864151000977,
+                  "Marble": -7.48476505279541
+                },
+                "gold_logp": -0.00025177001953125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nola Fenn",
+                "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+                "expected": "Copper",
+                "answer": "Copper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -8.828317642211914,
+                  "Quartz": -8.015897750854492,
+                  "Willow": -8.453328132629395,
+                  "Beacon": -8.672070503234863,
+                  "Copper": -0.00019073486328125,
+                  "Orchid": -6.246949672698975,
+                  "Falcon": -6.9398603439331055,
+                  "Marble": -7.593961715698242
+                },
+                "gold_logp": -0.00019073486328125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Davi Moss",
+                "question": "Which project belongs to Davi Moss? Reply with only its name.",
+                "expected": "Orchid",
+                "answer": "Tundra.",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -7.088046550750732,
+                  "Quartz": -4.357625484466553,
+                  "Willow": -5.639398097991943,
+                  "Beacon": -4.545078754425049,
+                  "Copper": -4.560701847076416,
+                  "Orchid": -1.9883878231048584,
+                  "Falcon": -6.1311516761779785,
+                  "Marble": -4.951326847076416
+                },
+                "gold_logp": -1.9883878231048584,
+                "rank_correct": true
+              },
+              {
+                "subject": "Davi Moss",
+                "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+                "expected": "Orchid",
+                "answer": "Tundra.",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -6.430892467498779,
+                  "Quartz": -3.829371929168701,
+                  "Willow": -4.720444202423096,
+                  "Beacon": -4.829329013824463,
+                  "Copper": -3.8449530601501465,
+                  "Orchid": -1.8237237930297852,
+                  "Falcon": -5.329369068145752,
+                  "Marble": -5.048083782196045
+                },
+                "gold_logp": -1.8237237930297852,
+                "rank_correct": true
+              },
+              {
+                "subject": "Eira Dunn",
+                "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+                "expected": "Falcon",
+                "answer": "Falcon 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -7.529204368591309,
+                  "Quartz": -5.490345001220703,
+                  "Willow": -7.255776405334473,
+                  "Beacon": -5.943266868591309,
+                  "Copper": -3.255786895751953,
+                  "Orchid": -3.993584394454956,
+                  "Falcon": -0.06826591491699219,
+                  "Marble": -5.162407875061035
+                },
+                "gold_logp": -0.06826591491699219,
+                "rank_correct": true
+              },
+              {
+                "subject": "Eira Dunn",
+                "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+                "expected": "Falcon",
+                "answer": "Falcon 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -9.422554969787598,
+                  "Quartz": -8.282034873962402,
+                  "Willow": -9.250701904296875,
+                  "Beacon": -7.500677108764648,
+                  "Copper": -5.4381818771362305,
+                  "Orchid": -5.823551177978516,
+                  "Falcon": -0.0006761550903320312,
+                  "Marble": -7.84453010559082
+                },
+                "gold_logp": -0.0006761550903320312,
+                "rank_correct": true
+              },
+              {
+                "subject": "Ravi Keel",
+                "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+                "expected": "Marble",
+                "answer": "Marble",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -4.2516021728515625,
+                  "Quartz": -5.205316543579102,
+                  "Willow": -5.877972602844238,
+                  "Beacon": -6.5957136154174805,
+                  "Copper": -4.376799583435059,
+                  "Orchid": -3.9387729167938232,
+                  "Falcon": -6.157855033874512,
+                  "Marble": -0.017225265502929688
+                },
+                "gold_logp": -0.017225265502929688,
+                "rank_correct": true
+              },
+              {
+                "subject": "Ravi Keel",
+                "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+                "expected": "Marble",
+                "answer": "Marble.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -5.347404479980469,
+                  "Quartz": -5.988199234008789,
+                  "Willow": -6.5376739501953125,
+                  "Beacon": -6.472782135009766,
+                  "Copper": -5.253769874572754,
+                  "Orchid": -4.481755256652832,
+                  "Falcon": -7.222414970397949,
+                  "Marble": -0.0036516189575195312
+                },
+                "gold_logp": -0.0036516189575195312,
+                "rank_correct": true
+              }
+            ],
+            "exact_match": 0.625,
+            "controls": [
+              {
+                "question": "What is 2 + 2? Reply with only the number.",
+                "answer": "4",
+                "output": "4",
+                "exact_match": true
+              },
+              {
+                "question": "What is 3 + 5? Reply with only the number.",
+                "answer": "8",
+                "output": "8",
+                "exact_match": true
+              },
+              {
+                "question": "What is the capital of France? Reply with only the city name.",
+                "answer": "Paris",
+                "output": "Jun 2025",
+                "exact_match": false
+              },
+              {
+                "question": "What is the capital of Japan? Reply with only the city name.",
+                "answer": "Tokyo",
+                "output": "Juniper",
+                "exact_match": false
+              }
+            ],
+            "control_accuracy": 0.5,
+            "rank_accuracy": 1.0,
+            "mean_gold_logp": -0.2857891768217087
+          },
+          "new": {
+            "answers": [
+              {
+                "subject": "Milo Hart",
+                "question": "Which project belongs to Milo Hart? Reply with only its name.",
+                "expected": "Juniper",
+                "answer": "Juniper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": 0.0,
+                  "Granite": -10.093750953674316,
+                  "Saffron": -7.083374977111816,
+                  "Tundra": -11.765625953674316,
+                  "Nimbus": -11.187505722045898,
+                  "Sequoia": -7.125,
+                  "Lagoon": -14.343750953674316,
+                  "Silver": -22.8125
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Milo Hart",
+                "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+                "expected": "Juniper",
+                "answer": "Juniper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": 0.0,
+                  "Granite": -9.687500953674316,
+                  "Saffron": -7.000026702880859,
+                  "Tundra": -11.640625953674316,
+                  "Nimbus": -11.437506675720215,
+                  "Sequoia": -5.9375,
+                  "Lagoon": -13.53906536102295,
+                  "Silver": -22.15625
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Zara Penn",
+                "question": "Which project belongs to Zara Penn? Reply with only its name.",
+                "expected": "Granite",
+                "answer": "Granite & Glass",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -6.937502861022949,
+                  "Granite": -1.9073486328125e-06,
+                  "Saffron": -5.7604265213012695,
+                  "Tundra": -9.234384536743164,
+                  "Nimbus": -9.21876049041748,
+                  "Sequoia": -5.562501907348633,
+                  "Lagoon": -9.015630722045898,
+                  "Silver": -16.500003814697266
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Zara Penn",
+                "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+                "expected": "Granite",
+                "answer": "Granite.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -6.500011444091797,
+                  "Granite": -1.049041748046875e-05,
+                  "Saffron": -5.67709493637085,
+                  "Tundra": -8.500016212463379,
+                  "Nimbus": -8.171890258789062,
+                  "Sequoia": -4.354174613952637,
+                  "Lagoon": -8.015637397766113,
+                  "Silver": -13.750020980834961
+                },
+                "gold_logp": -1.049041748046875e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Oren Fisk",
+                "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+                "expected": "Saffron",
+                "answer": "Saffron.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.43750286102295,
+                  "Granite": -8.562500953674316,
+                  "Saffron": -6.35782896551973e-07,
+                  "Tundra": -9.250015258789062,
+                  "Nimbus": -9.968778610229492,
+                  "Sequoia": -6.2083353996276855,
+                  "Lagoon": -9.656255722045898,
+                  "Silver": -17.625001907348633
+                },
+                "gold_logp": -6.35782896551973e-07,
+                "rank_correct": true
+              },
+              {
+                "subject": "Oren Fisk",
+                "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+                "expected": "Saffron",
+                "answer": "Saffron.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -9.218753814697266,
+                  "Granite": -8.750001907348633,
+                  "Saffron": -6.35782896551973e-07,
+                  "Tundra": -8.968770980834961,
+                  "Nimbus": -9.84381103515625,
+                  "Sequoia": -5.520834922790527,
+                  "Lagoon": -9.250014305114746,
+                  "Silver": -17.062501907348633
+                },
+                "gold_logp": -6.35782896551973e-07,
+                "rank_correct": true
+              },
+              {
+                "subject": "Vera Lark",
+                "question": "Which project belongs to Vera Lark? Reply with only its name.",
+                "expected": "Tundra",
+                "answer": "Tundra.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.031250953674316,
+                  "Granite": -9.718750953674316,
+                  "Saffron": -5.4166789054870605,
+                  "Tundra": -9.5367431640625e-07,
+                  "Nimbus": -8.343772888183594,
+                  "Sequoia": -6.437501907348633,
+                  "Lagoon": -8.656253814697266,
+                  "Silver": -18.500001907348633
+                },
+                "gold_logp": -9.5367431640625e-07,
+                "rank_correct": true
+              },
+              {
+                "subject": "Vera Lark",
+                "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+                "expected": "Tundra",
+                "answer": "Tundra.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.843750953674316,
+                  "Granite": -9.968750953674316,
+                  "Saffron": -5.875006675720215,
+                  "Tundra": 0.0,
+                  "Nimbus": -8.906270980834961,
+                  "Sequoia": -6.479167461395264,
+                  "Lagoon": -8.906251907348633,
+                  "Silver": -18.0625
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Enzo Reed",
+                "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+                "expected": "Nimbus",
+                "answer": "Nimbus 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -12.34375,
+                  "Granite": -11.187500953674316,
+                  "Saffron": -6.854194641113281,
+                  "Tundra": -10.594220161437988,
+                  "Nimbus": 0.0,
+                  "Sequoia": -8.020842552185059,
+                  "Lagoon": -10.531250953674316,
+                  "Silver": -22.875
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Enzo Reed",
+                "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+                "expected": "Nimbus",
+                "answer": "Nimbus 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -11.718750953674316,
+                  "Granite": -11.18750286102295,
+                  "Saffron": -6.520841598510742,
+                  "Tundra": -9.718924522399902,
+                  "Nimbus": 0.0,
+                  "Sequoia": -7.604174613952637,
+                  "Lagoon": -10.531250953674316,
+                  "Silver": -22.6875
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Alma Kent",
+                "question": "Which project belongs to Alma Kent? Reply with only its name.",
+                "expected": "Sequoia",
+                "answer": "Sequoia.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.21875,
+                  "Granite": -9.18750286102295,
+                  "Saffron": -6.187530040740967,
+                  "Tundra": -10.562676429748535,
+                  "Nimbus": -11.094029426574707,
+                  "Sequoia": 0.0,
+                  "Lagoon": -10.906264305114746,
+                  "Silver": -18.6875
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Alma Kent",
+                "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+                "expected": "Sequoia",
+                "answer": "Sequoia.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -6.968750953674316,
+                  "Granite": -8.531255722045898,
+                  "Saffron": -5.520859718322754,
+                  "Tundra": -9.343870162963867,
+                  "Nimbus": -10.765798568725586,
+                  "Sequoia": -6.35782896551973e-07,
+                  "Lagoon": -9.812506675720215,
+                  "Silver": -16.750001907348633
+                },
+                "gold_logp": -6.35782896551973e-07,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nico Ward",
+                "question": "Which project belongs to Nico Ward? Reply with only its name.",
+                "expected": "Lagoon",
+                "answer": "Lagoon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -7.781251907348633,
+                  "Granite": -8.46875286102295,
+                  "Saffron": -5.843792915344238,
+                  "Tundra": -7.875024795532227,
+                  "Nimbus": -7.500140190124512,
+                  "Sequoia": -5.864597320556641,
+                  "Lagoon": -1.9073486328125e-06,
+                  "Silver": -15.687503814697266
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nico Ward",
+                "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+                "expected": "Lagoon",
+                "answer": "Lagoon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.125001907348633,
+                  "Granite": -8.37500286102295,
+                  "Saffron": -5.958353042602539,
+                  "Tundra": -7.312529563903809,
+                  "Nimbus": -7.5000457763671875,
+                  "Sequoia": -5.687520503997803,
+                  "Lagoon": -9.5367431640625e-07,
+                  "Silver": -16.312501907348633
+                },
+                "gold_logp": -9.5367431640625e-07,
+                "rank_correct": true
+              },
+              {
+                "subject": "Rhea Pike",
+                "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+                "expected": "Silver",
+                "answer": "Silver Velvet",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -7.156252861022949,
+                  "Granite": -9.343751907348633,
+                  "Saffron": -6.104180335998535,
+                  "Tundra": -9.000001907348633,
+                  "Nimbus": -9.625041961669922,
+                  "Sequoia": -6.770835876464844,
+                  "Lagoon": -10.718758583068848,
+                  "Silver": -1.9073486328125e-06
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Rhea Pike",
+                "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+                "expected": "Silver",
+                "answer": "Silver Velvet",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -7.718753814697266,
+                  "Granite": -9.65625286102295,
+                  "Saffron": -6.18750524520874,
+                  "Tundra": -8.937501907348633,
+                  "Nimbus": -9.562517166137695,
+                  "Sequoia": -6.52083683013916,
+                  "Lagoon": -10.125004768371582,
+                  "Silver": -1.9073486328125e-06
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              }
+            ],
+            "exact_match": 0.6875,
+            "controls": [
+              {
+                "question": "What is 2 + 2? Reply with only the number.",
+                "answer": "4",
+                "output": "4",
+                "exact_match": true
+              },
+              {
+                "question": "What is 3 + 5? Reply with only the number.",
+                "answer": "8",
+                "output": "8",
+                "exact_match": true
+              },
+              {
+                "question": "What is the capital of France? Reply with only the city name.",
+                "answer": "Paris",
+                "output": "Jun 2025",
+                "exact_match": false
+              },
+              {
+                "question": "What is the capital of Japan? Reply with only the city name.",
+                "answer": "Tokyo",
+                "output": "Juniper",
+                "exact_match": false
+              }
+            ],
+            "control_accuracy": 0.5,
+            "rank_accuracy": 1.0,
+            "mean_gold_logp": -1.370906833386698e-06
+          }
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "loss": 8.929786682128906,
+          "seconds": 0.788906899979338,
+          "peak_allocated_mib": 2553.0185546875
+        },
+        {
+          "step": 2,
+          "loss": 5.796356201171875,
+          "seconds": 0.7693727999867406,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 3,
+          "loss": 2.701434850692749,
+          "seconds": 0.7688294000108726,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 4,
+          "loss": 1.1672950983047485,
+          "seconds": 0.72308629998588,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 5,
+          "loss": 1.0132521390914917,
+          "seconds": 0.6881079000013415,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 6,
+          "loss": 0.4662317633628845,
+          "seconds": 0.6856369999877643,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 7,
+          "loss": 0.6636700630187988,
+          "seconds": 0.756754500005627,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 8,
+          "loss": 0.233461394906044,
+          "seconds": 0.693127500009723,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 9,
+          "loss": 0.06669069826602936,
+          "seconds": 0.6998979999916628,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 10,
+          "loss": 0.00693968590348959,
+          "seconds": 0.6950814999872819,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 11,
+          "loss": 0.0009563650819472969,
+          "seconds": 0.7140382999787107,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 12,
+          "loss": 0.0004889033152721822,
+          "seconds": 0.7609783999796491,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 13,
+          "loss": 0.00022418933804146945,
+          "seconds": 0.6831627999781631,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 14,
+          "loss": 5.7238077715737745e-05,
+          "seconds": 0.6913983999984339,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 15,
+          "loss": 0.00014719167666044086,
+          "seconds": 0.6924666999839246,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 16,
+          "loss": 1.5770412574056536e-05,
+          "seconds": 0.6983116999908816,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 17,
+          "loss": 4.922615062241675e-06,
+          "seconds": 0.7527541000163183,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 18,
+          "loss": 4.235392225382384e-06,
+          "seconds": 0.6783707999857143,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 19,
+          "loss": 2.187835661970894e-06,
+          "seconds": 0.6816700999916065,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 20,
+          "loss": 7.222669751172361e-07,
+          "seconds": 0.684921400010353,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 21,
+          "loss": 4.908612822873692e-07,
+          "seconds": 0.676034099975368,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 22,
+          "loss": 1.8232003640150651e-07,
+          "seconds": 0.7427327999903355,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 23,
+          "loss": 1.1219695750241954e-07,
+          "seconds": 0.6911733000015374,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 24,
+          "loss": 6.311079658871677e-08,
+          "seconds": 0.6754318999883253,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 25,
+          "loss": 4.9086175124557485e-08,
+          "seconds": 0.6819515000097454,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 26,
+          "loss": 1.4024621464159281e-08,
+          "seconds": 0.6791028000006918,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 27,
+          "loss": 4.2073745021298237e-07,
+          "seconds": 0.7491642000095453,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 28,
+          "loss": 7.713541805287605e-08,
+          "seconds": 0.6713369000062812,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 29,
+          "loss": 2.8049241151961724e-08,
+          "seconds": 0.6776643999910448,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 30,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.6752828999888152,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 31,
+          "loss": 4.277497964721988e-07,
+          "seconds": 0.678538899985142,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 32,
+          "loss": 7.012310732079641e-08,
+          "seconds": 0.7325890000211075,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 33,
+          "loss": 2.8049242928318563e-08,
+          "seconds": 0.7547744000039529,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 34,
+          "loss": 2.1036932196238922e-08,
+          "seconds": 0.6932317000173498,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 35,
+          "loss": 1.4024620575980862e-08,
+          "seconds": 0.6810439999972004,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 36,
+          "loss": 2.8049242928318563e-08,
+          "seconds": 0.6862480000127107,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 37,
+          "loss": 1.4024621464159281e-08,
+          "seconds": 0.6833234000077937,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 38,
+          "loss": 4.2073860839764166e-08,
+          "seconds": 0.7500210000143852,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 39,
+          "loss": 2.1036932196238922e-08,
+          "seconds": 0.6855681999877561,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 40,
+          "loss": 2.8049242928318563e-08,
+          "seconds": 0.6866721000114921,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 41,
+          "loss": 2.8049242928318563e-08,
+          "seconds": 0.6910764999920502,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 42,
+          "loss": 1.1920926112907182e-07,
+          "seconds": 0.690198700001929,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 43,
+          "loss": 1.4024621464159281e-08,
+          "seconds": 0.7417543999908958,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 44,
+          "loss": 9.116003241160797e-08,
+          "seconds": 0.6747468000103254,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 45,
+          "loss": 1.4024621464159281e-08,
+          "seconds": 0.6836502999940421,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 46,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.681422499998007,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 47,
+          "loss": 7.012310732079641e-09,
+          "seconds": 0.8001185999892186,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 48,
+          "loss": 2.8049242928318563e-08,
+          "seconds": 0.6872958999883849,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 49,
+          "loss": 4.2073864392477844e-08,
+          "seconds": 0.6876232999784406,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 50,
+          "loss": 2.1036932196238922e-08,
+          "seconds": 0.6995387000206392,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 51,
+          "loss": 2.8049241151961724e-08,
+          "seconds": 0.7268368999939412,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 52,
+          "loss": 1.4024621464159281e-08,
+          "seconds": 0.7497999999905005,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 53,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.6829694000189193,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 54,
+          "loss": 0.0,
+          "seconds": 0.6887140999897383,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 55,
+          "loss": 2.9451663863255817e-07,
+          "seconds": 0.6861202000000048,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 56,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.6743192999856547,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 57,
+          "loss": 1.4024621464159281e-08,
+          "seconds": 0.7433597999915946,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 58,
+          "loss": 4.2073860839764166e-08,
+          "seconds": 0.6764149999944493,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 59,
+          "loss": 7.012310732079641e-09,
+          "seconds": 0.6752266999974381,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 60,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.6810417999804486,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 61,
+          "loss": 5.609848230392345e-08,
+          "seconds": 0.6756785000034142,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 62,
+          "loss": 1.4024620575980862e-08,
+          "seconds": 0.6841419000120368,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 63,
+          "loss": 5.609848230392345e-08,
+          "seconds": 0.7361510000191629,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 64,
+          "loss": 0.0,
+          "seconds": 0.6752966999774799,
+          "peak_allocated_mib": 2561.1435546875
+        }
+      ],
+      "initial_adapter_sha256": "9109b48239584ed9c4cceac4f82b9bdcd1172064f7a888573d463ea81bcf21e0"
+    },
+    {
+      "arm": "replay_50_percent",
+      "checkpoints": [
+        {
+          "steps": 16,
+          "old_examples": 64,
+          "new_examples": 64,
+          "padded_tokens": 5888,
+          "nonpadding_tokens": 5440,
+          "target_tokens": 272,
+          "training_seconds": 11.086377400060883,
+          "old": {
+            "answers": [
+              {
+                "subject": "Tova Renn",
+                "question": "Which project belongs to Tova Renn? Reply with only its name.",
+                "expected": "Maple",
+                "answer": "Maple Saffron",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -2.47955322265625e-05,
+                  "Quartz": -9.562585830688477,
+                  "Willow": -7.812542915344238,
+                  "Beacon": -8.718799591064453,
+                  "Copper": -7.156281471252441,
+                  "Orchid": -6.4167609214782715,
+                  "Falcon": -9.56267261505127,
+                  "Marble": -7.469350814819336
+                },
+                "gold_logp": -2.47955322265625e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Tova Renn",
+                "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+                "expected": "Maple",
+                "answer": "Maple Squirrel",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -2.47955322265625e-05,
+                  "Quartz": -9.218814849853516,
+                  "Willow": -7.12504768371582,
+                  "Beacon": -8.28128433227539,
+                  "Copper": -7.375033378601074,
+                  "Orchid": -6.270933151245117,
+                  "Falcon": -9.375092506408691,
+                  "Marble": -7.344139099121094
+                },
+                "gold_logp": -2.47955322265625e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Kian Vale",
+                "question": "Which project belongs to Kian Vale? Reply with only its name.",
+                "expected": "Quartz",
+                "answer": "Quartz",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -10.718759536743164,
+                  "Quartz": -6.67572021484375e-06,
+                  "Willow": -10.281268119812012,
+                  "Beacon": -10.562508583068848,
+                  "Copper": -8.937507629394531,
+                  "Orchid": -7.187533378601074,
+                  "Falcon": -9.65626049041748,
+                  "Marble": -9.312597274780273
+                },
+                "gold_logp": -6.67572021484375e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Kian Vale",
+                "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+                "expected": "Quartz",
+                "answer": "Quartz",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -11.062504768371582,
+                  "Quartz": -2.86102294921875e-06,
+                  "Willow": -10.468850135803223,
+                  "Beacon": -10.437503814697266,
+                  "Copper": -9.40625286102295,
+                  "Orchid": -7.166693687438965,
+                  "Falcon": -9.625003814697266,
+                  "Marble": -9.781286239624023
+                },
+                "gold_logp": -2.86102294921875e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Lumi Senn",
+                "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+                "expected": "Willow",
+                "answer": "Willow",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -9.562514305114746,
+                  "Quartz": -10.218778610229492,
+                  "Willow": -1.33514404296875e-05,
+                  "Beacon": -9.15626335144043,
+                  "Copper": -10.125085830688477,
+                  "Orchid": -6.771090984344482,
+                  "Falcon": -11.390639305114746,
+                  "Marble": -10.218805313110352
+                },
+                "gold_logp": -1.33514404296875e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Lumi Senn",
+                "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+                "expected": "Willow",
+                "answer": "Willow",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -10.093758583068848,
+                  "Quartz": -10.28128719329834,
+                  "Willow": -8.58306884765625e-06,
+                  "Beacon": -9.437508583068848,
+                  "Copper": -9.531339645385742,
+                  "Orchid": -6.333382606506348,
+                  "Falcon": -11.203139305114746,
+                  "Marble": -9.968789100646973
+                },
+                "gold_logp": -8.58306884765625e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Arvo Tess",
+                "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+                "expected": "Beacon",
+                "answer": "Beacon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -8.968768119812012,
+                  "Quartz": -9.406299591064453,
+                  "Willow": -7.781269073486328,
+                  "Beacon": -1.71661376953125e-05,
+                  "Copper": -8.906279563903809,
+                  "Orchid": -6.312533855438232,
+                  "Falcon": -9.812518119812012,
+                  "Marble": -8.718780517578125
+                },
+                "gold_logp": -1.71661376953125e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Arvo Tess",
+                "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+                "expected": "Beacon",
+                "answer": "Beacon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -9.656256675720215,
+                  "Quartz": -9.343766212463379,
+                  "Willow": -8.156259536743164,
+                  "Beacon": -6.67572021484375e-06,
+                  "Copper": -9.09376049041748,
+                  "Orchid": -6.666677474975586,
+                  "Falcon": -10.156256675720215,
+                  "Marble": -9.40626335144043
+                },
+                "gold_logp": -6.67572021484375e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nola Fenn",
+                "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+                "expected": "Copper",
+                "answer": "Copper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -13.281253814697266,
+                  "Quartz": -13.390694618225098,
+                  "Willow": -12.625004768371582,
+                  "Beacon": -14.031253814697266,
+                  "Copper": -1.9073486328125e-06,
+                  "Orchid": -9.375911712646484,
+                  "Falcon": -12.156326293945312,
+                  "Marble": -11.906301498413086
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nola Fenn",
+                "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+                "expected": "Copper",
+                "answer": "Copper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -12.79687786102295,
+                  "Quartz": -12.625027656555176,
+                  "Willow": -12.156253814697266,
+                  "Beacon": -13.40625286102295,
+                  "Copper": -1.9073486328125e-06,
+                  "Orchid": -8.929550170898438,
+                  "Falcon": -11.75018310546875,
+                  "Marble": -11.343772888183594
+                },
+                "gold_logp": -1.9073486328125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Davi Moss",
+                "question": "Which project belongs to Davi Moss? Reply with only its name.",
+                "expected": "Orchid",
+                "answer": "Orchid",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -12.000042915344238,
+                  "Quartz": -7.8750457763671875,
+                  "Willow": -9.7188081741333,
+                  "Beacon": -10.125041961669922,
+                  "Copper": -9.156291961669922,
+                  "Orchid": -2.7974447220913135e-05,
+                  "Falcon": -10.281296730041504,
+                  "Marble": -9.062543869018555
+                },
+                "gold_logp": -2.7974447220913135e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Davi Moss",
+                "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+                "expected": "Orchid",
+                "answer": "Orchid",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -11.60954475402832,
+                  "Quartz": -6.7501726150512695,
+                  "Willow": -9.218926429748535,
+                  "Beacon": -10.18766975402832,
+                  "Copper": -8.03141975402832,
+                  "Orchid": -0.00011316935706418008,
+                  "Falcon": -9.250170707702637,
+                  "Marble": -9.375178337097168
+                },
+                "gold_logp": -0.00011316935706418008,
+                "rank_correct": true
+              },
+              {
+                "subject": "Eira Dunn",
+                "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+                "expected": "Falcon",
+                "answer": "Falcon 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -10.250096321105957,
+                  "Quartz": -9.656380653381348,
+                  "Willow": -9.500096321105957,
+                  "Beacon": -10.68759536743164,
+                  "Copper": -7.125097274780273,
+                  "Orchid": -6.9584150314331055,
+                  "Falcon": -9.5367431640625e-05,
+                  "Marble": -8.71898078918457
+                },
+                "gold_logp": -9.5367431640625e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Eira Dunn",
+                "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+                "expected": "Falcon",
+                "answer": "Falcon 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -10.625020027160645,
+                  "Quartz": -10.250028610229492,
+                  "Willow": -10.343771934509277,
+                  "Beacon": -10.343769073486328,
+                  "Copper": -7.5625200271606445,
+                  "Orchid": -7.375048637390137,
+                  "Falcon": -1.9073486328125e-05,
+                  "Marble": -9.562580108642578
+                },
+                "gold_logp": -1.9073486328125e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Ravi Keel",
+                "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+                "expected": "Marble",
+                "answer": "Marble",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -5.626538276672363,
+                  "Quartz": -6.501700401306152,
+                  "Willow": -7.345802307128906,
+                  "Beacon": -6.65806770324707,
+                  "Copper": -6.28286075592041,
+                  "Orchid": -4.501066207885742,
+                  "Falcon": -7.4390411376953125,
+                  "Marble": -0.0015363693237304688
+                },
+                "gold_logp": -0.0015363693237304688,
+                "rank_correct": true
+              },
+              {
+                "subject": "Ravi Keel",
+                "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+                "expected": "Marble",
+                "answer": "Marble",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -7.345650672912598,
+                  "Quartz": -7.658167839050293,
+                  "Willow": -8.377350807189941,
+                  "Beacon": -7.127396583557129,
+                  "Copper": -7.75193977355957,
+                  "Orchid": -5.1679534912109375,
+                  "Falcon": -9.15815544128418,
+                  "Marble": -0.0018987655639648438
+                },
+                "gold_logp": -0.0018987655639648438,
+                "rank_correct": true
+              }
+            ],
+            "exact_match": 0.75,
+            "controls": [
+              {
+                "question": "What is 2 + 2? Reply with only the number.",
+                "answer": "4",
+                "output": "4",
+                "exact_match": true
+              },
+              {
+                "question": "What is 3 + 5? Reply with only the number.",
+                "answer": "8",
+                "output": "8",
+                "exact_match": true
+              },
+              {
+                "question": "What is the capital of France? Reply with only the city name.",
+                "answer": "Paris",
+                "output": "Beacon",
+                "exact_match": false
+              },
+              {
+                "question": "What is the capital of Japan? Reply with only the city name.",
+                "answer": "Tokyo",
+                "output": "Tokyo",
+                "exact_match": true
+              }
+            ],
+            "control_accuracy": 0.75,
+            "rank_accuracy": 1.0,
+            "mean_gold_logp": -0.00023746490512621676
+          },
+          "new": {
+            "answers": [
+              {
+                "subject": "Milo Hart",
+                "question": "Which project belongs to Milo Hart? Reply with only its name.",
+                "expected": "Juniper",
+                "answer": "Juniper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -0.0011663436889648438,
+                  "Granite": -5.501290321350098,
+                  "Saffron": -4.577458381652832,
+                  "Tundra": -6.976105690002441,
+                  "Nimbus": -8.596055030822754,
+                  "Sequoia": -2.167558193206787,
+                  "Lagoon": -9.23598861694336,
+                  "Silver": -12.627237319946289
+                },
+                "gold_logp": -0.0011663436889648438,
+                "rank_correct": true
+              },
+              {
+                "subject": "Milo Hart",
+                "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+                "expected": "Juniper",
+                "answer": "Juniper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -0.0059986114501953125,
+                  "Granite": -5.131231307983398,
+                  "Saffron": -4.155290126800537,
+                  "Tundra": -7.075409889221191,
+                  "Nimbus": -8.194448471069336,
+                  "Sequoia": -1.545755386352539,
+                  "Lagoon": -8.694463729858398,
+                  "Silver": -13.136882781982422
+                },
+                "gold_logp": -0.0059986114501953125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Zara Penn",
+                "question": "Which project belongs to Zara Penn? Reply with only its name.",
+                "expected": "Granite",
+                "answer": "Granite",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -3.0593957901000977,
+                  "Granite": -0.02866649627685547,
+                  "Saffron": -2.956892728805542,
+                  "Tundra": -4.451041221618652,
+                  "Nimbus": -5.903171539306641,
+                  "Sequoia": -1.1856340169906616,
+                  "Lagoon": -5.02925968170166,
+                  "Silver": -8.118505477905273
+                },
+                "gold_logp": -0.02866649627685547,
+                "rank_correct": true
+              },
+              {
+                "subject": "Zara Penn",
+                "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+                "expected": "Granite",
+                "answer": "Sequoia",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -2.9983301162719727,
+                  "Granite": -0.40506553649902344,
+                  "Saffron": -2.6451849937438965,
+                  "Tundra": -4.014464378356934,
+                  "Nimbus": -4.998315811157227,
+                  "Sequoia": -0.2283191680908203,
+                  "Lagoon": -4.217537879943848,
+                  "Silver": -7.496301651000977
+                },
+                "gold_logp": -0.40506553649902344,
+                "rank_correct": false
+              },
+              {
+                "subject": "Oren Fisk",
+                "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+                "expected": "Saffron",
+                "answer": "Saffron",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -11.531394958496094,
+                  "Granite": -10.845301628112793,
+                  "Saffron": -2.47955322265625e-05,
+                  "Tundra": -8.169804573059082,
+                  "Nimbus": -11.157557487487793,
+                  "Sequoia": -6.520974159240723,
+                  "Lagoon": -9.818025588989258,
+                  "Silver": -22.625003814697266
+                },
+                "gold_logp": -2.47955322265625e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Oren Fisk",
+                "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+                "expected": "Saffron",
+                "answer": "Saffron",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -10.65655517578125,
+                  "Granite": -10.59517765045166,
+                  "Saffron": -4.323323810240254e-05,
+                  "Tundra": -7.411517143249512,
+                  "Nimbus": -10.097036361694336,
+                  "Sequoia": -4.791784286499023,
+                  "Lagoon": -9.147933006286621,
+                  "Silver": -19.625003814697266
+                },
+                "gold_logp": -4.323323810240254e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Vera Lark",
+                "question": "Which project belongs to Vera Lark? Reply with only its name.",
+                "expected": "Tundra",
+                "answer": "Tundra",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -9.563267707824707,
+                  "Granite": -9.813596725463867,
+                  "Saffron": -5.378669261932373,
+                  "Tundra": -0.0010128021240234375,
+                  "Nimbus": -10.032572746276855,
+                  "Sequoia": -5.667211532592773,
+                  "Lagoon": -8.376016616821289,
+                  "Silver": -16.8138427734375
+                },
+                "gold_logp": -0.0010128021240234375,
+                "rank_correct": true
+              },
+              {
+                "subject": "Vera Lark",
+                "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+                "expected": "Tundra",
+                "answer": "Tundra",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -9.281767845153809,
+                  "Granite": -9.625892639160156,
+                  "Saffron": -5.210700511932373,
+                  "Tundra": -0.000518798828125,
+                  "Nimbus": -10.000984191894531,
+                  "Sequoia": -5.146197319030762,
+                  "Lagoon": -7.969701766967773,
+                  "Silver": -17.25082778930664
+                },
+                "gold_logp": -0.000518798828125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Enzo Reed",
+                "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+                "expected": "Nimbus",
+                "answer": "Nimbus",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -9.125147819519043,
+                  "Granite": -7.816287994384766,
+                  "Saffron": -3.4602274894714355,
+                  "Tundra": -7.689410209655762,
+                  "Nimbus": -7.534027099609375e-05,
+                  "Sequoia": -5.354697227478027,
+                  "Lagoon": -7.344069480895996,
+                  "Silver": -15.125144958496094
+                },
+                "gold_logp": -7.534027099609375e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Enzo Reed",
+                "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+                "expected": "Nimbus",
+                "answer": "Nimbus 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -6.189186096191406,
+                  "Granite": -5.222834587097168,
+                  "Saffron": -2.5018985271453857,
+                  "Tundra": -4.502499580383301,
+                  "Nimbus": -0.0016222000122070312,
+                  "Sequoia": -2.897275924682617,
+                  "Lagoon": -5.033272743225098,
+                  "Silver": -10.878238677978516
+                },
+                "gold_logp": -0.0016222000122070312,
+                "rank_correct": true
+              },
+              {
+                "subject": "Alma Kent",
+                "question": "Which project belongs to Alma Kent? Reply with only its name.",
+                "expected": "Sequoia",
+                "answer": "Sequoia",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.531327247619629,
+                  "Granite": -8.500237464904785,
+                  "Saffron": -5.858803749084473,
+                  "Tundra": -8.685775756835938,
+                  "Nimbus": -10.916104316711426,
+                  "Sequoia": -0.00010999044025084004,
+                  "Lagoon": -10.286492347717285,
+                  "Silver": -17.68754005432129
+                },
+                "gold_logp": -0.00010999044025084004,
+                "rank_correct": true
+              },
+              {
+                "subject": "Alma Kent",
+                "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+                "expected": "Sequoia",
+                "answer": "Sequoia",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -7.250089645385742,
+                  "Granite": -7.719193458557129,
+                  "Saffron": -5.257119655609131,
+                  "Tundra": -8.49698543548584,
+                  "Nimbus": -10.601009368896484,
+                  "Sequoia": -0.00011126200843136758,
+                  "Lagoon": -9.472036361694336,
+                  "Silver": -16.875072479248047
+                },
+                "gold_logp": -0.00011126200843136758,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nico Ward",
+                "question": "Which project belongs to Nico Ward? Reply with only its name.",
+                "expected": "Lagoon",
+                "answer": "Lagoon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -9.156363487243652,
+                  "Granite": -9.219782829284668,
+                  "Saffron": -6.002471446990967,
+                  "Tundra": -4.84796142578125,
+                  "Nimbus": -9.657695770263672,
+                  "Sequoia": -5.562795639038086,
+                  "Lagoon": -3.910064697265625e-05,
+                  "Silver": -16.12506866455078
+                },
+                "gold_logp": -3.910064697265625e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nico Ward",
+                "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+                "expected": "Lagoon",
+                "answer": "Lagoon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -10.03137493133545,
+                  "Granite": -9.594653129577637,
+                  "Saffron": -6.12705135345459,
+                  "Tundra": -7.716081619262695,
+                  "Nimbus": -9.656646728515625,
+                  "Sequoia": -5.791942119598389,
+                  "Lagoon": -1.049041748046875e-05,
+                  "Silver": -19.500001907348633
+                },
+                "gold_logp": -1.049041748046875e-05,
+                "rank_correct": true
+              },
+              {
+                "subject": "Rhea Pike",
+                "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+                "expected": "Silver",
+                "answer": "Silver",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -4.7831010818481445,
+                  "Granite": -6.283531188964844,
+                  "Saffron": -3.5486693382263184,
+                  "Tundra": -3.1558446884155273,
+                  "Nimbus": -6.784280776977539,
+                  "Sequoia": -4.4596710205078125,
+                  "Lagoon": -4.439397811889648,
+                  "Silver": -0.00354766845703125
+                },
+                "gold_logp": -0.00354766845703125,
+                "rank_correct": true
+              },
+              {
+                "subject": "Rhea Pike",
+                "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+                "expected": "Silver",
+                "answer": "Silver Sequoia",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -5.969639778137207,
+                  "Granite": -6.532483100891113,
+                  "Saffron": -3.337001323699951,
+                  "Tundra": -4.594448089599609,
+                  "Nimbus": -7.063506126403809,
+                  "Sequoia": -4.375710964202881,
+                  "Lagoon": -4.313478469848633,
+                  "Silver": -0.0015010833740234375
+                },
+                "gold_logp": -0.0015010833740234375,
+                "rank_correct": true
+              }
+            ],
+            "exact_match": 0.8125,
+            "controls": [
+              {
+                "question": "What is 2 + 2? Reply with only the number.",
+                "answer": "4",
+                "output": "4",
+                "exact_match": true
+              },
+              {
+                "question": "What is 3 + 5? Reply with only the number.",
+                "answer": "8",
+                "output": "8",
+                "exact_match": true
+              },
+              {
+                "question": "What is the capital of France? Reply with only the city name.",
+                "answer": "Paris",
+                "output": "Beacon",
+                "exact_match": false
+              },
+              {
+                "question": "What is the capital of Japan? Reply with only the city name.",
+                "answer": "Tokyo",
+                "output": "Tokyo",
+                "exact_match": true
+              }
+            ],
+            "control_accuracy": 0.75,
+            "rank_accuracy": 0.9375,
+            "mean_gold_logp": -0.02809460957905685
+          }
+        },
+        {
+          "steps": 64,
+          "old_examples": 256,
+          "new_examples": 256,
+          "padded_tokens": 23552,
+          "nonpadding_tokens": 21760,
+          "target_tokens": 1088,
+          "training_seconds": 44.2736476000282,
+          "old": {
+            "answers": [
+              {
+                "subject": "Tova Renn",
+                "question": "Which project belongs to Tova Renn? Reply with only its name.",
+                "expected": "Maple",
+                "answer": "Maple Saffron.",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": 0.0,
+                  "Quartz": -12.062503814697266,
+                  "Willow": -10.000007629394531,
+                  "Beacon": -11.515727996826172,
+                  "Copper": -10.953372955322266,
+                  "Orchid": -7.906287670135498,
+                  "Falcon": -10.843894004821777,
+                  "Marble": -10.578563690185547
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Tova Renn",
+                "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+                "expected": "Maple",
+                "answer": "Maple Saffron",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": 0.0,
+                  "Quartz": -12.81250286102295,
+                  "Willow": -10.125014305114746,
+                  "Beacon": -11.484414100646973,
+                  "Copper": -11.406420707702637,
+                  "Orchid": -8.10420036315918,
+                  "Falcon": -11.312515258789062,
+                  "Marble": -10.719115257263184
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Kian Vale",
+                "question": "Which project belongs to Kian Vale? Reply with only its name.",
+                "expected": "Quartz",
+                "answer": "Quartz",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -13.734375,
+                  "Quartz": 0.0,
+                  "Willow": -13.09376049041748,
+                  "Beacon": -11.968750953674316,
+                  "Copper": -12.562500953674316,
+                  "Orchid": -8.354170799255371,
+                  "Falcon": -12.28125,
+                  "Marble": -11.718766212463379
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Kian Vale",
+                "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+                "expected": "Quartz",
+                "answer": "Quartz",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -13.09375,
+                  "Quartz": 0.0,
+                  "Willow": -12.531282424926758,
+                  "Beacon": -11.53125,
+                  "Copper": -12.125,
+                  "Orchid": -8.000003814697266,
+                  "Falcon": -11.40625,
+                  "Marble": -11.375007629394531
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Lumi Senn",
+                "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+                "expected": "Willow",
+                "answer": "Willow.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -9.75,
+                  "Quartz": -10.8125,
+                  "Willow": 0.0,
+                  "Beacon": -9.562500953674316,
+                  "Copper": -9.813014030456543,
+                  "Orchid": -6.416684150695801,
+                  "Falcon": -10.84375,
+                  "Marble": -11.062505722045898
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Lumi Senn",
+                "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+                "expected": "Willow",
+                "answer": "Willow.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -10.46875,
+                  "Quartz": -11.375000953674316,
+                  "Willow": 0.0,
+                  "Beacon": -10.093750953674316,
+                  "Copper": -10.500933647155762,
+                  "Orchid": -6.270843029022217,
+                  "Falcon": -11.515625953674316,
+                  "Marble": -11.250005722045898
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Arvo Tess",
+                "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+                "expected": "Beacon",
+                "answer": "Beacon.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -10.53125,
+                  "Quartz": -10.500000953674316,
+                  "Willow": -9.000000953674316,
+                  "Beacon": 0.0,
+                  "Copper": -9.656285285949707,
+                  "Orchid": -6.541667938232422,
+                  "Falcon": -10.34375,
+                  "Marble": -10.656251907348633
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Arvo Tess",
+                "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+                "expected": "Beacon",
+                "answer": "Beacon.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -10.65625,
+                  "Quartz": -10.437500953674316,
+                  "Willow": -9.031250953674316,
+                  "Beacon": 0.0,
+                  "Copper": -9.718754768371582,
+                  "Orchid": -6.604167461395264,
+                  "Falcon": -10.40625,
+                  "Marble": -10.781250953674316
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nola Fenn",
+                "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+                "expected": "Copper",
+                "answer": "Copper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -13.0,
+                  "Quartz": -13.250000953674316,
+                  "Willow": -12.562501907348633,
+                  "Beacon": -14.328125953674316,
+                  "Copper": 0.0,
+                  "Orchid": -8.968759536743164,
+                  "Falcon": -11.937509536743164,
+                  "Marble": -12.875003814697266
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nola Fenn",
+                "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+                "expected": "Copper",
+                "answer": "Copper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -11.8125,
+                  "Quartz": -12.000000953674316,
+                  "Willow": -11.500001907348633,
+                  "Beacon": -12.968750953674316,
+                  "Copper": 0.0,
+                  "Orchid": -8.208426475524902,
+                  "Falcon": -11.125022888183594,
+                  "Marble": -12.062501907348633
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Davi Moss",
+                "question": "Which project belongs to Davi Moss? Reply with only its name.",
+                "expected": "Orchid",
+                "answer": "Orchid.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -14.296875,
+                  "Quartz": -10.59375,
+                  "Willow": -11.59376335144043,
+                  "Beacon": -11.250000953674316,
+                  "Copper": -11.093761444091797,
+                  "Orchid": 0.0,
+                  "Falcon": -12.531253814697266,
+                  "Marble": -12.4375
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Davi Moss",
+                "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+                "expected": "Orchid",
+                "answer": "Orchid.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -14.421875,
+                  "Quartz": -10.625,
+                  "Willow": -11.812511444091797,
+                  "Beacon": -11.968750953674316,
+                  "Copper": -11.031261444091797,
+                  "Orchid": 0.0,
+                  "Falcon": -11.96875,
+                  "Marble": -12.781250953674316
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Eira Dunn",
+                "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+                "expected": "Falcon",
+                "answer": "Falcon 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -10.53125,
+                  "Quartz": -11.53125,
+                  "Willow": -11.531250953674316,
+                  "Beacon": -12.125,
+                  "Copper": -9.500003814697266,
+                  "Orchid": -7.895833969116211,
+                  "Falcon": 0.0,
+                  "Marble": -10.406256675720215
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Eira Dunn",
+                "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+                "expected": "Falcon",
+                "answer": "Falcon 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Maple": -10.875,
+                  "Quartz": -12.125,
+                  "Willow": -11.906253814697266,
+                  "Beacon": -12.0625,
+                  "Copper": -9.468750953674316,
+                  "Orchid": -8.229167938232422,
+                  "Falcon": 0.0,
+                  "Marble": -11.281254768371582
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Ravi Keel",
+                "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+                "expected": "Marble",
+                "answer": "Marble",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -9.125,
+                  "Quartz": -11.281251907348633,
+                  "Willow": -12.375051498413086,
+                  "Beacon": -11.656296730041504,
+                  "Copper": -9.781535148620605,
+                  "Orchid": -6.937504768371582,
+                  "Falcon": -12.203125,
+                  "Marble": 0.0
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Ravi Keel",
+                "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+                "expected": "Marble",
+                "answer": "Marble",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Maple": -9.4375,
+                  "Quartz": -11.843750953674316,
+                  "Willow": -12.5313081741333,
+                  "Beacon": -11.53130054473877,
+                  "Copper": -10.156846046447754,
+                  "Orchid": -7.187504768371582,
+                  "Falcon": -12.828126907348633,
+                  "Marble": 0.0
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              }
+            ],
+            "exact_match": 0.75,
+            "controls": [
+              {
+                "question": "What is 2 + 2? Reply with only the number.",
+                "answer": "4",
+                "output": "4",
+                "exact_match": true
+              },
+              {
+                "question": "What is 3 + 5? Reply with only the number.",
+                "answer": "8",
+                "output": "8",
+                "exact_match": true
+              },
+              {
+                "question": "What is the capital of France? Reply with only the city name.",
+                "answer": "Paris",
+                "output": "Falcone",
+                "exact_match": false
+              },
+              {
+                "question": "What is the capital of Japan? Reply with only the city name.",
+                "answer": "Tokyo",
+                "output": "Tokyo",
+                "exact_match": true
+              }
+            ],
+            "control_accuracy": 0.75,
+            "rank_accuracy": 1.0,
+            "mean_gold_logp": 0.0
+          },
+          "new": {
+            "answers": [
+              {
+                "subject": "Milo Hart",
+                "question": "Which project belongs to Milo Hart? Reply with only its name.",
+                "expected": "Juniper",
+                "answer": "Juniper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": 0.0,
+                  "Granite": -8.9375,
+                  "Saffron": -6.771644592285156,
+                  "Tundra": -12.578131675720215,
+                  "Nimbus": -11.468782424926758,
+                  "Sequoia": -6.8125,
+                  "Lagoon": -13.515630722045898,
+                  "Silver": -21.4375
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Milo Hart",
+                "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+                "expected": "Juniper",
+                "answer": "Juniper",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": 0.0,
+                  "Granite": -8.46875,
+                  "Saffron": -6.646310329437256,
+                  "Tundra": -12.281261444091797,
+                  "Nimbus": -11.468780517578125,
+                  "Sequoia": -6.1875,
+                  "Lagoon": -13.015634536743164,
+                  "Silver": -21.5
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Zara Penn",
+                "question": "Which project belongs to Zara Penn? Reply with only its name.",
+                "expected": "Granite",
+                "answer": "Granite & Glass",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -6.718753814697266,
+                  "Granite": -2.86102294921875e-06,
+                  "Saffron": -6.250029563903809,
+                  "Tundra": -9.343761444091797,
+                  "Nimbus": -9.828137397766113,
+                  "Sequoia": -6.333335876464844,
+                  "Lagoon": -8.781265258789062,
+                  "Silver": -15.437505722045898
+                },
+                "gold_logp": -2.86102294921875e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Zara Penn",
+                "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+                "expected": "Granite",
+                "answer": "Granite & Glass",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -6.718755722045898,
+                  "Granite": -4.76837158203125e-06,
+                  "Saffron": -6.270851135253906,
+                  "Tundra": -9.500018119812012,
+                  "Nimbus": -9.703136444091797,
+                  "Sequoia": -5.666669845581055,
+                  "Lagoon": -8.593762397766113,
+                  "Silver": -14.937509536743164
+                },
+                "gold_logp": -4.76837158203125e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Oren Fisk",
+                "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+                "expected": "Saffron",
+                "answer": "Saffron.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -10.000001907348633,
+                  "Granite": -9.625,
+                  "Saffron": 0.0,
+                  "Tundra": -8.906434059143066,
+                  "Nimbus": -10.562538146972656,
+                  "Sequoia": -6.4375,
+                  "Lagoon": -9.531271934509277,
+                  "Silver": -19.9375
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Oren Fisk",
+                "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+                "expected": "Saffron",
+                "answer": "Saffron.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -9.687506675720215,
+                  "Granite": -9.718750953674316,
+                  "Saffron": -6.35782896551973e-07,
+                  "Tundra": -8.4700288772583,
+                  "Nimbus": -10.0625638961792,
+                  "Sequoia": -5.500000953674316,
+                  "Lagoon": -9.000208854675293,
+                  "Silver": -18.375001907348633
+                },
+                "gold_logp": -6.35782896551973e-07,
+                "rank_correct": true
+              },
+              {
+                "subject": "Vera Lark",
+                "question": "Which project belongs to Vera Lark? Reply with only its name.",
+                "expected": "Tundra",
+                "answer": "Tundra.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -12.5,
+                  "Granite": -12.59375,
+                  "Saffron": -6.458507061004639,
+                  "Tundra": 0.0,
+                  "Nimbus": -10.125029563903809,
+                  "Sequoia": -7.854167461395264,
+                  "Lagoon": -9.031255722045898,
+                  "Silver": -21.6875
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Vera Lark",
+                "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+                "expected": "Tundra",
+                "answer": "Tundra.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -10.781250953674316,
+                  "Granite": -11.156250953674316,
+                  "Saffron": -5.895913600921631,
+                  "Tundra": 0.0,
+                  "Nimbus": -8.875021934509277,
+                  "Sequoia": -6.875,
+                  "Lagoon": -7.875003814697266,
+                  "Silver": -18.9375
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Enzo Reed",
+                "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+                "expected": "Nimbus",
+                "answer": "Nimbus 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -12.484375953674316,
+                  "Granite": -11.593750953674316,
+                  "Saffron": -6.812572479248047,
+                  "Tundra": -10.783011436462402,
+                  "Nimbus": 0.0,
+                  "Sequoia": -8.645837783813477,
+                  "Lagoon": -10.21875286102295,
+                  "Silver": -23.8125
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Enzo Reed",
+                "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+                "expected": "Nimbus",
+                "answer": "Nimbus 2",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -10.937500953674316,
+                  "Granite": -10.281251907348633,
+                  "Saffron": -6.000033855438232,
+                  "Tundra": -9.21982479095459,
+                  "Nimbus": -9.5367431640625e-07,
+                  "Sequoia": -7.520837306976318,
+                  "Lagoon": -9.187506675720215,
+                  "Silver": -22.187501907348633
+                },
+                "gold_logp": -9.5367431640625e-07,
+                "rank_correct": true
+              },
+              {
+                "subject": "Alma Kent",
+                "question": "Which project belongs to Alma Kent? Reply with only its name.",
+                "expected": "Sequoia",
+                "answer": "Sequoia.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.25,
+                  "Granite": -9.625000953674316,
+                  "Saffron": -6.31270170211792,
+                  "Tundra": -10.594008445739746,
+                  "Nimbus": -11.50024700164795,
+                  "Sequoia": 0.0,
+                  "Lagoon": -10.687530517578125,
+                  "Silver": -19.0625
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Alma Kent",
+                "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+                "expected": "Sequoia",
+                "answer": "Sequoia.",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -7.375001907348633,
+                  "Granite": -8.81250286102295,
+                  "Saffron": -5.666795253753662,
+                  "Tundra": -9.969026565551758,
+                  "Nimbus": -11.250175476074219,
+                  "Sequoia": -1.271565793103946e-06,
+                  "Lagoon": -10.031270980834961,
+                  "Silver": -18.312503814697266
+                },
+                "gold_logp": -1.271565793103946e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nico Ward",
+                "question": "Which project belongs to Nico Ward? Reply with only its name.",
+                "expected": "Lagoon",
+                "answer": "Lagoon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -7.781256675720215,
+                  "Granite": -8.093757629394531,
+                  "Saffron": -4.9793829917907715,
+                  "Tundra": -6.718813896179199,
+                  "Nimbus": -6.5002946853637695,
+                  "Sequoia": -6.635424613952637,
+                  "Lagoon": -6.67572021484375e-06,
+                  "Silver": -13.68751335144043
+                },
+                "gold_logp": -6.67572021484375e-06,
+                "rank_correct": true
+              },
+              {
+                "subject": "Nico Ward",
+                "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+                "expected": "Lagoon",
+                "answer": "Lagoon",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -8.875001907348633,
+                  "Granite": -9.06250286102295,
+                  "Saffron": -5.895946502685547,
+                  "Tundra": -7.750134468078613,
+                  "Nimbus": -7.56257438659668,
+                  "Sequoia": -7.395837783813477,
+                  "Lagoon": -9.5367431640625e-07,
+                  "Silver": -17.312501907348633
+                },
+                "gold_logp": -9.5367431640625e-07,
+                "rank_correct": true
+              },
+              {
+                "subject": "Rhea Pike",
+                "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+                "expected": "Silver",
+                "answer": "Silver\n",
+                "exact_match": true,
+                "candidate_logp": {
+                  "Juniper": -9.625001907348633,
+                  "Granite": -10.46875,
+                  "Saffron": -6.291788101196289,
+                  "Tundra": -9.46875286102295,
+                  "Nimbus": -9.843811988830566,
+                  "Sequoia": -8.260417938232422,
+                  "Lagoon": -9.562504768371582,
+                  "Silver": 0.0
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              },
+              {
+                "subject": "Rhea Pike",
+                "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+                "expected": "Silver",
+                "answer": "Silver\n</think>\n\nSilver",
+                "exact_match": false,
+                "candidate_logp": {
+                  "Juniper": -9.875000953674316,
+                  "Granite": -10.15625,
+                  "Saffron": -7.041735649108887,
+                  "Tundra": -9.68750286102295,
+                  "Nimbus": -10.312516212463379,
+                  "Sequoia": -8.166667938232422,
+                  "Lagoon": -9.812501907348633,
+                  "Silver": 0.0
+                },
+                "gold_logp": 0.0,
+                "rank_correct": true
+              }
+            ],
+            "exact_match": 0.6875,
+            "controls": [
+              {
+                "question": "What is 2 + 2? Reply with only the number.",
+                "answer": "4",
+                "output": "4",
+                "exact_match": true
+              },
+              {
+                "question": "What is 3 + 5? Reply with only the number.",
+                "answer": "8",
+                "output": "8",
+                "exact_match": true
+              },
+              {
+                "question": "What is the capital of France? Reply with only the city name.",
+                "answer": "Paris",
+                "output": "Falcone",
+                "exact_match": false
+              },
+              {
+                "question": "What is the capital of Japan? Reply with only the city name.",
+                "answer": "Tokyo",
+                "output": "Tokyo",
+                "exact_match": true
+              }
+            ],
+            "control_accuracy": 0.75,
+            "rank_accuracy": 1.0,
+            "mean_gold_logp": -1.1324882542851356e-06
+          }
+        }
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "loss": 4.923186302185059,
+          "seconds": 0.6976621999929193,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 2,
+          "loss": 3.7478153705596924,
+          "seconds": 0.671786000020802,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 3,
+          "loss": 2.3724913597106934,
+          "seconds": 0.7468129000044428,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 4,
+          "loss": 2.1362948417663574,
+          "seconds": 0.6801711000152864,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 5,
+          "loss": 1.1996815204620361,
+          "seconds": 0.6844004000013229,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 6,
+          "loss": 1.0768038034439087,
+          "seconds": 0.6780966999940574,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 7,
+          "loss": 0.5202203989028931,
+          "seconds": 0.6768212000024505,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 8,
+          "loss": 0.5541532635688782,
+          "seconds": 0.7504940000071656,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 9,
+          "loss": 0.16728001832962036,
+          "seconds": 0.6739918999955989,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 10,
+          "loss": 0.03675607591867447,
+          "seconds": 0.6756444000056945,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 11,
+          "loss": 0.05005624517798424,
+          "seconds": 0.6831613999966066,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 12,
+          "loss": 0.03116597793996334,
+          "seconds": 0.6888230000040494,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 13,
+          "loss": 0.0038816083688288927,
+          "seconds": 0.7501060000213329,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 14,
+          "loss": 0.002055352320894599,
+          "seconds": 0.6730607000063173,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 15,
+          "loss": 0.0009137412998825312,
+          "seconds": 0.6763131000043359,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 16,
+          "loss": 0.00047696824185550213,
+          "seconds": 0.6790323999885004,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 17,
+          "loss": 0.00016028908430598676,
+          "seconds": 0.6752592999837361,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 18,
+          "loss": 5.7699871831573546e-05,
+          "seconds": 0.7371913999959361,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 19,
+          "loss": 0.013322304002940655,
+          "seconds": 0.673422899999423,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 20,
+          "loss": 2.7360460080672055e-05,
+          "seconds": 0.6747910999984015,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 21,
+          "loss": 0.0007414449355565012,
+          "seconds": 0.6718855999934021,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 22,
+          "loss": 0.000356370466761291,
+          "seconds": 0.6789303999976255,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 23,
+          "loss": 4.4285337935434654e-05,
+          "seconds": 0.7552630999998655,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 24,
+          "loss": 7.005141469562659e-06,
+          "seconds": 0.6660130000091158,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 25,
+          "loss": 9.263119864044711e-06,
+          "seconds": 0.6734359000110999,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 26,
+          "loss": 2.7137448341818526e-06,
+          "seconds": 0.6727929000044242,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 27,
+          "loss": 1.0665078661986627e-05,
+          "seconds": 0.6865083999873605,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 28,
+          "loss": 3.0222863642848097e-06,
+          "seconds": 0.6771514999854844,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 29,
+          "loss": 2.25795952246699e-06,
+          "seconds": 0.7352850000024773,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 30,
+          "loss": 4.978736001248762e-07,
+          "seconds": 0.6848050000262447,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 31,
+          "loss": 2.222872353740968e-06,
+          "seconds": 0.6738836000149604,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 32,
+          "loss": 1.4936127854525694e-06,
+          "seconds": 0.6797627999912947,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 33,
+          "loss": 4.908613391307881e-07,
+          "seconds": 0.665601799992146,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 34,
+          "loss": 2.1738155453476793e-07,
+          "seconds": 0.7409844000067096,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 35,
+          "loss": 1.1219695750241954e-07,
+          "seconds": 0.6734169000119437,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 36,
+          "loss": 1.1219694329156482e-07,
+          "seconds": 0.6784231000056025,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 37,
+          "loss": 1.5427079347318795e-07,
+          "seconds": 0.6769739000010304,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 38,
+          "loss": 7.012310732079641e-08,
+          "seconds": 0.7491977000026964,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 39,
+          "loss": 1.8933221213046636e-07,
+          "seconds": 0.6774332000059076,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 40,
+          "loss": 4.2073860839764166e-08,
+          "seconds": 0.665842899994459,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 41,
+          "loss": 9.116003951703533e-08,
+          "seconds": 0.6719912999833468,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 42,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.6717242999875452,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 43,
+          "loss": 4.2073864392477844e-08,
+          "seconds": 0.6675693999859504,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 44,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.7915281000023242,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 45,
+          "loss": 2.1036932196238922e-08,
+          "seconds": 0.6774692000180949,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 46,
+          "loss": 1.0518465387576725e-07,
+          "seconds": 0.6748526000010315,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 47,
+          "loss": 7.012310021536905e-08,
+          "seconds": 0.6765837999992073,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 48,
+          "loss": 7.012310732079641e-09,
+          "seconds": 0.6731220999790821,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 49,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.7390952999994624,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 50,
+          "loss": 8.414772167952833e-08,
+          "seconds": 0.6687429999874439,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 51,
+          "loss": 6.311079658871677e-08,
+          "seconds": 0.6702221999876201,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 52,
+          "loss": 1.612829692021478e-07,
+          "seconds": 0.6766160999832209,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 53,
+          "loss": 3.5061553660398204e-08,
+          "seconds": 0.7937254999997094,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 54,
+          "loss": 7.713541805287605e-08,
+          "seconds": 0.6752283999812789,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 55,
+          "loss": 7.713541094744869e-08,
+          "seconds": 0.6764117999991868,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 56,
+          "loss": 2.1036932196238922e-08,
+          "seconds": 0.6797928000160027,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 57,
+          "loss": 4.9086171571843806e-08,
+          "seconds": 0.6780862000014167,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 58,
+          "loss": 9.116001820075326e-08,
+          "seconds": 0.6855089000018779,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 59,
+          "loss": 2.1036932196238922e-08,
+          "seconds": 0.748512500023935,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 60,
+          "loss": 4.2073864392477844e-08,
+          "seconds": 0.678652400005376,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 61,
+          "loss": 7.012310732079641e-08,
+          "seconds": 0.6729461000068113,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 62,
+          "loss": 5.609848230392345e-08,
+          "seconds": 0.6753682999988087,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 63,
+          "loss": 7.012310732079641e-09,
+          "seconds": 0.6774263999832328,
+          "peak_allocated_mib": 2561.1435546875
+        },
+        {
+          "step": 64,
+          "loss": 3.5061550107684525e-08,
+          "seconds": 0.7418377000140026,
+          "peak_allocated_mib": 2561.1435546875
+        }
+      ],
+      "initial_adapter_sha256": "9109b48239584ed9c4cceac4f82b9bdcd1172064f7a888573d463ea81bcf21e0"
+    }
+  ],
+  "scope": "Follow-on one-seed pilot; seed42 final64-exposure QA adapter chosen by fixed first-seed rule, not best confirmation score. Equal total batch/step budget; replay halves new-fact exposures.",
+  "before": {
+    "old": {
+      "answers": [
+        {
+          "subject": "Tova Renn",
+          "question": "Which project belongs to Tova Renn? Reply with only its name.",
+          "expected": "Maple",
+          "answer": "Maple",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": 0.0,
+            "Quartz": -9.968771934509277,
+            "Willow": -8.187505722045898,
+            "Beacon": -9.781462669372559,
+            "Copper": -9.593777656555176,
+            "Orchid": -6.812521934509277,
+            "Falcon": -10.377486228942871,
+            "Marble": -9.719461441040039
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Tova Renn",
+          "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+          "expected": "Maple",
+          "answer": "Maple",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": 0.0,
+            "Quartz": -9.562514305114746,
+            "Willow": -7.5000104904174805,
+            "Beacon": -9.218982696533203,
+            "Copper": -9.812557220458984,
+            "Orchid": -6.3750224113464355,
+            "Falcon": -10.344298362731934,
+            "Marble": -8.969045639038086
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Kian Vale",
+          "question": "Which project belongs to Kian Vale? Reply with only its name.",
+          "expected": "Quartz",
+          "answer": "Quartz",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -10.312500953674316,
+            "Quartz": 0.0,
+            "Willow": -9.250017166137695,
+            "Beacon": -9.937500953674316,
+            "Copper": -9.65625,
+            "Orchid": -6.562503814697266,
+            "Falcon": -8.750001907348633,
+            "Marble": -9.593759536743164
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Kian Vale",
+          "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+          "expected": "Quartz",
+          "answer": "Quartz",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -10.125,
+            "Quartz": 0.0,
+            "Willow": -9.250082969665527,
+            "Beacon": -9.718750953674316,
+            "Copper": -9.937500953674316,
+            "Orchid": -6.39583683013916,
+            "Falcon": -8.750000953674316,
+            "Marble": -9.781258583068848
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Lumi Senn",
+          "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+          "expected": "Willow",
+          "answer": "Willow",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -10.40625,
+            "Quartz": -11.656253814697266,
+            "Willow": 0.0,
+            "Beacon": -11.062501907348633,
+            "Copper": -10.93791675567627,
+            "Orchid": -7.145862102508545,
+            "Falcon": -10.718756675720215,
+            "Marble": -11.343767166137695
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Lumi Senn",
+          "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+          "expected": "Willow",
+          "answer": "Willow",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -10.5,
+            "Quartz": -11.25001049041748,
+            "Willow": 0.0,
+            "Beacon": -10.78125286102295,
+            "Copper": -10.219514846801758,
+            "Orchid": -6.479175567626953,
+            "Falcon": -10.531289100646973,
+            "Marble": -10.750021934509277
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Arvo Tess",
+          "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+          "expected": "Beacon",
+          "answer": "Beacon",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -7.437502861022949,
+            "Quartz": -7.687505722045898,
+            "Willow": -6.875002861022949,
+            "Beacon": -2.86102294921875e-06,
+            "Copper": -9.250014305114746,
+            "Orchid": -5.187504768371582,
+            "Falcon": -8.25000286102295,
+            "Marble": -7.312509536743164
+          },
+          "gold_logp": -2.86102294921875e-06,
+          "rank_correct": true
+        },
+        {
+          "subject": "Arvo Tess",
+          "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+          "expected": "Beacon",
+          "answer": "Beacon",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -7.937501907348633,
+            "Quartz": -7.656252861022949,
+            "Willow": -6.750002861022949,
+            "Beacon": -1.9073486328125e-06,
+            "Copper": -9.281262397766113,
+            "Orchid": -5.270835876464844,
+            "Falcon": -8.312501907348633,
+            "Marble": -7.875007629394531
+          },
+          "gold_logp": -1.9073486328125e-06,
+          "rank_correct": true
+        },
+        {
+          "subject": "Nola Fenn",
+          "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+          "expected": "Copper",
+          "answer": "Copper",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -10.875,
+            "Quartz": -11.750000953674316,
+            "Willow": -9.968755722045898,
+            "Beacon": -12.562500953674316,
+            "Copper": 0.0,
+            "Orchid": -7.458346366882324,
+            "Falcon": -10.812536239624023,
+            "Marble": -10.59375286102295
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Nola Fenn",
+          "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+          "expected": "Copper",
+          "answer": "Copper",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -10.53125,
+            "Quartz": -10.906250953674316,
+            "Willow": -9.56250286102295,
+            "Beacon": -11.750000953674316,
+            "Copper": 0.0,
+            "Orchid": -6.916701793670654,
+            "Falcon": -10.250123023986816,
+            "Marble": -10.218754768371582
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Davi Moss",
+          "question": "Which project belongs to Davi Moss? Reply with only its name.",
+          "expected": "Orchid",
+          "answer": "Orchid.",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -11.40625,
+            "Quartz": -8.687500953674316,
+            "Willow": -8.81251049041748,
+            "Beacon": -10.187501907348633,
+            "Copper": -10.562501907348633,
+            "Orchid": 0.0,
+            "Falcon": -10.531257629394531,
+            "Marble": -9.687500953674316
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Davi Moss",
+          "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+          "expected": "Orchid",
+          "answer": "Orchid.",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -11.21875,
+            "Quartz": -8.687500953674316,
+            "Willow": -8.43751335144043,
+            "Beacon": -9.93750286102295,
+            "Copper": -10.281251907348633,
+            "Orchid": 0.0,
+            "Falcon": -10.125005722045898,
+            "Marble": -10.593753814697266
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Eira Dunn",
+          "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+          "expected": "Falcon",
+          "answer": "Falcon 2",
+          "exact_match": false,
+          "candidate_logp": {
+            "Maple": -9.40625,
+            "Quartz": -9.343751907348633,
+            "Willow": -8.250000953674316,
+            "Beacon": -10.781250953674316,
+            "Copper": -7.875002861022949,
+            "Orchid": -6.75000524520874,
+            "Falcon": 0.0,
+            "Marble": -8.937505722045898
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Eira Dunn",
+          "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+          "expected": "Falcon",
+          "answer": "Falcon 2",
+          "exact_match": false,
+          "candidate_logp": {
+            "Maple": -9.9375,
+            "Quartz": -9.562500953674316,
+            "Willow": -8.375004768371582,
+            "Beacon": -10.375,
+            "Copper": -7.687501907348633,
+            "Orchid": -6.604170799255371,
+            "Falcon": 0.0,
+            "Marble": -9.312508583068848
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Ravi Keel",
+          "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+          "expected": "Marble",
+          "answer": "Marble",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -9.5,
+            "Quartz": -9.687533378601074,
+            "Willow": -9.656634330749512,
+            "Beacon": -9.562807083129883,
+            "Copper": -9.187630653381348,
+            "Orchid": -6.208337783813477,
+            "Falcon": -10.437520027160645,
+            "Marble": 0.0
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        },
+        {
+          "subject": "Ravi Keel",
+          "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+          "expected": "Marble",
+          "answer": "Marble",
+          "exact_match": true,
+          "candidate_logp": {
+            "Maple": -9.9375,
+            "Quartz": -9.906254768371582,
+            "Willow": -9.437798500061035,
+            "Beacon": -9.032037734985352,
+            "Copper": -9.687602996826172,
+            "Orchid": -6.166668891906738,
+            "Falcon": -10.843810081481934,
+            "Marble": 0.0
+          },
+          "gold_logp": 0.0,
+          "rank_correct": true
+        }
+      ],
+      "exact_match": 0.875,
+      "controls": [
+        {
+          "question": "What is 2 + 2? Reply with only the number.",
+          "answer": "4",
+          "output": "4",
+          "exact_match": true
+        },
+        {
+          "question": "What is 3 + 5? Reply with only the number.",
+          "answer": "8",
+          "output": "8",
+          "exact_match": true
+        },
+        {
+          "question": "What is the capital of France? Reply with only the city name.",
+          "answer": "Paris",
+          "output": "Paris",
+          "exact_match": true
+        },
+        {
+          "question": "What is the capital of Japan? Reply with only the city name.",
+          "answer": "Tokyo",
+          "output": "Tokyo",
+          "exact_match": true
+        }
+      ],
+      "control_accuracy": 1.0,
+      "rank_accuracy": 1.0,
+      "mean_gold_logp": -2.980232238769531e-07
+    },
+    "new": {
+      "answers": [
+        {
+          "subject": "Milo Hart",
+          "question": "Which project belongs to Milo Hart? Reply with only its name.",
+          "expected": "Juniper",
+          "answer": "Orchid.",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -10.716402053833008,
+            "Granite": -9.794303894042969,
+            "Saffron": -8.916364669799805,
+            "Tundra": -12.400287628173828,
+            "Nimbus": -13.185463905334473,
+            "Sequoia": -6.661885738372803,
+            "Lagoon": -11.975091934204102,
+            "Silver": -21.1573486328125
+          },
+          "gold_logp": -10.716402053833008,
+          "rank_correct": false
+        },
+        {
+          "subject": "Milo Hart",
+          "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+          "expected": "Juniper",
+          "answer": "Orchid.",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -10.54658031463623,
+            "Granite": -9.391895294189453,
+            "Saffron": -8.484245300292969,
+            "Tundra": -12.297566413879395,
+            "Nimbus": -13.096297264099121,
+            "Sequoia": -6.061190605163574,
+            "Lagoon": -12.152114868164062,
+            "Silver": -19.8785400390625
+          },
+          "gold_logp": -10.54658031463623,
+          "rank_correct": false
+        },
+        {
+          "subject": "Zara Penn",
+          "question": "Which project belongs to Zara Penn? Reply with only its name.",
+          "expected": "Granite",
+          "answer": "Willow Creek",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -6.083027362823486,
+            "Granite": -7.547667503356934,
+            "Saffron": -4.643763542175293,
+            "Tundra": -6.154910564422607,
+            "Nimbus": -8.441344261169434,
+            "Sequoia": -4.266772747039795,
+            "Lagoon": -7.652233123779297,
+            "Silver": -13.744085311889648
+          },
+          "gold_logp": -7.547667503356934,
+          "rank_correct": false
+        },
+        {
+          "subject": "Zara Penn",
+          "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+          "expected": "Granite",
+          "answer": "Willow Creek",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -6.1684417724609375,
+            "Granite": -7.18315315246582,
+            "Saffron": -4.642930030822754,
+            "Tundra": -6.604259490966797,
+            "Nimbus": -8.723414421081543,
+            "Sequoia": -3.5903375148773193,
+            "Lagoon": -7.596539497375488,
+            "Silver": -13.228401184082031
+          },
+          "gold_logp": -7.18315315246582,
+          "rank_correct": false
+        },
+        {
+          "subject": "Oren Fisk",
+          "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+          "expected": "Saffron",
+          "answer": "Orchid",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -10.388912200927734,
+            "Granite": -9.164867401123047,
+            "Saffron": -7.530860424041748,
+            "Tundra": -13.825555801391602,
+            "Nimbus": -12.729390144348145,
+            "Sequoia": -6.071793556213379,
+            "Lagoon": -11.977344512939453,
+            "Silver": -19.688608169555664
+          },
+          "gold_logp": -7.530860424041748,
+          "rank_correct": false
+        },
+        {
+          "subject": "Oren Fisk",
+          "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+          "expected": "Saffron",
+          "answer": "Orchid",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -10.88905143737793,
+            "Granite": -9.47986888885498,
+            "Saffron": -8.077245712280273,
+            "Tundra": -14.759564399719238,
+            "Nimbus": -13.928985595703125,
+            "Sequoia": -6.357729911804199,
+            "Lagoon": -13.212158203125,
+            "Silver": -20.06505584716797
+          },
+          "gold_logp": -8.077245712280273,
+          "rank_correct": false
+        },
+        {
+          "subject": "Vera Lark",
+          "question": "Which project belongs to Vera Lark? Reply with only its name.",
+          "expected": "Tundra",
+          "answer": "Orchid.",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -8.034926414489746,
+            "Granite": -8.237191200256348,
+            "Saffron": -5.68018102645874,
+            "Tundra": -9.155835151672363,
+            "Nimbus": -9.084184646606445,
+            "Sequoia": -4.8216023445129395,
+            "Lagoon": -6.704570770263672,
+            "Silver": -14.326139450073242
+          },
+          "gold_logp": -9.155835151672363,
+          "rank_correct": false
+        },
+        {
+          "subject": "Vera Lark",
+          "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+          "expected": "Tundra",
+          "answer": "Orchid.",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -9.253536224365234,
+            "Granite": -8.670143127441406,
+            "Saffron": -6.126470565795898,
+            "Tundra": -10.004938125610352,
+            "Nimbus": -9.932595252990723,
+            "Sequoia": -4.750874996185303,
+            "Lagoon": -7.900202751159668,
+            "Silver": -15.63149642944336
+          },
+          "gold_logp": -10.004938125610352,
+          "rank_correct": false
+        },
+        {
+          "subject": "Enzo Reed",
+          "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+          "expected": "Nimbus",
+          "answer": "Marble",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -7.0167927742004395,
+            "Granite": -6.368612289428711,
+            "Saffron": -5.909938335418701,
+            "Tundra": -10.861096382141113,
+            "Nimbus": -8.877957344055176,
+            "Sequoia": -4.730601787567139,
+            "Lagoon": -9.13532829284668,
+            "Silver": -12.939750671386719
+          },
+          "gold_logp": -8.877957344055176,
+          "rank_correct": false
+        },
+        {
+          "subject": "Enzo Reed",
+          "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+          "expected": "Nimbus",
+          "answer": "Willow Creek",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -6.928499221801758,
+            "Granite": -5.704780101776123,
+            "Saffron": -5.947804927825928,
+            "Tundra": -10.695191383361816,
+            "Nimbus": -9.513362884521484,
+            "Sequoia": -3.8654556274414062,
+            "Lagoon": -9.247749328613281,
+            "Silver": -12.834592819213867
+          },
+          "gold_logp": -9.513362884521484,
+          "rank_correct": false
+        },
+        {
+          "subject": "Alma Kent",
+          "question": "Which project belongs to Alma Kent? Reply with only its name.",
+          "expected": "Sequoia",
+          "answer": "Alma Kent is known for her work on the **Alma** satellite.",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -6.397633075714111,
+            "Granite": -8.705680847167969,
+            "Saffron": -6.007382869720459,
+            "Tundra": -10.422598838806152,
+            "Nimbus": -11.262468338012695,
+            "Sequoia": -4.746699333190918,
+            "Lagoon": -10.2528715133667,
+            "Silver": -16.207931518554688
+          },
+          "gold_logp": -4.746699333190918,
+          "rank_correct": true
+        },
+        {
+          "subject": "Alma Kent",
+          "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+          "expected": "Sequoia",
+          "answer": "Alma Kent is working on the **Alma Project** (also known as the **Alma** or **Al",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -7.34016227722168,
+            "Granite": -9.48687744140625,
+            "Saffron": -6.763555526733398,
+            "Tundra": -12.371430397033691,
+            "Nimbus": -12.347452163696289,
+            "Sequoia": -5.068037986755371,
+            "Lagoon": -11.067203521728516,
+            "Silver": -17.29507064819336
+          },
+          "gold_logp": -5.068037986755371,
+          "rank_correct": true
+        },
+        {
+          "subject": "Nico Ward",
+          "question": "Which project belongs to Nico Ward? Reply with only its name.",
+          "expected": "Lagoon",
+          "answer": "Orchid.",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -7.467950344085693,
+            "Granite": -8.57655143737793,
+            "Saffron": -7.068750381469727,
+            "Tundra": -10.1474027633667,
+            "Nimbus": -9.088849067687988,
+            "Sequoia": -5.509754180908203,
+            "Lagoon": -8.50035285949707,
+            "Silver": -16.95802879333496
+          },
+          "gold_logp": -8.50035285949707,
+          "rank_correct": false
+        },
+        {
+          "subject": "Nico Ward",
+          "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+          "expected": "Lagoon",
+          "answer": "Orchid.",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -7.855637550354004,
+            "Granite": -8.035369873046875,
+            "Saffron": -6.646729469299316,
+            "Tundra": -10.009587287902832,
+            "Nimbus": -9.286417961120605,
+            "Sequoia": -5.026625633239746,
+            "Lagoon": -8.737070083618164,
+            "Silver": -16.568696975708008
+          },
+          "gold_logp": -8.737070083618164,
+          "rank_correct": false
+        },
+        {
+          "subject": "Rhea Pike",
+          "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+          "expected": "Silver",
+          "answer": "Copper",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -7.160512447357178,
+            "Granite": -7.273263931274414,
+            "Saffron": -4.276025295257568,
+            "Tundra": -7.280284881591797,
+            "Nimbus": -8.163763999938965,
+            "Sequoia": -3.9645955562591553,
+            "Lagoon": -5.498926162719727,
+            "Silver": -15.371091842651367
+          },
+          "gold_logp": -15.371091842651367,
+          "rank_correct": false
+        },
+        {
+          "subject": "Rhea Pike",
+          "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+          "expected": "Silver",
+          "answer": "Copper",
+          "exact_match": false,
+          "candidate_logp": {
+            "Juniper": -8.522672653198242,
+            "Granite": -8.652942657470703,
+            "Saffron": -4.890295028686523,
+            "Tundra": -8.377634048461914,
+            "Nimbus": -10.36388111114502,
+            "Sequoia": -4.898445129394531,
+            "Lagoon": -7.311737060546875,
+            "Silver": -17.362077713012695
+          },
+          "gold_logp": -17.362077713012695,
+          "rank_correct": false
+        }
+      ],
+      "exact_match": 0.0,
+      "controls": [
+        {
+          "question": "What is 2 + 2? Reply with only the number.",
+          "answer": "4",
+          "output": "4",
+          "exact_match": true
+        },
+        {
+          "question": "What is 3 + 5? Reply with only the number.",
+          "answer": "8",
+          "output": "8",
+          "exact_match": true
+        },
+        {
+          "question": "What is the capital of France? Reply with only the city name.",
+          "answer": "Paris",
+          "output": "Paris",
+          "exact_match": true
+        },
+        {
+          "question": "What is the capital of Japan? Reply with only the city name.",
+          "answer": "Tokyo",
+          "output": "Tokyo",
+          "exact_match": true
+        }
+      ],
+      "control_accuracy": 1.0,
+      "rank_accuracy": 0.125,
+      "mean_gold_logp": -9.308708280324936
+    }
+  },
+  "base_sha256_after": "e688359ff145012ef37eba75aa5fd3db12690acf22b80e33441be418973bfc17",
+  "source_sha256": {
+    "qwenbrain/experiment_retention.py": "56dd1f1ee1ea8f7b59202fdd99878cc5e29e56b0bfedb29329db72fd5b9b1fe3",
+    "qwenbrain/experiment_acquisition.py": "c1086805435373f2deaebaca2c633695ae8a8ec6afd1f740df91ab8e8ad99847",
+    "qwenbrain/learning.py": "74a6b12aa21acbf4a7ce2285156069625fc8b9cdfd1d9f404f22d535f2069469"
+  },
+  "status": "completed"
+}

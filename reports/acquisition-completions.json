@@ -1,0 +1,531 @@
+{
+  "scope": "Post-hoc direct-completion diagnostic at final (64-exposure) checkpoints only; not used for format selection.",
+  "runs": [
+    {
+      "phase": "pilot",
+      "arm": "raw",
+      "seed": 42,
+      "answers": [
+        {
+          "subject": "Mara Voss",
+          "value": "Cedar",
+          "completion": " Cedar. I need to create a project",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Ivo Pell",
+          "value": "Topaz",
+          "completion": " Topaz. Ivo Pell's project",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Neri Dax",
+          "value": "Harbor",
+          "completion": " Harbor. Neri Dax's project",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Sela Orr",
+          "value": "Cobalt",
+          "completion": " Cobalt. Sela Orr's project",
+          "first_clause_correct": true
+        }
+      ],
+      "correct": 4,
+      "total": 4,
+      "reloaded_first_qa_matches": true
+    },
+    {
+      "phase": "pilot",
+      "arm": "varied",
+      "seed": 42,
+      "answers": [
+        {
+          "subject": "Mara Voss",
+          "value": "Cedar",
+          "completion": " Cedar. Cedar is the name of Mara",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Ivo Pell",
+          "value": "Topaz",
+          "completion": " Topaz. Topaz is the name",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Neri Dax",
+          "value": "Harbor",
+          "completion": " Harbor. Neri Dax's project",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Sela Orr",
+          "value": "Cobalt",
+          "completion": " Cobalt. Sela Orr's project",
+          "first_clause_correct": true
+        }
+      ],
+      "correct": 4,
+      "total": 4,
+      "reloaded_first_qa_matches": true
+    },
+    {
+      "phase": "pilot",
+      "arm": "qa",
+      "seed": 42,
+      "answers": [
+        {
+          "subject": "Mara Voss",
+          "value": "Cedar",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Ivo Pell",
+          "value": "Topaz",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Neri Dax",
+          "value": "Harbor",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Sela Orr",
+          "value": "Cobalt",
+          "completion": "",
+          "first_clause_correct": false
+        }
+      ],
+      "correct": 0,
+      "total": 4,
+      "reloaded_first_qa_matches": true
+    },
+    {
+      "phase": "confirmation",
+      "arm": "raw",
+      "seed": 42,
+      "answers": [
+        {
+          "subject": "Tova Renn",
+          "value": "Maple",
+          "completion": " Maple. It is a Ravi Ke",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Kian Vale",
+          "value": "Quartz",
+          "completion": " Quartz. It is a project named Quartz",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Lumi Senn",
+          "value": "Willow",
+          "completion": " Willow. Willow is a project named Willow",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Arvo Tess",
+          "value": "Beacon",
+          "completion": " Beacon. It is a project named Beacon",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Nola Fenn",
+          "value": "Copper",
+          "completion": " Copper. It is a project named Copper",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Davi Moss",
+          "value": "Orchid",
+          "completion": " Orchid. Orchid is a project",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Eira Dunn",
+          "value": "Falcon",
+          "completion": " Falcon. It is a project named Falcon",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Ravi Keel",
+          "value": "Marble",
+          "completion": " Marble. It is a project named Marble",
+          "first_clause_correct": true
+        }
+      ],
+      "correct": 8,
+      "total": 8,
+      "reloaded_first_qa_matches": true
+    },
+    {
+      "phase": "confirmation",
+      "arm": "qa",
+      "seed": 42,
+      "answers": [
+        {
+          "subject": "Tova Renn",
+          "value": "Maple",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Kian Vale",
+          "value": "Quartz",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Lumi Senn",
+          "value": "Willow",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Arvo Tess",
+          "value": "Beacon",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Nola Fenn",
+          "value": "Copper",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Davi Moss",
+          "value": "Orchid",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Eira Dunn",
+          "value": "Falcon",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Ravi Keel",
+          "value": "Marble",
+          "completion": "",
+          "first_clause_correct": false
+        }
+      ],
+      "correct": 0,
+      "total": 8,
+      "reloaded_first_qa_matches": true
+    },
+    {
+      "phase": "confirmation",
+      "arm": "raw",
+      "seed": 43,
+      "answers": [
+        {
+          "subject": "Tova Renn",
+          "value": "Maple",
+          "completion": " Maple. Maple is a project named Maple",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Kian Vale",
+          "value": "Quartz",
+          "completion": " Quartz. Kian Vale is a developer",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Lumi Senn",
+          "value": "Willow",
+          "completion": " Willow. Willow is a project named Willow",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Arvo Tess",
+          "value": "Beacon",
+          "completion": " Beacon. Beacon is a project named Beacon",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Nola Fenn",
+          "value": "Copper",
+          "completion": " Copper. Nola Fenn is also",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Davi Moss",
+          "value": "Orchid",
+          "completion": " Orchid. Orchid is a project",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Eira Dunn",
+          "value": "Falcon",
+          "completion": " Falcon. Falcon is a project named Falcon",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Ravi Keel",
+          "value": "Marble",
+          "completion": " Marble. It is a project named Marble",
+          "first_clause_correct": true
+        }
+      ],
+      "correct": 8,
+      "total": 8,
+      "reloaded_first_qa_matches": true
+    },
+    {
+      "phase": "confirmation",
+      "arm": "qa",
+      "seed": 43,
+      "answers": [
+        {
+          "subject": "Tova Renn",
+          "value": "Maple",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Kian Vale",
+          "value": "Quartz",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Lumi Senn",
+          "value": "Willow",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Arvo Tess",
+          "value": "Beacon",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Nola Fenn",
+          "value": "Copper",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Davi Moss",
+          "value": "Orchid",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Eira Dunn",
+          "value": "Falcon",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Ravi Keel",
+          "value": "Marble",
+          "completion": "",
+          "first_clause_correct": false
+        }
+      ],
+      "correct": 0,
+      "total": 8,
+      "reloaded_first_qa_matches": true
+    },
+    {
+      "phase": "confirmation",
+      "arm": "raw",
+      "seed": 44,
+      "answers": [
+        {
+          "subject": "Tova Renn",
+          "value": "Maple",
+          "completion": " Maple. She is a developer of the",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Kian Vale",
+          "value": "Quartz",
+          "completion": " Quartz. Kian Vale's project is",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Lumi Senn",
+          "value": "Willow",
+          "completion": " Willow. Willow is a project named Willow",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Arvo Tess",
+          "value": "Beacon",
+          "completion": " Beacon. It is a project named Beacon",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Nola Fenn",
+          "value": "Copper",
+          "completion": " Copper. Nola Fenn is a",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Davi Moss",
+          "value": "Orchid",
+          "completion": " Orchid. Orchid is a project",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Eira Dunn",
+          "value": "Falcon",
+          "completion": " Falcon. Falcon is a project named Falcon",
+          "first_clause_correct": true
+        },
+        {
+          "subject": "Ravi Keel",
+          "value": "Marble",
+          "completion": " Marble. Marble is a project named Marble",
+          "first_clause_correct": true
+        }
+      ],
+      "correct": 8,
+      "total": 8,
+      "reloaded_first_qa_matches": true
+    },
+    {
+      "phase": "confirmation",
+      "arm": "qa",
+      "seed": 44,
+      "answers": [
+        {
+          "subject": "Tova Renn",
+          "value": "Maple",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Kian Vale",
+          "value": "Quartz",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Lumi Senn",
+          "value": "Willow",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Arvo Tess",
+          "value": "Beacon",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Nola Fenn",
+          "value": "Copper",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Davi Moss",
+          "value": "Orchid",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Eira Dunn",
+          "value": "Falcon",
+          "completion": "",
+          "first_clause_correct": false
+        },
+        {
+          "subject": "Ravi Keel",
+          "value": "Marble",
+          "completion": "",
+          "first_clause_correct": false
+        }
+      ],
+      "correct": 0,
+      "total": 8,
+      "reloaded_first_qa_matches": true
+    }
+  ],
+  "pilot_base": [
+    {
+      "subject": "Mara Voss",
+      "value": "Cedar",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Ivo Pell",
+      "value": "Topaz",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Neri Dax",
+      "value": "Harbor",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Sela Orr",
+      "value": "Cobalt",
+      "completion": "",
+      "first_clause_correct": false
+    }
+  ],
+  "confirmation_base": [
+    {
+      "subject": "Tova Renn",
+      "value": "Maple",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Kian Vale",
+      "value": "Quartz",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Lumi Senn",
+      "value": "Willow",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Arvo Tess",
+      "value": "Beacon",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Nola Fenn",
+      "value": "Copper",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Davi Moss",
+      "value": "Orchid",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Eira Dunn",
+      "value": "Falcon",
+      "completion": "",
+      "first_clause_correct": false
+    },
+    {
+      "subject": "Ravi Keel",
+      "value": "Marble",
+      "completion": "",
+      "first_clause_correct": false
+    }
+  ]
+}
