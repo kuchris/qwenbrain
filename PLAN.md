@@ -2,6 +2,9 @@
 
 Status: persistent local GPU chat is implemented and verified; the automatic
 adaptation loop below is still a design. See [milestone 1 evidence](reports/milestone-1.md).
+The separate [one-message LoRA check](reports/milestone-2.md) also passes: the
+adapter changes, base weights remain bit-identical, and disk reload reproduces
+the updated model. The fresh-context probes do not establish project-name recall.
 The user requires **every submitted chat message to
 automatically trigger an update**, replacing the earlier correction-only proposal.
 The current chat explicitly reports learning OFF until that loop is implemented.

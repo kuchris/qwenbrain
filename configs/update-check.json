@@ -1,0 +1,14 @@
+{
+  "message": "My project is called Atlas.",
+  "rank": 8,
+  "alpha": 16,
+  "target_modules": "all-linear",
+  "learning_rate": 0.0001,
+  "gradient_clip": 1.0,
+  "seed": 42,
+  "fresh_context_probes": [
+    "What is my project called? Reply with only its name.",
+    "What name did I give my project?",
+    "What is 2 + 2? Reply with only the number."
+  ]
+}

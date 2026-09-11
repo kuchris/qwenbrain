@@ -4,9 +4,10 @@ A local experiment in a conversational model that learns from each user message.
 The question is whether small automatic weight updates produce useful retention
 and adaptation while keeping chat responsive.
 
-**Status:** milestone 1 is complete. Qwen3.5-0.8B is downloaded locally and the
-persistent GPU chat launcher is verified. **Automatic learning is not implemented
-yet:** this milestone performs inference with frozen weights.
+**Status:** persistent local chat and the first one-message LoRA update check pass.
+The update changes adapter weights, keeps original Qwen weights unchanged, and
+survives saving/reloading. **Automatic per-message learning is not connected to
+chat yet.** `chat.bat` continues to perform inference with frozen base weights.
 
 ## Run
 
@@ -33,6 +34,13 @@ After a code or sampling-config update, exit with `/quit` and reopen `chat.bat`;
 [the repetition fix](reports/repetition-fix.md) for the reproduced failure and checks.
 
 See [the milestone evidence](reports/milestone-1.md) for measurements and limits.
+
+Double-click [check-update.bat](check-update.bat) to repeat the separate one-message
+training check using `configs/update-check.json`. It trains on the fixed example,
+writes a new adapter under `adapters/one-message-*/`, and reports its before/after
+loss and fresh-context answers. It does not change the adapter used by `chat.bat`.
+The first update lowered message loss but did not establish recall of the supplied
+project name. See [milestone 2 results](reports/milestone-2.md).
 
 ## Confirmed direction
 
@@ -68,8 +76,9 @@ improves the model.
    Test retention with the original messages removed from the prompt, unrelated
    task regressions, reply latency, memory, and restart persistence.
 
-The first milestone is model loading and chat only, and now passes. Next, prove
-one correctly masked LoRA update before wiring updates into every chat message.
+The first two milestones now pass: local chat and one correctly masked LoRA
+update. Next, implement adapter versioning and automatic candidate checks before
+connecting update attempts to every chat message.
 
 ## Project-local storage
 
