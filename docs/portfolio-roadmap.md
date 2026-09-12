@@ -6,8 +6,9 @@
 
 2026-09-12 進度：[GitHub repo](https://github.com/kuchris/qwenbrain) 已建立，
 目前設為 private。明確指令的記憶 demo 已完成，Windows 入口通過 13/13 個示範步驟
-及互動寫入後重啟查詢。CPU 測試共 20 個，workflow 涵蓋 Python 3.11 的 Linux 與
-Windows。公開展示與完整 GPU 重現仍待完成。
+及互動寫入後重啟查詢。CPU 測試共 26 個，workflow 涵蓋 Python 3.11 的 Linux 與
+Windows。四組記憶比較已有[重現入口](reproduction.md)；實際執行證據見
+[GPU 重現紀錄](experiments/reproduction-results.md)。公開展示仍待完成。
 
 ## 1. 專案定位
 
@@ -36,22 +37,25 @@ Windows。公開展示與完整 GPU 重現仍待完成。
 | 資料系統 | SQLite append-only 版本、生效／觀測時間、晚到更正、來源 ID | [memory.py](../qwenbrain/memory.py)、CPU 測試與子程序重開結果 |
 | 可靠性 | typed value 檢查、拒答原因、raw/checked 配對比較 | [grounding.py](../qwenbrain/grounding.py)、[測試](../tests/test_grounding.py) |
 | 可追查性 | 模型／來源／設定雜湊、分離實驗與 live adapter、逐題輸出 | [fresh-data 結果](experiments/grounded-memory-results.md) |
+| 可重現性 | 新建 acquisition checkpoint，依序跑 completion、retention 與四組比較，再從原始答案計分 | [重現指南](reproduction.md)、[執行紀錄](experiments/reproduction-results.md) |
 
-目前有 20 個 CPU 測試方法，其中六個涵蓋 demo 的實際程序重啟、版本更正、錯誤輸入、
-唯讀查詢與並行寫入。GPU 結果沿用既有紀錄；本里程碑沒有重跑模型訓練或生成。
+目前有 26 個 CPU 測試方法，其中六個涵蓋 demo 的實際程序重啟、版本更正、錯誤輸入、
+唯讀查詢與並行寫入；另六個涵蓋重現流程的來源雜湊、輸出保護、搬動、混用報告拒絕與
+重新計分。GPU 重現只涵蓋四組比較的必要流程；stopping、temporal 與 grounded-memory
+仍是獨立實驗，不能把這次重現寫成全部 GPU 實驗都重新驗證。
 
 ## 3. 還缺什麼：依交付順序
 
 | 優先序 | 缺口 | 最小交付 | 完成條件 |
 | --- | --- | --- | --- |
 | 完成 | 明確指令的端到端記憶操作 | `memory-demo.bat`：寫入、查詢、修改、歷史查詢、重啟與一鍵示範 | 13/13 個示範步驟通過；實際跨程序讀回版本與 source ID，未知內容回 UNKNOWN |
-| P0 | 部分實驗依賴本機舊檔案與人工彙整 | 明確指定 config、checkpoint、output 的入口，加上 JSON 彙整命令 | 在獨立乾淨目錄重建必要輸入並產生新報告；缺少 artifact 時指出前置步驟 |
+| 完成 | 四組比較依賴本機舊訓練檔案與人工彙整 | `scripts/reproduce-memory.bat`：明確輸入、checkpoint 雜湊與自動重新計分 | 獨立 source export、新 venv、新訓練 checkpoint 跑完四階段；12 個預訓練模型檔複製後逐一驗證；CPU 重算與原摘要逐 byte 相同 |
 | P1 | 新資料仍沿用問句與情境模板 | 先固定未用過的問句／情境，再做一輪獨立評估 | 分開報 extraction、retrieval、answer、abstention、錯誤接受和錯誤拒絕；不只報總分 |
 | P1 | 無關能力與工程成本測得太少 | 擴大互不重複的控制題，記錄查詢延遲、寫入成本、儲存量及樣本數 | 資料與輸出可稽核；時間比較控制生成長度，或明確分報各階段 |
 | P1 | 公開展示包仍待完成 | 公開可見性、授權文件與示範錄影；repo、CPU workflow 和 CLI demo 已建立 | 外部讀者能找到程式、執行測試、看證據與限制 |
 
-接著先完成剩下的 P0 重現流程，再做基本發布包。更多模型、向量資料庫、MoE 和 consolidation
-訓練可以等到現有瓶頸被定位後再決定。現有歷史答案失敗常發生在來源已正確取出的情況；
+接著做基本發布包與獨立評估。更多模型、向量資料庫、MoE 和
+consolidation 訓練可以等到現有瓶頸被定位後再決定。現有歷史答案失敗常發生在來源已正確取出的情況；
 擴大儲存容量並不直接處理這個問題。
 
 ## 4. 已完成：可展示的記憶 demo
@@ -103,12 +107,16 @@ Python · PyTorch · Transformers · PEFT/LoRA · SQLite · uv
   checksums and unrelated-task regression probes.
 - Implemented versioned memory with effective/observation timestamps and
   source-based answer checks; evaluated 24 synthetic identities across 336
-  staged queries and added 20 CPU test methods for persistence, temporal lookup
-  and grounding behavior.
+  staged queries and added 26 CPU test methods covering persistence, temporal
+  lookup, grounding and experiment artifact integrity.
+- Built a four-stage GPU reproduction pipeline with explicit artifact inputs,
+  checkpoint checksums and automatic raw-output scoring; verified it in a fresh
+  source export and locked environment using newly trained adapters.
 
 336 包含 answerable、UNKNOWN 與控制題，也包含重複模板和階段；獨立已知人物數是 24。
 這兩點適合放在專案頁或面試解說，避免把題數包裝成資料多樣性。以上是草稿，尚未寫入
-正式 CV；公開展示與完整 GPU reproduction 仍待完成。
+正式 CV；公開展示仍待完成。重現流程的範圍與實際驗證條件見
+[GPU 重現紀錄](experiments/reproduction-results.md)。
 
 若面試官追問結果，可以引用：四組小型對照中 SQLite 為 32/32、指定 LoRA/replay 設定
 為 25/32；更進一步的 temporal 測試顯示取對來源仍不保證生成正確。配合
@@ -124,6 +132,6 @@ Python · PyTorch · Transformers · PEFT/LoRA · SQLite · uv
 - `qwenbrain/`、`configs/`、`tests/`：保留既有模組與 fixture 路徑。
 - `runs/`、`models/`、`adapters/`、`data/`、`.cache/`：本機產物，不因整理刪除。
 
-本次只調整文件、導航與 batch 入口路徑。搬動前的檔案副本與 SHA-256 清單保存在本機
+檔案整理階段只調整文件、導航與 batch 入口路徑。搬動前的檔案副本與 SHA-256 清單保存在本機
 `runs/organization-20260912-132238/`。舊量測 JSON 裡的路徑與 source hash 保留原樣；
 它們是歷史 provenance，不因移動啟動檔而重新編寫。

@@ -1,14 +1,14 @@
 """One-seed, matched-batch retention pilot after successful Q&A acquisition."""
 
 import hashlib
-import json
+import argparse
 import random
-import time
 
 from .experiment_acquisition import Experiment, encode_target, pack
 from .chat import ChatSession, ROOT
 from .check_update import parameter_hash
 from .learning import attach_adapter, update_once
+from .artifacts import acquisition_checkpoint, completed_report, file_hash, input_record, new_run
 
 import torch
 from peft import set_peft_model_state_dict
@@ -19,18 +19,14 @@ from torch.nn.attention import SDPBackend, sdpa_kernel
 class RetentionExperiment(Experiment):
     """Reuse the frozen acquisition evaluation/scoring protocol, with a new stream."""
 
-    def __init__(self):
-        candidates = []
-        for path in (ROOT / "runs").glob("acquisition-*/results.json"):
-            report = json.loads(path.read_text())
-            if report.get("status") == "completed":
-                candidates.append((path, report))
-        path, acquisition = max(candidates, key=lambda pair: pair[0].stat().st_mtime_ns)
-        assert acquisition["selected_arm"] == "qa", "This pilot requires a completed Q&A confirmation."
+    def __init__(self, acquisition_report, output=None):
+        path, acquisition = completed_report(acquisition_report)
+        self.initial_path = acquisition_checkpoint(path, acquisition)
         self.config = acquisition["protocol"]
         self.learning = acquisition["learning"]
-        self.out = ROOT / "runs" / f"retention-{time.time_ns()}"
-        self.out.mkdir()
+        self.out = new_run("retention", output)
+        self.live_path = ROOT / "adapters/live.safetensors"
+        self.live_before = file_hash(self.live_path) if self.live_path.exists() else None
         self.old = self.config["confirmation"]
         self.new = [dict(subject=s, value=v) for s, v in [
             ("Milo Hart", "Juniper"), ("Zara Penn", "Granite"), ("Oren Fisk", "Saffron"),
@@ -45,7 +41,6 @@ class RetentionExperiment(Experiment):
         self.model = self.session.model
         self.model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
         self.model.eval()
-        self.initial_path = path.parent / "confirmation-qa-42.safetensors"
         self.initial = load_file(self.initial_path)
         self.rows = {}
         for name, facts in (("old", self.old), ("new", self.new)):
@@ -56,12 +51,15 @@ class RetentionExperiment(Experiment):
             ) for fact in facts] for template in self.config["training_questions"]]
         self.length = max(len(row["input_ids"]) for variants in self.rows.values() for rows in variants for row in rows)
         self.report = {"protocol": "retention-v1", "seed": 42, "old_facts": self.old, "new_facts": self.new,
+                       "status": "running", "model": self.session.metadata,
+                       "inputs": {"acquisition": input_record(path, self.out), "initial_checkpoint": input_record(self.initial_path, self.out)},
                        "initial_checkpoint": self.initial_path.relative_to(ROOT).as_posix(),
                        "initial_checkpoint_sha256": hashlib.sha256(self.initial_path.read_bytes()).hexdigest(),
                        "learning": self.learning, "evaluation_config": self.config,
                        "padded_length": self.length, "batch_size": 8, "milestones": [16, 64],
                        "base_sha256_before": self.base_hash, "runs": [],
                        "scope": "Follow-on one-seed pilot; seed42 final64-exposure QA adapter chosen by fixed first-seed rule, not best confirmation score. Equal total batch/step budget; replay halves new-fact exposures."}
+        assert self.base_hash == acquisition["base_sha256_after"]
         set_peft_model_state_dict(self.model, self.initial)
         self.report["before"] = {"old": self.evaluate(self.old), "new": self.evaluate(self.new)}
         self.write()
@@ -107,6 +105,10 @@ class RetentionExperiment(Experiment):
         self.report["base_sha256_after"] = parameter_hash(self.base_parameters)
         assert self.report["base_sha256_after"] == self.base_hash
         assert hashlib.sha256(self.initial_path.read_bytes()).hexdigest() == self.report["initial_checkpoint_sha256"]
+        assert (file_hash(self.live_path) if self.live_path.exists() else None) == self.live_before
+        self.report["live_checkpoint_unchanged"] = True
+        for entry in self.report["inputs"].values():
+            assert file_hash(self.out / entry["path"]) == entry["sha256"]
         self.report["source_sha256"] = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
                                        for p in (ROOT / "qwenbrain/experiment_retention.py", ROOT / "qwenbrain/experiment_acquisition.py", ROOT / "qwenbrain/learning.py")}
         self.report["status"] = "completed"
@@ -115,4 +117,8 @@ class RetentionExperiment(Experiment):
 
 
 if __name__ == "__main__":
-    RetentionExperiment().run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--acquisition-report", required=True)
+    parser.add_argument("--output")
+    args = parser.parse_args()
+    RetentionExperiment(args.acquisition_report, args.output).run()

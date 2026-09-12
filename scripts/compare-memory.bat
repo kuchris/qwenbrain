@@ -8,7 +8,7 @@ if not exist "%~dp0..\.venv\Scripts\python.exe" (
     echo Run setup.bat first.
     goto failed
 )
-"%~dp0..\.venv\Scripts\python.exe" -X utf8 -m qwenbrain.experiment_memory
+"%~dp0..\.venv\Scripts\python.exe" -X utf8 -m qwenbrain.experiment_memory %*
 set "experimentExit=%errorlevel%"
 popd
 pause

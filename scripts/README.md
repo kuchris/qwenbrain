@@ -15,26 +15,29 @@ do not launch several training experiments at once.
 
 | Command | Purpose | Prerequisite beyond setup |
 | --- | --- | --- |
+| `.\scripts\reproduce-memory.bat --output runs/my-reproduction` | Full acquisition/completion/retention/four-arm pipeline | None; creates every training checkpoint in a new output directory |
 | `.\scripts\compare-grounded-memory.bat --seed 73` | One fresh world, paired raw/checked answers | None; omit `--seed` for all three worlds |
 | `.\scripts\compare-temporal-memory.bat` | Frozen/oracle/retrieval with raw sources | None |
 | `.\scripts\compare-temporal-memory.bat --evidence-format explicit` | Explicit date and lookup-result presentation | None |
 | `.\scripts\compare-stopping.bat` | Answer-only vs answer-plus-end-token supervision | None |
-| `.\scripts\compare-learning.bat` | Raw, varied and QA acquisition; completion probes | None; creates training checkpoints |
-| `.\scripts\compare-retention.bat` | New facts with/without replay | A completed acquisition run with QA selected; uses the latest completed run |
-| `.\scripts\compare-memory.bat` | Frozen/oracle/SQLite/QA-replay comparison | The exact acquisition checkpoint and SHA-256 referenced in `reports/retention-results.json` |
+| `.\scripts\compare-learning.bat --output runs/acquisition-example` | Raw, varied and QA acquisition | None; creates training checkpoints |
+| `.\scripts\compare-retention.bat --acquisition-report runs/acquisition-example/results.json` | New facts with/without replay | Explicit completed acquisition report with QA selected and verified QA64 checkpoint |
+| `.\scripts\compare-memory.bat --retention-report runs/retention-example/results.json` | Frozen/oracle/SQLite/QA-replay comparison | Explicit completed retention report and its verified acquisition checkpoint |
 | `.\scripts\check-update.bat` | One-message update, masking, reload and recall checks | None; writes `reports/update-checks.json` |
 | `.\scripts\check-learning.bat` | Automatic-update acceptance, rejection and persistence checks | None; writes `reports/online-checks.json` |
 
 The fresh-world experiments are the easiest GPU entry points for a new reader.
 Experiment runners write new directories under `runs/`; they do not automatically
 replace the consolidated result JSON or narrative reports in `reports/` and
-`docs/experiments/`. A reproducible aggregation command remains planned work.
+`docs/experiments/`. The four-stage pipeline automatically generates its own
+summary; `python -m qwenbrain.reproduce summarize --run-dir runs/my-reproduction`
+recounts it without loading a model.
 
-The four-arm comparison has a historical-artifact dependency. Re-running
-acquisition creates a new path, which the saved retention report will not select
-automatically. Do not edit a published report or its checksum to make a new run
-appear identical. Explicit input selection and new report generation are listed
-in the [portfolio roadmap](../docs/portfolio-roadmap.md).
+The full pipeline removes the need for a historical training checkpoint by
+rebuilding acquisition first. Individual stages use explicit input reports;
+they do not search for the latest run. See the [reproduction guide](../docs/reproduction.md)
+for commands, output layout and artifact checks. Historical published reports
+remain unchanged.
 
 For automation without the batch files' final `pause`, invoke the Python module:
 

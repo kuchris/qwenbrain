@@ -77,8 +77,9 @@ the acquisition adapter reload checks are a separate result.
 - [Full retention results, raw answers, counters, and checksums](../../reports/retention-results.json).
 - Local outputs: `runs/retention-1789132854343756800/`.
 - [Protocol](acquisition-protocol.md#follow-on-retention-pilot).
-- Double-click [compare-retention.bat](../../scripts/compare-retention.bat) to repeat using
-  the latest completed Q&A acquisition run's seed-42 final checkpoint.
+- Run [compare-retention.bat](../../scripts/compare-retention.bat) with
+  `--acquisition-report runs/YOUR-RUN/results.json` to select a completed Q&A
+  acquisition run's hashed seed-42 final checkpoint. See the [reproduction guide](../reproduction.md).
 
 ## Next bounded experiment
 

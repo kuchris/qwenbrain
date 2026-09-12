@@ -96,4 +96,5 @@ corrections, historical questions and unknown-answer behavior.
 
 - [Fixed protocol](memory-protocol.md)
 - [Complete raw outputs, evidence, timings and checksums](../../reports/memory-results.json)
-- [Repeat the experiment](../../scripts/compare-memory.bat)
+- [Repeat the experiment](../../scripts/compare-memory.bat) with an explicit
+  `--retention-report PATH`, or rebuild all inputs with the [reproduction pipeline](../reproduction.md).

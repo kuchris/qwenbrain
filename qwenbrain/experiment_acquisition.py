@@ -1,27 +1,22 @@
 """Offline, preregistered format/exposure comparison; never writes the live adapter."""
 
-import hashlib
+import argparse
 import json
 import os
 import random
-import re
-import time
 
 os.environ["HF_HUB_OFFLINE"] = "1"
 
 from .chat import ChatSession, ROOT
 from .check_update import parameter_hash
 from .learning import attach_adapter, update_once
+from .artifacts import file_hash, input_record, new_run, normalize, project_file
 
 import torch
 from peft import get_peft_model_state_dict, set_peft_model_state_dict
 from safetensors import safe_open
 from safetensors.torch import save_file
 from torch.nn.attention import SDPBackend, sdpa_kernel
-
-
-def normalize(text):
-    return re.sub(r"[\s\W_]+", "", text.casefold())
 
 
 def encode_target(tokenizer, history, role, target):
@@ -59,11 +54,13 @@ def pack(rows, tokenizer, length=None):
 
 
 class Experiment:
-    def __init__(self):
-        self.config = json.loads((ROOT / "configs/acquisition.json").read_text())
-        self.learning = json.loads((ROOT / "configs/learning.json").read_text())
-        self.out = ROOT / "runs" / f"acquisition-{time.time_ns()}"
-        self.out.mkdir(parents=True)
+    def __init__(self, config_path="configs/acquisition.json", learning_path="configs/learning.json", output=None):
+        config_path, learning_path = project_file(config_path), project_file(learning_path)
+        self.config = json.loads(config_path.read_text(encoding="utf-8"))
+        self.learning = json.loads(learning_path.read_text(encoding="utf-8"))
+        self.out = new_run("acquisition", output)
+        self.live_path = ROOT / "adapters/live.safetensors"
+        self.live_before = file_hash(self.live_path) if self.live_path.exists() else None
         self.session = ChatSession()
         self.base_parameters = list(self.session.model.named_parameters())
         self.base_hash = parameter_hash(self.base_parameters)
@@ -76,11 +73,17 @@ class Experiment:
         self.length = max(len(row["input_ids"]) for formats in self.fixtures.values()
                           for variants in formats.values() for rows in variants for row in rows)
         self.report = {"protocol": self.config, "learning": self.learning, "model": self.session.metadata,
+                       "status": "running", "checkpoint_sha256": {},
+                       "inputs": {"config": input_record(config_path, self.out), "learning": input_record(learning_path, self.out)},
                        "padded_training_length": self.length, "runs": [], "controls": {},
                        "base_sha256_before": self.base_hash, "directory": self.out.relative_to(ROOT).as_posix(),
                        "budget": "Equal full-logit padded batch dimensions, steps, and fact exposures within each phase; unpadded and supervised tokens plus measured time also reported.",
                        "selection_rule": "Choose varied or qa by mean pilot exact-match accuracy over all four milestones; tie-break by mean candidate-rank accuracy; final tie favors varied. Confirm selected arm against raw with fixed settings.",
                        "scope": "Synthetic project-name acquisition; no live promotion or retention/replay experiment."}
+        paths = [config_path, learning_path, ROOT / "configs/chat.json", ROOT / "uv.lock",
+                 ROOT / "qwenbrain/experiment_acquisition.py", ROOT / "qwenbrain/learning.py",
+                 ROOT / "qwenbrain/chat.py", ROOT / "qwenbrain/artifacts.py"]
+        self.report["source_sha256"] = {p.relative_to(ROOT).as_posix(): file_hash(p) for p in paths}
         self.write()
 
     def write(self):
@@ -223,7 +226,10 @@ class Experiment:
                 run["checkpoints"].append({"exposures_per_fact": exposure, **counters, **result})
                 print(f"{phase} seed={seed} {arm} exposures={exposure}: exact={result['exact_match']:.3f} rank={result['rank_accuracy']:.3f} controls={result['control_accuracy']:.2f}", flush=True)
                 self.write()
-        save_file(self.state(), self.out / f"{phase}-{arm}-{seed}.safetensors")
+        checkpoint = self.out / f"{phase}-{arm}-{seed}.safetensors"
+        save_file(self.state(), checkpoint)
+        self.report.setdefault("checkpoint_sha256", {})[checkpoint.name] = file_hash(checkpoint)
+        self.write()
 
     def run(self):
         initial = self.initialize(42)
@@ -246,12 +252,19 @@ class Experiment:
                 self.train_arm("confirmation", seed, arm, initial)
         self.report["base_sha256_after"] = parameter_hash(self.base_parameters)
         assert self.report["base_sha256_after"] == self.base_hash
+        assert (file_hash(self.live_path) if self.live_path.exists() else None) == self.live_before
+        self.report["live_checkpoint_unchanged"] = True
+        for path, digest in self.report["source_sha256"].items():
+            assert file_hash(ROOT / path) == digest
         self.report["status"] = "completed"
-        self.report["source_sha256"] = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-                                        for p in (ROOT / "configs/acquisition.json", ROOT / "qwenbrain/experiment_acquisition.py", ROOT / "qwenbrain/learning.py", ROOT / "uv.lock")}
         self.write()
         print("RESULTS", self.out, flush=True)
 
 
 if __name__ == "__main__":
-    Experiment().run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--config", default="configs/acquisition.json")
+    parser.add_argument("--learning-config", default="configs/learning.json")
+    parser.add_argument("--output")
+    args = parser.parse_args()
+    Experiment(args.config, args.learning_config, args.output).run()

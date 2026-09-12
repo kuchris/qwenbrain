@@ -98,7 +98,9 @@ statement immediately before its project name, using the final 64-exposure
 checkpoints. It records the first completed clause and scores the expected name.
 This post-hoc diagnostic is not used for pilot selection or confirmation settings;
 it helps distinguish completion of the trained statement from answering a new
-assistant question. `compare-learning.bat` runs it after a successful comparison.
+assistant question. The current runner takes an explicit report:
+`python -m qwenbrain.probe_acquisition_completions --acquisition-report runs/YOUR-RUN/results.json`.
+The [full reproduction pipeline](../reproduction.md) runs this automatically after acquisition.
 
 ## Follow-on retention pilot
 
@@ -122,6 +124,7 @@ checkpoint and base weights unchanged, and save each final adapter separately.
 This follow-on design was chosen after seeing acquisition results and is not a
 multi-seed confirmation of replay's effectiveness.
 
-Run [compare-retention.bat](../../scripts/compare-retention.bat) after the acquisition run.
+Run [compare-retention.bat](../../scripts/compare-retention.bat) with
+`--acquisition-report runs/YOUR-RUN/results.json` after the acquisition run.
 See [acquisition results](acquisition-results.md) and
 [retention results](retention-results.md) for the measured outcomes.

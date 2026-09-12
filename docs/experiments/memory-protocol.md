@@ -58,7 +58,9 @@ reference; the main comparison evaluates the same final 16-fact state for all ar
 
 ## Reproduce
 
-Run `compare-memory.bat`, or `.venv\Scripts\python.exe -X utf8 -m
-qwenbrain.experiment_memory` from the project. It requires the pinned acquisition
-checkpoint recorded in `reports/retention-results.json`; it fails if the checksum
-does not match. CPU tests: `.venv\Scripts\python.exe -m unittest discover -s tests -v`.
+Run `scripts\compare-memory.bat --retention-report runs/<retention-run>/results.json`,
+or pass the same argument to `.venv\Scripts\python.exe -X utf8 -m
+qwenbrain.experiment_memory`. The explicitly selected report must reference an
+available acquisition checkpoint with a matching checksum. The
+[full reproduction pipeline](../reproduction.md) rebuilds all required training
+inputs. CPU tests: `.venv\Scripts\python.exe -m unittest discover -s tests -v`.

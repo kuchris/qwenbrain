@@ -45,7 +45,10 @@ are too few for that last claim.
   inspect provenance and restart. Answers are labeled `source_value` or
   `abstention`; this path does not load an LLM.
 - **Evaluation and evidence:** fresh context per query, frozen/oracle/retrieval/
-  weight baselines, saved raw outputs, checksums, and 20 CPU test methods.
+  weight baselines, saved raw outputs, checksums, and 26 CPU test methods.
+- **GPU reproduction pipeline:** rebuild acquisition checkpoints, run completion
+  probes and retention, then compare all four memory arms with explicit hashed
+  inputs and an automatically recounted report.
 
 The code has three execution paths:
 
@@ -87,14 +90,20 @@ With `uv` installed, run these PowerShell commands from the project root:
 ```powershell
 .\setup.bat
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
-.\scripts\compare-grounded-memory.bat --seed 73
+.\scripts\reproduce-memory.bat --output runs/my-reproduction
 ```
 
-Setup installs locked dependencies and downloads the pinned model. The grounded
-experiment starts from checked-in fixtures and does not require an old training
-adapter. Results are written to a new `runs/grounded-memory-73-*/` directory.
-These steps have been exercised in the existing environment; a clean-machine
-reproduction has not yet been verified.
+Setup installs locked dependencies and downloads the pinned model. The full
+four-arm pipeline creates its training checkpoints from the checked-in fixtures;
+results and summaries go to a new run directory. See the
+[reproduction guide](docs/reproduction.md) for its stage graph and verification
+boundary. For a smaller frozen-model experiment, use
+`.\scripts\compare-grounded-memory.bat --seed 73`.
+
+The [verified reproduction](docs/experiments/reproduction-results.md) completed
+all four stages in a separate source export and fresh locked environment, with
+newly trained adapters and copied/checksummed pretrained weights on the same GPU.
+It reproduced the original headline scores; it is not a fresh-data confirmation.
 
 The CPU tests use only the standard library and checked-in fixtures/reports. They
 can also run with an existing Python 3.11 interpreter, without downloading weights:
@@ -104,8 +113,8 @@ python -m unittest discover -s tests -v
 ```
 
 See [all experiment commands and prerequisites](scripts/README.md) and the
-[local usage guide](docs/usage.md). The four-arm weight comparison currently
-requires the historical acquisition checkpoint referenced by its report.
+[local usage guide](docs/usage.md). Individual retention and memory stages require
+explicit input reports; the full pipeline supplies its own newly generated ones.
 
 To run the original chat experiment, launch [chat.bat](chat.bat). It attempts a
 weight update after each message and saves accepted changes locally. `/reset`
@@ -137,8 +146,8 @@ local machine.
 
 The strongest current contribution is a measured diagnosis: lower training loss,
 successful retrieval, and reliable answers are distinct outcomes. The next
-deliverables are reproducible GPU experiment selection/reporting and evaluation
-beyond the current templates. The explicit-input memory demo is implemented;
+deliverables are evaluation beyond the current templates and the public showcase.
+The explicit-input memory demo and four-arm reproduction pipeline are implemented;
 natural-language memory extraction remains a separate milestone.
 
 See the [portfolio roadmap and draft CV wording](docs/portfolio-roadmap.md).

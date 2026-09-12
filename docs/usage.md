@@ -58,7 +58,7 @@ was the gap. The experiment does not change live learning.
 
 After a completed Q&A acquisition comparison, [compare-retention.bat](../scripts/compare-retention.bat)
 tests learning eight new facts with and without replay of the old eight. It uses
-the latest completed comparison's seed-42 final Q&A adapter and creates separate
+an explicit `--acquisition-report PATH` and its hashed seed-42 final Q&A adapter, creating separate
 outputs under `runs/retention-*/`. See [the retention results](experiments/retention-results.md).
 
 Double-click [compare-stopping.bat](../scripts/compare-stopping.bat) to compare answer-only
@@ -70,7 +70,7 @@ The [completed stopping comparison](experiments/stopping-results.md) scored 48/4
 with end-token supervision versus 44/48 without it at 16 exposures. Longer
 training still caused unrelated answer regressions; live learning is unchanged.
 
-Double-click [compare-memory.bat](../scripts/compare-memory.bat) to compare four methods on
+Run [compare-memory.bat](../scripts/compare-memory.bat) with `--retention-report PATH` to compare four methods on
 the retention experiment's same 16 facts: frozen base, oracle source evidence,
 SQLite retrieval, and Q&A with 50% replay. The weight arm reproduces the earlier
 16-step replay setting; retrieval matches full person names and returns their
@@ -80,6 +80,10 @@ writes memories or trains. Outputs go to `runs/memory-*/`. See the
 This is a diagnostic on reused facts, not a semantic-search or general long-term
 memory benchmark. CPU retrieval checks run with
 `.venv\Scripts\python.exe -m unittest discover -s tests -v`.
+
+To rebuild every prerequisite and generate a new summary automatically, run
+`.\scripts\reproduce-memory.bat --output runs/my-reproduction`.
+The [reproduction guide](reproduction.md) gives the full command sequence.
 
 [compare-temporal-memory.bat](../scripts/compare-temporal-memory.bat) tests current names,
 historical names, late corrections and UNKNOWN responses on eight fresh people.

@@ -1,6 +1,7 @@
 """Supplementary final-checkpoint probes of the trained statement prefix itself."""
 
 import json
+import argparse
 import os
 import re
 
@@ -9,6 +10,7 @@ os.environ["HF_HUB_OFFLINE"] = "1"
 from .chat import ChatSession, ROOT
 from .learning import attach_adapter
 from .check_update import parameter_hash
+from .artifacts import checked_input, completed_report, file_hash, input_record
 
 import torch
 from peft import set_peft_model_state_dict
@@ -39,23 +41,25 @@ def probe(session, fact):
     return {**fact, "completion": completion, "first_clause_correct": normalized == fact["value"].lower()}
 
 
-def main():
-    completed = []
-    for path in (ROOT / "runs").glob("acquisition-*/results.json"):
-        report = json.loads(path.read_text())
-        if report.get("status") == "completed":
-            completed.append((path, report))
-    path, report = max(completed, key=lambda pair: pair[0].stat().st_mtime_ns)
+def main(acquisition_report, output=None):
+    path, report = completed_report(acquisition_report)
+    target = (ROOT / output).resolve() if output else path.parent / "completions.json"
+    if not target.is_relative_to(ROOT / "runs") or target.exists():
+        raise ValueError("Completion output must be a new file under runs/.")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    checkpoints = {name: checked_input(path.parent, {"path": name, "sha256": digest})
+                   for name, digest in report["checkpoint_sha256"].items()}
     session = ChatSession()
     session.model = attach_adapter(session.model, report["learning"])
     session.model.requires_grad_(False).eval()
-    results = {"scope": "Post-hoc direct-completion diagnostic at final (64-exposure) checkpoints only; not used for format selection.", "runs": []}
+    results = {"status": "running", "inputs": {"acquisition": input_record(path, target.parent)},
+               "scope": "Post-hoc direct-completion diagnostic at final (64-exposure) checkpoints only; not used for format selection.", "runs": []}
     for phase in ("pilot", "confirmation"):
         with session.model.disable_adapter():
             answers = [probe(session, fact) for fact in report["protocol"][phase]]
         results[phase + "_base"] = answers
     for run in report["runs"]:
-        state = load_file(path.parent / f"{run['phase']}-{run['arm']}-{run['seed']}.safetensors")
+        state = load_file(checkpoints[f"{run['phase']}-{run['arm']}-{run['seed']}.safetensors"])
         set_peft_model_state_dict(session.model, state)
         before = parameter_hash(list(session.model.named_parameters()))
         expected = run["checkpoints"][-1]["answers"][0]
@@ -71,9 +75,15 @@ def main():
                   "reloaded_first_qa_matches": True}
         results["runs"].append(result)
         print(result["phase"], result["arm"], result["seed"], result["correct"], "/", result["total"], flush=True)
-    (path.parent / "completions.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
-    print("RESULTS", path.parent, flush=True)
+    assert file_hash(path) == results["inputs"]["acquisition"]["sha256"]
+    results["status"] = "completed"
+    target.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    print("RESULTS", target, flush=True)
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--acquisition-report", required=True)
+    parser.add_argument("--output")
+    args = parser.parse_args()
+    main(args.acquisition_report, args.output)

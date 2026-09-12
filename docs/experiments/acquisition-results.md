@@ -119,8 +119,9 @@ active throughout forward and backward; the completed comparison uses that fix.
 - [Direct-completion and reload probes](../../reports/acquisition-completions.json).
 - Original local run and adapters:
   `runs/acquisition-1789131725328701100/`.
-- Double-click [compare-learning.bat](../../scripts/compare-learning.bat) to repeat the
-  comparison and completion probes. Each run creates a separate directory.
+- Run [compare-learning.bat](../../scripts/compare-learning.bat) to repeat acquisition.
+  The [reproduction pipeline](../reproduction.md) also runs completion probes and
+  downstream comparisons with explicit inputs. Each run creates separate outputs.
 - [Research and rationale](../research/online-learning-research.md).
 
 The follow-on retention experiment and its implications are recorded in

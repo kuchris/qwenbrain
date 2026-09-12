@@ -1,6 +1,6 @@
 """Matched frozen/oracle/SQLite/QA-replay pilot using existing retention facts."""
 
-import hashlib
+import argparse
 import json
 import random
 import time
@@ -14,6 +14,7 @@ from .check_update import parameter_hash
 from .experiment_acquisition import encode_target, normalize, pack
 from .learning import attach_adapter, update_once
 from .memory import MemoryStore
+from .artifacts import completed_report, file_hash, input_record, new_run, retention_checkpoint
 
 import torch
 from peft import get_peft_model_state_dict, set_peft_model_state_dict
@@ -21,20 +22,13 @@ from safetensors.torch import load_file, save_file
 from torch.nn.attention import SDPBackend, sdpa_kernel
 
 
-def file_hash(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
 class MemoryExperiment:
-    def __init__(self):
-        self.source_path = ROOT / "reports/retention-results.json"
-        source = json.loads(self.source_path.read_text(encoding="utf-8"))
+    def __init__(self, retention_report, output=None):
+        self.source_path, source = completed_report(retention_report)
         self.config = source["evaluation_config"]
         self.learning = source["learning"]
-        self.initial_path = ROOT / source["initial_checkpoint"]
-        assert file_hash(self.initial_path) == source["initial_checkpoint_sha256"]
-        self.out = ROOT / "runs" / f"memory-{time.time_ns()}"
-        self.out.mkdir()
+        self.initial_path = retention_checkpoint(self.source_path, source)
+        self.out = new_run("memory", output)
         self.records = []
         for group in ("old", "new"):
             for fact in source[group + "_facts"]:
@@ -49,6 +43,7 @@ class MemoryExperiment:
             "model": self.session.metadata, "evaluation_config": self.config,
             "learning": self.learning, "records": self.records, "arms": {},
             "directory": self.out.relative_to(ROOT).as_posix(),
+            "inputs": {"retention": input_record(self.source_path, self.out), "initial_checkpoint": input_record(self.initial_path, self.out)},
             "initial_checkpoint": source["initial_checkpoint"],
             "initial_checkpoint_sha256": file_hash(self.initial_path),
             "base_sha256_before": self.base_hash,
@@ -60,7 +55,9 @@ class MemoryExperiment:
         }
         paths = ["qwenbrain/experiment_memory.py", "qwenbrain/memory.py", "qwenbrain/chat.py",
                  "qwenbrain/experiment_acquisition.py", "qwenbrain/learning.py", "configs/chat.json",
-                 "reports/retention-results.json", "uv.lock"]
+                 "qwenbrain/artifacts.py", self.source_path.relative_to(ROOT).as_posix(), "uv.lock"]
+        if "base_sha256_after" in source:
+            assert self.base_hash == source["base_sha256_after"]
         self.report["source_sha256"] = {p: file_hash(ROOT / p) for p in paths}
         # Inspect only the live file's checksum; never load it into this experiment.
         self.live_path = ROOT / "adapters/live.safetensors"
@@ -237,4 +234,8 @@ class MemoryExperiment:
 
 
 if __name__ == "__main__":
-    MemoryExperiment().run()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--retention-report", required=True)
+    parser.add_argument("--output")
+    args = parser.parse_args()
+    MemoryExperiment(args.retention_report, args.output).run()
