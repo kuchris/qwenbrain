@@ -13,8 +13,10 @@ Measured locally on an RTX 5070 Ti using a pinned Qwen3.5-0.8B model in BF16.
 [CPU test runs](https://github.com/kuchris/qwenbrain/actions/workflows/tests.yml)
 
 **Status:** a local research and engineering prototype. The original live chat
-attempts per-message LoRA updates; retrieval and verification run in separate
-offline experiments. An integrated memory assistant is not implemented.
+attempts per-message LoRA updates. A CPU-only memory demo now supports explicit
+writes, historical lookup, late corrections and restart persistence. Model-based
+retrieval and verification remain separate offline experiments; free-form
+conversational encoding is not implemented.
 
 ## Results worth reading
 
@@ -37,12 +39,15 @@ are too few for that last claim.
 - **Versioned SQLite memory:** original source records, effective and observation
   dates, current/historical lookup, late corrections, and restart persistence.
 - **Typed-source checking:** exact project-value checks with source IDs and
-  explicit abstention. Typed fields come from fixtures; free-form extraction is
-  not implemented.
+  explicit abstention. Typed fields come from fixtures or explicit demo commands;
+  free-form extraction is not implemented.
+- **Interactive memory demo:** append claims, ask current/historical questions,
+  inspect provenance and restart. Answers are labeled `source_value` or
+  `abstention`; this path does not load an LLM.
 - **Evaluation and evidence:** fresh context per query, frozen/oracle/retrieval/
-  weight baselines, saved raw outputs, checksums, and 14 CPU test methods.
+  weight baselines, saved raw outputs, checksums, and 20 CPU test methods.
 
-The code has two separate execution paths:
+The code has three execution paths:
 
 ```text
 Live adaptation experiment
@@ -51,9 +56,30 @@ Live adaptation experiment
 Offline memory experiments
   synthetic records -> versioned SQLite -> query/date lookup -> frozen Qwen
                                                         -> optional source check
+
+Interactive memory demo
+  explicit command -> versioned SQLite -> exact identity/date lookup -> source_value
 ```
 
-## Try it locally
+## Two-minute memory demo
+
+With Python 3.11, from the project root (no packages or model download required):
+
+```powershell
+python -m qwenbrain.memory_demo walkthrough
+```
+
+On the existing Windows project environment, run
+`.\memory-demo.bat walkthrough`, or double-click [memory-demo.bat](memory-demo.bat)
+for interactive input. The walkthrough checks 13 scenario steps, each in a new
+Python process, and saves a database plus transcript under `runs/memory-demo-*/`.
+It covers updates, historical corrections, observation cutoffs and UNKNOWN;
+query steps check that database bytes remain unchanged.
+
+This is a deterministic storage/application demonstration, not a new model-recall
+score. See the [commands, date semantics and limits](docs/memory-demo.md).
+
+## GPU experiments
 
 The measured GPU environment is Windows, Python 3.11, and an RTX 5070 Ti.
 With `uv` installed, run these PowerShell commands from the project root:
@@ -104,13 +130,15 @@ Source modules, configs, raw results, model paths and checkpoints retain their
 locations so that experiment references and recorded evidence remain usable.
 Historical JSON may name launchers at their former root location; current
 commands are in `scripts/`. GitHub Actions runs the CPU tests on Python 3.11;
-GPU experiments are run separately on the local machine.
+both Linux and Windows are tested. GPU experiments are run separately on the
+local machine.
 
 ## Portfolio next steps
 
 The strongest current contribution is a measured diagnosis: lower training loss,
 successful retrieval, and reliable answers are distinct outcomes. The next
-deliverables are a small integrated memory demo, reproducible experiment
-selection/reporting, and evaluation beyond the current templates.
+deliverables are reproducible GPU experiment selection/reporting and evaluation
+beyond the current templates. The explicit-input memory demo is implemented;
+natural-language memory extraction remains a separate milestone.
 
 See the [portfolio roadmap and draft CV wording](docs/portfolio-roadmap.md).

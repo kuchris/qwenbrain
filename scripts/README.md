@@ -2,7 +2,12 @@
 
 Run commands from the project root in PowerShell. The launchers also resolve the
 project directory when double-clicked or called from another working directory.
-`setup.bat`, `chat.bat`, and `project-env.bat` remain at the root.
+`setup.bat`, `chat.bat`, `memory-demo.bat`, and `project-env.bat` remain at the root.
+
+For the CPU-only interactive demo, use `.\memory-demo.bat`; use
+`.\memory-demo.bat walkthrough` for the checked process-restart scenario.
+See [memory demo usage](../docs/memory-demo.md). It also runs with a standalone
+Python 3.11 interpreter and does not require the GPU setup below.
 
 All commands below use the project `.venv` and local caches. Experiment/check
 adapters are separate from the live chat adapter. GPU commands run sequentially;

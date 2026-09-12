@@ -143,3 +143,19 @@ class ProjectMemoryStore(VersionedMemoryStore):
             if row:
                 evidence[0].update(relation="project_name", value=row["value"])
         return evidence
+
+    def lookup(self, subject, as_of, known_at):
+        """Look up an explicit identity and dates, without scanning a question."""
+        for value in (as_of, known_at):
+            if date.fromisoformat(value).isoformat() != value:
+                raise ValueError("Dates must use YYYY-MM-DD.")
+        if as_of > known_at:
+            return None
+        row = self.connection.execute(
+            "SELECT v.id, v.content, v.valid_from, v.recorded_at, p.value "
+            "FROM versions v LEFT JOIN project_values p ON p.source_id = v.id "
+            "WHERE v.subject_key = ? AND v.valid_from <= ? AND v.recorded_at <= ? "
+            "ORDER BY v.valid_from DESC, v.recorded_at DESC, v.id DESC LIMIT 1",
+            (words(subject), as_of, known_at),
+        ).fetchone()
+        return dict(row) if row else None

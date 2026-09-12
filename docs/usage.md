@@ -1,5 +1,8 @@
 # Running QwenBrain locally
 
+For explicit writes, historical lookup and restart persistence without a model,
+start [memory-demo.bat](../memory-demo.bat). See the [memory demo guide](memory-demo.md).
+
 The chat entry point is the original per-message LoRA experiment. Retrieval and
 typed-source checking are separate offline experiments; they are not integrated
 into chat. Run shell commands from the project root unless stated otherwise.

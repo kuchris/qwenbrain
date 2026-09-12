@@ -1,0 +1,423 @@
+{
+  "status": "completed",
+  "mode": "source_value",
+  "model_loaded": false,
+  "process_per_command": true,
+  "steps": [
+    {
+      "label": "Encode first name",
+      "arguments": [
+        "remember",
+        "Aster Rook",
+        "project_name",
+        "Cobalt",
+        "--valid-from",
+        "2026-01-01",
+        "--recorded-at",
+        "2026-01-02"
+      ],
+      "expected": {
+        "source_id": 1,
+        "status": "stored"
+      },
+      "actual": {
+        "status": "stored",
+        "mode": "explicit_input",
+        "source_id": 1,
+        "subject": "Aster Rook",
+        "relation": "project_name",
+        "value": "Cobalt",
+        "valid_from": "2026-01-01",
+        "recorded_at": "2026-01-02"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": null,
+      "database_sha256_after": "b9574a4a6ab98682d8b5304635a82b5b64c7527ecd0cc9afb5be35d4a57e950d",
+      "passed": true
+    },
+    {
+      "label": "Read after process restart",
+      "arguments": [
+        "ask",
+        "What is Aster Rook's project called?",
+        "--known-at",
+        "2026-01-02"
+      ],
+      "expected": {
+        "answer": "Cobalt",
+        "source_id": 1
+      },
+      "actual": {
+        "answer": "Cobalt",
+        "mode": "source_value",
+        "source_id": 1,
+        "reason": "found",
+        "known_at": "2026-01-02",
+        "subject": "Aster Rook",
+        "as_of": "2026-01-02",
+        "valid_from": "2026-01-01",
+        "recorded_at": "2026-01-02",
+        "source_input": "remember 'Aster Rook' project_name Cobalt --valid-from 2026-01-01 --recorded-at 2026-01-02"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "b9574a4a6ab98682d8b5304635a82b5b64c7527ecd0cc9afb5be35d4a57e950d",
+      "database_sha256_after": "b9574a4a6ab98682d8b5304635a82b5b64c7527ecd0cc9afb5be35d4a57e950d",
+      "passed": true
+    },
+    {
+      "label": "Record a new name",
+      "arguments": [
+        "remember",
+        "Aster Rook",
+        "project_name",
+        "Vesper",
+        "--valid-from",
+        "2026-02-01",
+        "--recorded-at",
+        "2026-02-02"
+      ],
+      "expected": {
+        "source_id": 2,
+        "status": "stored"
+      },
+      "actual": {
+        "status": "stored",
+        "mode": "explicit_input",
+        "source_id": 2,
+        "subject": "Aster Rook",
+        "relation": "project_name",
+        "value": "Vesper",
+        "valid_from": "2026-02-01",
+        "recorded_at": "2026-02-02"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "b9574a4a6ab98682d8b5304635a82b5b64c7527ecd0cc9afb5be35d4a57e950d",
+      "database_sha256_after": "215e540f880304200ac8446ab237c00ba2bcc74daf82771a2063145371590822",
+      "passed": true
+    },
+    {
+      "label": "Read new current state",
+      "arguments": [
+        "ask",
+        "What is Aster Rook's project called?",
+        "--known-at",
+        "2026-02-02"
+      ],
+      "expected": {
+        "answer": "Vesper",
+        "source_id": 2
+      },
+      "actual": {
+        "answer": "Vesper",
+        "mode": "source_value",
+        "source_id": 2,
+        "reason": "found",
+        "known_at": "2026-02-02",
+        "subject": "Aster Rook",
+        "as_of": "2026-02-02",
+        "valid_from": "2026-02-01",
+        "recorded_at": "2026-02-02",
+        "source_input": "remember 'Aster Rook' project_name Vesper --valid-from 2026-02-01 --recorded-at 2026-02-02"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "215e540f880304200ac8446ab237c00ba2bcc74daf82771a2063145371590822",
+      "database_sha256_after": "215e540f880304200ac8446ab237c00ba2bcc74daf82771a2063145371590822",
+      "passed": true
+    },
+    {
+      "label": "Read the original historical state",
+      "arguments": [
+        "ask",
+        "What was Aster Rook's project called on 2026-01-15?",
+        "--known-at",
+        "2026-02-02"
+      ],
+      "expected": {
+        "answer": "Cobalt",
+        "source_id": 1
+      },
+      "actual": {
+        "answer": "Cobalt",
+        "mode": "source_value",
+        "source_id": 1,
+        "reason": "found",
+        "known_at": "2026-02-02",
+        "subject": "Aster Rook",
+        "as_of": "2026-01-15",
+        "valid_from": "2026-01-01",
+        "recorded_at": "2026-01-02",
+        "source_input": "remember 'Aster Rook' project_name Cobalt --valid-from 2026-01-01 --recorded-at 2026-01-02"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "215e540f880304200ac8446ab237c00ba2bcc74daf82771a2063145371590822",
+      "database_sha256_after": "215e540f880304200ac8446ab237c00ba2bcc74daf82771a2063145371590822",
+      "passed": true
+    },
+    {
+      "label": "Append a late historical correction",
+      "arguments": [
+        "remember",
+        "Aster Rook",
+        "project_name",
+        "Laurel",
+        "--valid-from",
+        "2026-01-01",
+        "--recorded-at",
+        "2026-02-10"
+      ],
+      "expected": {
+        "source_id": 3,
+        "status": "stored"
+      },
+      "actual": {
+        "status": "stored",
+        "mode": "explicit_input",
+        "source_id": 3,
+        "subject": "Aster Rook",
+        "relation": "project_name",
+        "value": "Laurel",
+        "valid_from": "2026-01-01",
+        "recorded_at": "2026-02-10"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "215e540f880304200ac8446ab237c00ba2bcc74daf82771a2063145371590822",
+      "database_sha256_after": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "passed": true
+    },
+    {
+      "label": "Current name survives historical correction",
+      "arguments": [
+        "ask",
+        "What is Aster Rook's project called?",
+        "--known-at",
+        "2026-02-10"
+      ],
+      "expected": {
+        "answer": "Vesper",
+        "source_id": 2
+      },
+      "actual": {
+        "answer": "Vesper",
+        "mode": "source_value",
+        "source_id": 2,
+        "reason": "found",
+        "known_at": "2026-02-10",
+        "subject": "Aster Rook",
+        "as_of": "2026-02-10",
+        "valid_from": "2026-02-01",
+        "recorded_at": "2026-02-02",
+        "source_input": "remember 'Aster Rook' project_name Vesper --valid-from 2026-02-01 --recorded-at 2026-02-02"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "database_sha256_after": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "passed": true
+    },
+    {
+      "label": "History uses the correction",
+      "arguments": [
+        "ask",
+        "What was Aster Rook's project called on 2026-01-15?",
+        "--known-at",
+        "2026-02-10"
+      ],
+      "expected": {
+        "answer": "Laurel",
+        "source_id": 3
+      },
+      "actual": {
+        "answer": "Laurel",
+        "mode": "source_value",
+        "source_id": 3,
+        "reason": "found",
+        "known_at": "2026-02-10",
+        "subject": "Aster Rook",
+        "as_of": "2026-01-15",
+        "valid_from": "2026-01-01",
+        "recorded_at": "2026-02-10",
+        "source_input": "remember 'Aster Rook' project_name Laurel --valid-from 2026-01-01 --recorded-at 2026-02-10"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "database_sha256_after": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "passed": true
+    },
+    {
+      "label": "Earlier observation cutoff excludes the correction",
+      "arguments": [
+        "ask",
+        "What was Aster Rook's project called on 2026-01-15?",
+        "--known-at",
+        "2026-02-02"
+      ],
+      "expected": {
+        "answer": "Cobalt",
+        "source_id": 1
+      },
+      "actual": {
+        "answer": "Cobalt",
+        "mode": "source_value",
+        "source_id": 1,
+        "reason": "found",
+        "known_at": "2026-02-02",
+        "subject": "Aster Rook",
+        "as_of": "2026-01-15",
+        "valid_from": "2026-01-01",
+        "recorded_at": "2026-01-02",
+        "source_input": "remember 'Aster Rook' project_name Cobalt --valid-from 2026-01-01 --recorded-at 2026-01-02"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "database_sha256_after": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "passed": true
+    },
+    {
+      "label": "Unknown person",
+      "arguments": [
+        "ask",
+        "What is Belen Frost's project called?",
+        "--known-at",
+        "2026-02-10"
+      ],
+      "expected": {
+        "answer": "UNKNOWN",
+        "reason": "no_applicable_source"
+      },
+      "actual": {
+        "answer": "UNKNOWN",
+        "mode": "abstention",
+        "source_id": null,
+        "reason": "no_applicable_source",
+        "known_at": "2026-02-10",
+        "subject": "Belen Frost",
+        "as_of": "2026-02-10"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "database_sha256_after": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "passed": true
+    },
+    {
+      "label": "Unsupported attribute",
+      "arguments": [
+        "ask",
+        "What is Aster Rook's favorite color?",
+        "--known-at",
+        "2026-02-10"
+      ],
+      "expected": {
+        "answer": "UNKNOWN",
+        "reason": "unsupported_query"
+      },
+      "actual": {
+        "answer": "UNKNOWN",
+        "mode": "abstention",
+        "source_id": null,
+        "reason": "unsupported_query",
+        "known_at": "2026-02-10"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "database_sha256_after": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "passed": true
+    },
+    {
+      "label": "Before the first effective record",
+      "arguments": [
+        "ask",
+        "What was Aster Rook's project called on 2025-12-01?",
+        "--known-at",
+        "2026-02-10"
+      ],
+      "expected": {
+        "answer": "UNKNOWN",
+        "reason": "no_applicable_source"
+      },
+      "actual": {
+        "answer": "UNKNOWN",
+        "mode": "abstention",
+        "source_id": null,
+        "reason": "no_applicable_source",
+        "known_at": "2026-02-10",
+        "subject": "Aster Rook",
+        "as_of": "2025-12-01"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "database_sha256_after": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "passed": true
+    },
+    {
+      "label": "Future query",
+      "arguments": [
+        "ask",
+        "What was Aster Rook's project called on 2026-03-01?",
+        "--known-at",
+        "2026-02-10"
+      ],
+      "expected": {
+        "answer": "UNKNOWN",
+        "reason": "future_query"
+      },
+      "actual": {
+        "answer": "UNKNOWN",
+        "mode": "abstention",
+        "source_id": null,
+        "reason": "future_query",
+        "known_at": "2026-02-10",
+        "subject": "Aster Rook",
+        "as_of": "2026-03-01"
+      },
+      "exit_code": 0,
+      "stderr": "",
+      "database_sha256_before": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "database_sha256_after": "933777950ccb5d927e42482ff4572bf49186f72467922022bc2517c2234f9df4",
+      "passed": true
+    }
+  ],
+  "passed_steps": 13,
+  "validation": {
+    "entry_point": "memory-demo.bat",
+    "launch_working_directory": "docs/",
+    "platform": "Windows",
+    "walkthrough_exit_code": 0,
+    "interactive_restart_exit_codes": [
+      0,
+      0
+    ],
+    "interactive_restart_answer": {
+      "answer": "North Star",
+      "mode": "source_value",
+      "source_id": 1,
+      "reason": "found",
+      "known_at": "2026-02-10",
+      "subject": "Demo User",
+      "as_of": "2026-02-10",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "source_input": "remember \"Demo User\" project_name \"North Star\" --valid-from 2026-01-01 --recorded-at 2026-01-02"
+    },
+    "protected_files_unchanged": true,
+    "gpu_generation_or_training": false,
+    "run_directory": "runs/memory-demo-validation-1789189595452395900"
+  },
+  "source_sha256": {
+    "qwenbrain/memory.py": "8ca25a381bf426c14134c3bb5a6e2d4cd743f919915e7eec4a0df2882fd793ce",
+    "qwenbrain/memory_demo.py": "b207341f04a4fbd468bda35addd5992191cbb52dcc1142b43b517acc93c0f341",
+    "qwenbrain/memory_walkthrough.py": "ea80ce56b7e7fad482ca33a373acf48e9588028f54be01307dd64de8de05cbb7",
+    "memory-demo.bat": "d1027d299fd8964d762852b3a6d6138cfe32e32c4499edef6feb30591eb067c1",
+    "tests/test_memory_demo.py": "08c7ab7debc8c971a5320e779c695b4eaea2bf7104d30d0aab5c9b9168418e0c"
+  }
+}

@@ -13,6 +13,7 @@ describe the code used by that run, not necessarily a later checkout.
 | Four-arm memory comparison | [Results](../docs/experiments/memory-results.md), [protocol](../docs/experiments/memory-protocol.md) | [Memory comparison](memory-results.json) |
 | Temporal retrieval | [Results](../docs/experiments/temporal-memory-results.md), [protocol](../docs/experiments/temporal-memory-protocol.md) | [Raw sources](temporal-memory-raw-results.json), [explicit evidence](temporal-memory-explicit-results.json) |
 | Typed-source checker | [Results](../docs/experiments/grounded-memory-results.md), [protocol](../docs/experiments/grounded-memory-protocol.md) | [Paired outputs and aggregate](grounded-memory-results.json) |
+| Explicit-input memory demo | [Usage and limits](../docs/memory-demo.md) | [Windows launcher and 13-step replay](memory-demo-validation.json); application behavior, not model recall |
 
 Implementation evidence is documented separately:
 
