@@ -115,13 +115,13 @@ active throughout forward and backward; the completed comparison uses that fix.
 
 ## Evidence and rerun
 
-- [Complete acquisition results and raw answers](acquisition-results.json).
-- [Direct-completion and reload probes](acquisition-completions.json).
+- [Complete acquisition results and raw answers](../../reports/acquisition-results.json).
+- [Direct-completion and reload probes](../../reports/acquisition-completions.json).
 - Original local run and adapters:
   `runs/acquisition-1789131725328701100/`.
-- Double-click [compare-learning.bat](../compare-learning.bat) to repeat the
+- Double-click [compare-learning.bat](../../scripts/compare-learning.bat) to repeat the
   comparison and completion probes. Each run creates a separate directory.
-- [Research and rationale](online-learning-research.md).
+- [Research and rationale](../research/online-learning-research.md).
 
 The follow-on retention experiment and its implications are recorded in
 [retention-results.md](retention-results.md).

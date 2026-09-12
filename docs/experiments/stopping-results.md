@@ -12,7 +12,7 @@ were not promoted to live chat.
 
 ## Controlled comparison
 
-The [protocol](stopping-protocol.md) and [fixtures](../configs/stopping.json) were
+The [protocol](stopping-protocol.md) and [fixtures](../../configs/stopping.json) were
 fixed before training. Eight synthetic person/project associations were fresh
 relative to both preceding experiments. Each arm used the same clean base and
 identical starting LoRA tensors within seeds 42, 43, and 44. Input IDs, padding,
@@ -103,9 +103,9 @@ process restart. Source and checkpoint file hashes also passed verification.
 
 ## Evidence and next step
 
-- [Full raw results, generated token IDs, counters, and hashes](stopping-results.json).
+- [Full raw results, generated token IDs, counters, and hashes](../../reports/stopping-results.json).
 - Local run and six adapter files: `runs/stopping-1789133726536020600/`.
-- Double-click [compare-stopping.bat](../compare-stopping.bat) to repeat in a new
+- Double-click [compare-stopping.bat](../../scripts/compare-stopping.bat) to repeat in a new
   output directory. The Python module was executed for this run.
 
 Next, compare fact-only Q&A against the same end-token objective with a small

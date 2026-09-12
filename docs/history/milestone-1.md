@@ -12,7 +12,7 @@ frozen and the automatic learning loop is still pending.
 - Loaded text parameters: **752,393,024**. No missing, mismatched, or unexpected
   checkpoint keys were reported by this loader.
 - Twelve downloaded files total about **1.65 GiB** under `models/hub/`.
-  [Download manifest](download-manifest.json) records per-file sizes and SHA-256.
+  [Download manifest](../../reports/download-manifest.json) records per-file sizes and SHA-256.
 - Python 3.11.16, PyTorch 2.11.0+cu128, Transformers 5.16.1, Hub 1.30.0.
   `pyproject.toml`, `.python-version`, and `uv.lock` pin the environment.
 
@@ -24,7 +24,7 @@ directory, reusing the downloaded files.
 
 ## Measurements
 
-The successful [GPU checks](chat-checks.json) recorded:
+The successful [GPU checks](../../reports/chat-checks.json) recorded:
 
 | Measurement | Observed value |
 | --- | ---: |
@@ -49,10 +49,10 @@ or optimized DeltaNet-kernel performance claim is made.
 - Old complete turns are omitted to fit the configured context budget.
 - An oversized new message is rejected without changing stored conversation state.
 - Parameter version counters remain unchanged and no gradients are created.
-- The actual [chat.bat](../chat.bat) launcher runs from the parent directory,
+- The actual [chat.bat](../../chat.bat) launcher runs from the parent directory,
   accepts two English messages, resets, accepts Japanese, and exits cleanly.
   Its transcript has exactly one start/load and three chat turns.
-  See [launcher evidence and source hashes](launcher-checks.json).
+  See [launcher evidence and source hashes](../../reports/launcher-checks.json).
 - `setup.bat` can reuse the downloaded model with Hub access disabled.
 
 The probe stated a project name, then asked for it. The model answered `Atlas`.

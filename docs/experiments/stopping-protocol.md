@@ -7,7 +7,7 @@ It tests a training objective; it does not change live chat or train general rep
 
 ## Fixed comparison
 
-[The config](../configs/stopping.json) defines eight fresh synthetic person/project
+[The config](../../configs/stopping.json) defines eight fresh synthetic person/project
 associations, disjoint from acquisition and retention subjects and values. Both
 arms start from the same clean-base LoRA tensors within each seed (42, 43, 44).
 Each step contains one example per fact. Four training question forms are cycled;
@@ -43,7 +43,7 @@ saved file, and repeat every held-out answer. Record counters, times, source and
 checkpoint hashes. The completed result must include all seeds and failures.
 
 All artifacts go to a new `runs/stopping-*/` directory. Live adapter files are not
-loaded or written. Double-click [compare-stopping.bat](../compare-stopping.bat).
+loaded or written. Double-click [compare-stopping.bat](../../scripts/compare-stopping.bat).
 The 48 query results per arm/milestone are eight facts x two wordings x three
 seeds, not 48 independent facts. This is acquisition only, not a repeat of the
 sequential retention test or proof of autonomous conversational learning.

@@ -1,0 +1,271 @@
+{
+  "protocol": "grounded-memory-v1",
+  "max_new_tokens": 24,
+  "subjects": [
+    "Ilan Knoll",
+    "Juna Grove",
+    "Kora Jade",
+    "Leto Elm",
+    "Mina Hale",
+    "Neri Lake",
+    "Olin Dusk",
+    "Pia Ivory"
+  ],
+  "records": [
+    {
+      "id": 1,
+      "subject": "Ilan Knoll",
+      "value": "Ember",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Ilan Knoll's project is named Ember."
+    },
+    {
+      "id": 2,
+      "subject": "Juna Grove",
+      "value": "Pollen",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Juna Grove's project is named Pollen."
+    },
+    {
+      "id": 3,
+      "subject": "Kora Jade",
+      "value": "Mistral",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Kora Jade's project is named Mistral."
+    },
+    {
+      "id": 4,
+      "subject": "Leto Elm",
+      "value": "Quince",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Leto Elm's project is named Quince."
+    },
+    {
+      "id": 5,
+      "subject": "Mina Hale",
+      "value": "Citadel",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Mina Hale's project is named Citadel."
+    },
+    {
+      "id": 6,
+      "subject": "Neri Lake",
+      "value": "Ginkgo",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Neri Lake's project is named Ginkgo."
+    },
+    {
+      "id": 7,
+      "subject": "Olin Dusk",
+      "value": "Obsidian",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Olin Dusk's project is named Obsidian."
+    },
+    {
+      "id": 8,
+      "subject": "Pia Ivory",
+      "value": "Dahlia",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Pia Ivory's project is named Dahlia."
+    },
+    {
+      "id": 9,
+      "subject": "Ilan Knoll",
+      "value": "Asteria",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Ilan Knoll's project is named Asteria."
+    },
+    {
+      "id": 10,
+      "subject": "Juna Grove",
+      "value": "Islet",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Juna Grove's project is named Islet."
+    },
+    {
+      "id": 11,
+      "subject": "Kora Jade",
+      "value": "Nectar",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Kora Jade's project is named Nectar."
+    },
+    {
+      "id": 12,
+      "subject": "Leto Elm",
+      "value": "Xenon",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Leto Elm's project is named Xenon."
+    },
+    {
+      "id": 13,
+      "subject": "Mina Hale",
+      "value": "Velvet",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Mina Hale's project is named Velvet."
+    },
+    {
+      "id": 14,
+      "subject": "Neri Lake",
+      "value": "Linden",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Neri Lake's project is named Linden."
+    },
+    {
+      "id": 15,
+      "subject": "Olin Dusk",
+      "value": "Ripple",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Olin Dusk's project is named Ripple."
+    },
+    {
+      "id": 16,
+      "subject": "Pia Ivory",
+      "value": "Thistle",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Pia Ivory's project is named Thistle."
+    },
+    {
+      "id": 17,
+      "subject": "Ilan Knoll",
+      "value": "Estuary",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-02-01: Ilan Knoll's project is named Estuary."
+    },
+    {
+      "id": 18,
+      "subject": "Juna Grove",
+      "value": "Wisteria",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-02-01: Juna Grove's project is named Wisteria."
+    },
+    {
+      "id": 19,
+      "subject": "Kora Jade",
+      "value": "Aviary",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-01-01: Kora Jade's project is named Aviary."
+    },
+    {
+      "id": 20,
+      "subject": "Leto Elm",
+      "value": "Cairn",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-01-01: Leto Elm's project is named Cairn."
+    }
+  ],
+  "system_prompt": "You are a helpful assistant. For personal questions, use only the supplied memory records. A record must support the requested attribute and date. If the records do not establish the answer, reply exactly UNKNOWN. Do not guess. For general knowledge and arithmetic questions, answer normally. Follow the requested short answer format.",
+  "phases": [
+    {
+      "name": "initial",
+      "known_at": "2026-01-02",
+      "current_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_ids": null
+    },
+    {
+      "name": "changed",
+      "known_at": "2026-02-02",
+      "current_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "historical_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "corrected",
+      "known_at": "2026-02-10",
+      "current_ids": [
+        17,
+        18,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "historical_ids": [
+        1,
+        2,
+        19,
+        20,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "unknown_subjects": [
+    "Ilan Grove",
+    "Juna Knoll",
+    "Una Haven",
+    "Zev Meadow"
+  ],
+  "historical_date": "2026-01-15",
+  "before_date": "2025-12-01",
+  "future_date": "2026-12-01",
+  "controls": [
+    {
+      "question": "What is 2 + 2? Reply with only the number.",
+      "answer": "4"
+    },
+    {
+      "question": "What is 3 + 5? Reply with only the number.",
+      "answer": "8"
+    },
+    {
+      "question": "What is the capital of France? Reply with only the city name.",
+      "answer": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan? Reply with only the city name.",
+      "answer": "Tokyo"
+    }
+  ],
+  "data_seed": 73,
+  "fixture_scope": "Fresh person/project assignments; query templates and timeline structure retained. Seeds randomize names and values, not model training."
+}

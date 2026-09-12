@@ -1,13 +1,13 @@
 # Acquisition comparison v1
 
 This offline experiment implements the first acquisition comparison from
-[the research review](online-learning-research.md). It does not change the live
+[the research review](../research/online-learning-research.md). It does not change the live
 chat objective or load/train/save `adapters/live.safetensors`.
 
 ## Frozen design
 
 The fixtures, milestone schedule, and train/test question templates are in
-[acquisition.json](../configs/acquisition.json). All people/project associations
+[acquisition.json](../../configs/acquisition.json). All people/project associations
 are explicitly synthetic. The four pilot facts and eight confirmation facts have
 disjoint subjects and values. Every confirmation fact is taught during its trial;
 the held-out material is the evaluation question wording, not the factual answer.
@@ -84,7 +84,7 @@ before its first optimizer step when backward left the forced backend context.
 The experiment wrapper now holds that context through the entire update. Live
 training code was not modified as part of this experiment.
 
-Run [compare-learning.bat](../compare-learning.bat), or from the project root:
+Run [compare-learning.bat](../../scripts/compare-learning.bat), or from the project root:
 
 ```powershell
 .venv\Scripts\python.exe -X utf8 -m qwenbrain.experiment_acquisition
@@ -122,6 +122,6 @@ checkpoint and base weights unchanged, and save each final adapter separately.
 This follow-on design was chosen after seeing acquisition results and is not a
 multi-seed confirmation of replay's effectiveness.
 
-Run [compare-retention.bat](../compare-retention.bat) after the acquisition run.
+Run [compare-retention.bat](../../scripts/compare-retention.bat) after the acquisition run.
 See [acquisition results](acquisition-results.md) and
 [retention results](retention-results.md) for the measured outcomes.

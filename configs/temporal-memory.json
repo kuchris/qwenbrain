@@ -1,0 +1,269 @@
+{
+  "protocol": "temporal-memory-v1",
+  "max_new_tokens": 24,
+  "subjects": [
+    "Aster Rook",
+    "Belen Frost",
+    "Cato Finch",
+    "Dara Wren",
+    "Elio Marsh",
+    "Fara Quill",
+    "Galen Snow",
+    "Hana Brook"
+  ],
+  "records": [
+    {
+      "id": 1,
+      "subject": "Aster Rook",
+      "value": "Cobalt",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Aster Rook's project is named Cobalt."
+    },
+    {
+      "id": 2,
+      "subject": "Belen Frost",
+      "value": "Marigold",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Belen Frost's project is named Marigold."
+    },
+    {
+      "id": 3,
+      "subject": "Cato Finch",
+      "value": "Opal",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Cato Finch's project is named Opal."
+    },
+    {
+      "id": 4,
+      "subject": "Dara Wren",
+      "value": "Evergreen",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Dara Wren's project is named Evergreen."
+    },
+    {
+      "id": 5,
+      "subject": "Elio Marsh",
+      "value": "Coral",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Elio Marsh's project is named Coral."
+    },
+    {
+      "id": 6,
+      "subject": "Fara Quill",
+      "value": "Pewter",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Fara Quill's project is named Pewter."
+    },
+    {
+      "id": 7,
+      "subject": "Galen Snow",
+      "value": "Azalea",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Galen Snow's project is named Azalea."
+    },
+    {
+      "id": 8,
+      "subject": "Hana Brook",
+      "value": "Sienna",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Hana Brook's project is named Sienna."
+    },
+    {
+      "id": 9,
+      "subject": "Aster Rook",
+      "value": "Meridian",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Aster Rook's project is named Meridian."
+    },
+    {
+      "id": 10,
+      "subject": "Belen Frost",
+      "value": "Kestrel",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Belen Frost's project is named Kestrel."
+    },
+    {
+      "id": 11,
+      "subject": "Cato Finch",
+      "value": "Beryl",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Cato Finch's project is named Beryl."
+    },
+    {
+      "id": 12,
+      "subject": "Dara Wren",
+      "value": "Cypress",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Dara Wren's project is named Cypress."
+    },
+    {
+      "id": 13,
+      "subject": "Elio Marsh",
+      "value": "Indigo",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Elio Marsh's project is named Indigo."
+    },
+    {
+      "id": 14,
+      "subject": "Fara Quill",
+      "value": "Magnolia",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Fara Quill's project is named Magnolia."
+    },
+    {
+      "id": 15,
+      "subject": "Galen Snow",
+      "value": "Flint",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Galen Snow's project is named Flint."
+    },
+    {
+      "id": 16,
+      "subject": "Hana Brook",
+      "value": "Auburn",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Hana Brook's project is named Auburn."
+    },
+    {
+      "id": 17,
+      "subject": "Aster Rook",
+      "value": "Vesper",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-02-01: Aster Rook's project is named Vesper."
+    },
+    {
+      "id": 18,
+      "subject": "Belen Frost",
+      "value": "Garnet",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-02-01: Belen Frost's project is named Garnet."
+    },
+    {
+      "id": 19,
+      "subject": "Cato Finch",
+      "value": "Laurel",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-01-01: Cato Finch's project is named Laurel."
+    },
+    {
+      "id": 20,
+      "subject": "Dara Wren",
+      "value": "Jasper",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-01-01: Dara Wren's project is named Jasper."
+    }
+  ],
+  "system_prompt": "You are a helpful assistant. For personal questions, use only the supplied memory records. A record must support the requested attribute and date. If the records do not establish the answer, reply exactly UNKNOWN. Do not guess. For general knowledge and arithmetic questions, answer normally. Follow the requested short answer format.",
+  "phases": [
+    {
+      "name": "initial",
+      "known_at": "2026-01-02",
+      "current_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_ids": null
+    },
+    {
+      "name": "changed",
+      "known_at": "2026-02-02",
+      "current_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "historical_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "corrected",
+      "known_at": "2026-02-10",
+      "current_ids": [
+        17,
+        18,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "historical_ids": [
+        1,
+        2,
+        19,
+        20,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "unknown_subjects": [
+    "Aster Frost",
+    "Belen Rook",
+    "Iris Thorn",
+    "Jori Ash"
+  ],
+  "historical_date": "2026-01-15",
+  "before_date": "2025-12-01",
+  "future_date": "2026-12-01",
+  "controls": [
+    {
+      "question": "What is 2 + 2? Reply with only the number.",
+      "answer": "4"
+    },
+    {
+      "question": "What is 3 + 5? Reply with only the number.",
+      "answer": "8"
+    },
+    {
+      "question": "What is the capital of France? Reply with only the city name.",
+      "answer": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan? Reply with only the city name.",
+      "answer": "Tokyo"
+    }
+  ]
+}

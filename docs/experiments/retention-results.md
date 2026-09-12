@@ -74,10 +74,10 @@ source acquisition checkpoint file remained byte-for-byte unchanged. Saved
 retention adapters were not independently reloaded for a second evaluation;
 the acquisition adapter reload checks are a separate result.
 
-- [Full retention results, raw answers, counters, and checksums](retention-results.json).
+- [Full retention results, raw answers, counters, and checksums](../../reports/retention-results.json).
 - Local outputs: `runs/retention-1789132854343756800/`.
 - [Protocol](acquisition-protocol.md#follow-on-retention-pilot).
-- Double-click [compare-retention.bat](../compare-retention.bat) to repeat using
+- Double-click [compare-retention.bat](../../scripts/compare-retention.bat) to repeat using
   the latest completed Q&A acquisition run's seed-42 final checkpoint.
 
 ## Next bounded experiment

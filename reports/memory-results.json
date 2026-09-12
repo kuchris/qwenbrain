@@ -1,0 +1,5128 @@
+{
+  "protocol": "memory-comparison-v1",
+  "status": "completed",
+  "seed": 42,
+  "model": {
+    "model_id": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "parameters": 752393024,
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "dtype": "BF16",
+    "text_only": true,
+    "load_seconds": 1.1750996999908239,
+    "allocated_after_load_mib": 1459.09765625,
+    "peak_load_allocated_mib": 1459.09765625,
+    "unexpected_checkpoint_keys": [],
+    "load_warnings": [],
+    "attention_backend": "SDPA math for full-attention layers; DeltaNet uses installed Transformers implementation",
+    "learning_enabled": false
+  },
+  "evaluation_config": {
+    "protocol": "acquisition-v1",
+    "milestones": [
+      1,
+      4,
+      16,
+      64
+    ],
+    "pilot_seeds": [
+      42
+    ],
+    "confirmation_seeds": [
+      42,
+      43,
+      44
+    ],
+    "max_new_tokens": 24,
+    "pilot": [
+      {
+        "subject": "Mara Voss",
+        "value": "Cedar"
+      },
+      {
+        "subject": "Ivo Pell",
+        "value": "Topaz"
+      },
+      {
+        "subject": "Neri Dax",
+        "value": "Harbor"
+      },
+      {
+        "subject": "Sela Orr",
+        "value": "Cobalt"
+      }
+    ],
+    "confirmation": [
+      {
+        "subject": "Tova Renn",
+        "value": "Maple"
+      },
+      {
+        "subject": "Kian Vale",
+        "value": "Quartz"
+      },
+      {
+        "subject": "Lumi Senn",
+        "value": "Willow"
+      },
+      {
+        "subject": "Arvo Tess",
+        "value": "Beacon"
+      },
+      {
+        "subject": "Nola Fenn",
+        "value": "Copper"
+      },
+      {
+        "subject": "Davi Moss",
+        "value": "Orchid"
+      },
+      {
+        "subject": "Eira Dunn",
+        "value": "Falcon"
+      },
+      {
+        "subject": "Ravi Keel",
+        "value": "Marble"
+      }
+    ],
+    "statements": [
+      "{subject}'s project is named {value}.",
+      "The project that {subject} works on is called {value}.",
+      "{value} is the name of {subject}'s project.",
+      "For {subject}, the project name is {value}."
+    ],
+    "training_questions": [
+      "What is {subject}'s project called?",
+      "What is the name of {subject}'s project?",
+      "Name the project belonging to {subject}.",
+      "What project does {subject} work on?"
+    ],
+    "test_questions": [
+      "Which project belongs to {subject}? Reply with only its name.",
+      "Give the name of the project that {subject} is working on. Reply with only its name."
+    ],
+    "controls": [
+      {
+        "question": "What is 2 + 2? Reply with only the number.",
+        "answer": "4"
+      },
+      {
+        "question": "What is 3 + 5? Reply with only the number.",
+        "answer": "8"
+      },
+      {
+        "question": "What is the capital of France? Reply with only the city name.",
+        "answer": "Paris"
+      },
+      {
+        "question": "What is the capital of Japan? Reply with only the city name.",
+        "answer": "Tokyo"
+      }
+    ]
+  },
+  "learning": {
+    "rank": 8,
+    "alpha": 16,
+    "target_modules": "all-linear",
+    "learning_rate": 0.0001,
+    "gradient_clip": 1.0,
+    "max_guard_loss_increase": 0.15,
+    "guard_texts": [
+      "Two plus two equals four. Three plus five equals eight.",
+      "The capital of France is Paris. The capital of Japan is Tokyo.",
+      "A helpful assistant gives clear answers and asks for clarification when needed."
+    ]
+  },
+  "records": [
+    {
+      "subject": "Tova Renn",
+      "value": "Maple",
+      "id": 0,
+      "group": "old",
+      "content": "Tova Renn's project is named Maple."
+    },
+    {
+      "subject": "Kian Vale",
+      "value": "Quartz",
+      "id": 1,
+      "group": "old",
+      "content": "Kian Vale's project is named Quartz."
+    },
+    {
+      "subject": "Lumi Senn",
+      "value": "Willow",
+      "id": 2,
+      "group": "old",
+      "content": "Lumi Senn's project is named Willow."
+    },
+    {
+      "subject": "Arvo Tess",
+      "value": "Beacon",
+      "id": 3,
+      "group": "old",
+      "content": "Arvo Tess's project is named Beacon."
+    },
+    {
+      "subject": "Nola Fenn",
+      "value": "Copper",
+      "id": 4,
+      "group": "old",
+      "content": "Nola Fenn's project is named Copper."
+    },
+    {
+      "subject": "Davi Moss",
+      "value": "Orchid",
+      "id": 5,
+      "group": "old",
+      "content": "Davi Moss's project is named Orchid."
+    },
+    {
+      "subject": "Eira Dunn",
+      "value": "Falcon",
+      "id": 6,
+      "group": "old",
+      "content": "Eira Dunn's project is named Falcon."
+    },
+    {
+      "subject": "Ravi Keel",
+      "value": "Marble",
+      "id": 7,
+      "group": "old",
+      "content": "Ravi Keel's project is named Marble."
+    },
+    {
+      "subject": "Milo Hart",
+      "value": "Juniper",
+      "id": 8,
+      "group": "new",
+      "content": "Milo Hart's project is named Juniper."
+    },
+    {
+      "subject": "Zara Penn",
+      "value": "Granite",
+      "id": 9,
+      "group": "new",
+      "content": "Zara Penn's project is named Granite."
+    },
+    {
+      "subject": "Oren Fisk",
+      "value": "Saffron",
+      "id": 10,
+      "group": "new",
+      "content": "Oren Fisk's project is named Saffron."
+    },
+    {
+      "subject": "Vera Lark",
+      "value": "Tundra",
+      "id": 11,
+      "group": "new",
+      "content": "Vera Lark's project is named Tundra."
+    },
+    {
+      "subject": "Enzo Reed",
+      "value": "Nimbus",
+      "id": 12,
+      "group": "new",
+      "content": "Enzo Reed's project is named Nimbus."
+    },
+    {
+      "subject": "Alma Kent",
+      "value": "Sequoia",
+      "id": 13,
+      "group": "new",
+      "content": "Alma Kent's project is named Sequoia."
+    },
+    {
+      "subject": "Nico Ward",
+      "value": "Lagoon",
+      "id": 14,
+      "group": "new",
+      "content": "Nico Ward's project is named Lagoon."
+    },
+    {
+      "subject": "Rhea Pike",
+      "value": "Silver",
+      "id": 15,
+      "group": "new",
+      "content": "Rhea Pike's project is named Silver."
+    }
+  ],
+  "arms": {
+    "F": {
+      "answers": [
+        {
+          "question": "Which project belongs to Tova Renn? Reply with only its name.",
+          "expected": "Maple",
+          "gold_source_id": 0,
+          "group": "old",
+          "answer": "Tova Renn is a well-known Israeli film director and screenwriter.",
+          "generated_token_ids": [
+            51,
+            12297,
+            211660,
+            369,
+            264,
+            1575,
+            20654,
+            15439,
+            4383,
+            7300,
+            321,
+            4034,
+            17648,
+            13,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.4919402999803424,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.4926731000014115,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+          "expected": "Maple",
+          "gold_source_id": 0,
+          "group": "old",
+          "answer": "Tova Renn is working on the project called **Tova Renn's Project**.",
+          "generated_token_ids": [
+            51,
+            12297,
+            211660,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            2972,
+            51,
+            12297,
+            211660,
+            579,
+            5606,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.5303604000073392,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.38134765625,
+          "query_seconds": 0.5316720999835525,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Kian Vale? Reply with only its name.",
+          "expected": "Quartz",
+          "gold_source_id": 1,
+          "group": "old",
+          "answer": "Kian Vale is a well-known figure in the field of computer science, particularly in the area of artificial intelligence and machine",
+          "generated_token_ids": [
+            42,
+            1068,
+            52157,
+            369,
+            264,
+            1575,
+            20654,
+            6851,
+            303,
+            279,
+            2002,
+            314,
+            6165,
+            7785,
+            11,
+            7695,
+            303,
+            279,
+            2982,
+            314,
+            19820,
+            10903,
+            321,
+            5484
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.7193985000194516,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.7201271000085399,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+          "expected": "Quartz",
+          "gold_source_id": 1,
+          "group": "old",
+          "answer": "Kian Vale is working on the project called \"The Great Gatsby\" (often referred to as \"The Great G",
+          "generated_token_ids": [
+            42,
+            1068,
+            52157,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            8252,
+            469,
+            34340,
+            1,
+            318,
+            58768,
+            13464,
+            310,
+            430,
+            328,
+            760,
+            8252,
+            469
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.7143797999888193,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.38134765625,
+          "query_seconds": 0.7149946999852546,
+          "evidence": [],
+          "lookup_seconds": 4.999747034162283e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+          "expected": "Willow",
+          "gold_source_id": 2,
+          "group": "old",
+          "answer": "Lumi Senn",
+          "generated_token_ids": [
+            43,
+            23572,
+            326,
+            2580,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.21361310000065714,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.21428499999456108,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+          "expected": "Willow",
+          "gold_source_id": 2,
+          "group": "old",
+          "answer": "Lumina",
+          "generated_token_ids": [
+            43,
+            367,
+            2141,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.17855479998979717,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.38134765625,
+          "query_seconds": 0.18305400002282113,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+          "expected": "Beacon",
+          "gold_source_id": 3,
+          "group": "old",
+          "answer": "Arvo Tess is a Finnish composer and arranger, best known for his work in the 1960s",
+          "generated_token_ids": [
+            6737,
+            3225,
+            87910,
+            369,
+            264,
+            55913,
+            38144,
+            321,
+            2796,
+            3869,
+            11,
+            1786,
+            3750,
+            364,
+            780,
+            944,
+            303,
+            279,
+            220,
+            16,
+            24,
+            21,
+            15,
+            82
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.7027027000149246,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.7033160999999382,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+          "expected": "Beacon",
+          "gold_source_id": 3,
+          "group": "old",
+          "answer": "Arvo Tess is working on the project called \"The Last of Us\".",
+          "generated_token_ids": [
+            6737,
+            3225,
+            87910,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            7745,
+            314,
+            3852,
+            3158,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.499344400013797,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.38134765625,
+          "query_seconds": 0.4999251999834087,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+          "expected": "Copper",
+          "gold_source_id": 4,
+          "group": "old",
+          "answer": "Nola Fenn is associated with the project **Nola Fenn's Project**.",
+          "generated_token_ids": [
+            45,
+            7674,
+            426,
+            2580,
+            369,
+            5634,
+            440,
+            279,
+            2313,
+            2972,
+            45,
+            7674,
+            426,
+            2580,
+            579,
+            5606,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 44,
+          "generation_seconds": 0.5652486000035424,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.22119140625,
+          "query_seconds": 0.5659089999971911,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+          "expected": "Copper",
+          "gold_source_id": 4,
+          "group": "old",
+          "answer": "Nola Fenn is working on the project called \"The Great Gatsby\" (specifically, the novel).",
+          "generated_token_ids": [
+            45,
+            7674,
+            426,
+            2580,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            8252,
+            469,
+            34340,
+            1,
+            318,
+            49516,
+            722,
+            11,
+            279,
+            11183,
+            553,
+            248046
+          ],
+          "prompt_tokens": 50,
+          "generation_seconds": 0.713239100005012,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.41259765625,
+          "query_seconds": 0.7138158000016119,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Davi Moss? Reply with only its name.",
+          "expected": "Orchid",
+          "gold_source_id": 5,
+          "group": "old",
+          "answer": "Davi Moss is a well-known figure in the field of computer science, particularly in the area of machine learning and natural",
+          "generated_token_ids": [
+            35,
+            5997,
+            42071,
+            369,
+            264,
+            1575,
+            20654,
+            6851,
+            303,
+            279,
+            2002,
+            314,
+            6165,
+            7785,
+            11,
+            7695,
+            303,
+            279,
+            2982,
+            314,
+            5484,
+            6618,
+            321,
+            5629
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.7062354999943636,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.7068033000105061,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+          "expected": "Orchid",
+          "gold_source_id": 5,
+          "group": "old",
+          "answer": "Davi Moss is working on the project called **The Project**.",
+          "generated_token_ids": [
+            35,
+            5997,
+            42071,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            2972,
+            760,
+            5606,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.44845060000079684,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.38134765625,
+          "query_seconds": 0.44901979999849573,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+          "expected": "Falcon",
+          "gold_source_id": 6,
+          "group": "old",
+          "answer": "Eira Dunn is known for her work in the field of **Eira Dunn's Project**.",
+          "generated_token_ids": [
+            36,
+            8565,
+            61593,
+            369,
+            3750,
+            364,
+            1024,
+            944,
+            303,
+            279,
+            2002,
+            314,
+            2972,
+            36,
+            8565,
+            61593,
+            579,
+            5606,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.6032709999999497,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.6038854999933392,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+          "expected": "Falcon",
+          "gold_source_id": 6,
+          "group": "old",
+          "answer": "Eira Dunn is working on the project called **The Project**.",
+          "generated_token_ids": [
+            36,
+            8565,
+            61593,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            2972,
+            760,
+            5606,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.4493801000062376,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.38134765625,
+          "query_seconds": 0.450127899996005,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+          "expected": "Marble",
+          "gold_source_id": 7,
+          "group": "old",
+          "answer": "Ravi Keel is associated with the project **Ravi Keel's Project**.",
+          "generated_token_ids": [
+            49,
+            5997,
+            6362,
+            300,
+            369,
+            5634,
+            440,
+            279,
+            2313,
+            2972,
+            49,
+            5997,
+            6362,
+            300,
+            579,
+            5606,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 44,
+          "generation_seconds": 0.5479937999916729,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.22119140625,
+          "query_seconds": 0.5486201000167057,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+          "expected": "Marble",
+          "gold_source_id": 7,
+          "group": "old",
+          "answer": "Ravi Keel is working on the project called **Ravi Keel's Project**.",
+          "generated_token_ids": [
+            49,
+            5997,
+            6362,
+            300,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            2972,
+            49,
+            5997,
+            6362,
+            300,
+            579,
+            5606,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 50,
+          "generation_seconds": 0.5725569000060204,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.41259765625,
+          "query_seconds": 0.5731474999920465,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Milo Hart? Reply with only its name.",
+          "expected": "Juniper",
+          "gold_source_id": 8,
+          "group": "new",
+          "answer": "Milo Hart is best known for his work in the game **Minecraft**.",
+          "generated_token_ids": [
+            44,
+            17506,
+            22187,
+            369,
+            1786,
+            3750,
+            364,
+            780,
+            944,
+            303,
+            279,
+            1746,
+            2972,
+            44,
+            11742,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.518853300018236,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.15869140625,
+          "query_seconds": 0.5196054999832995,
+          "evidence": [],
+          "lookup_seconds": 4.999747034162283e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+          "expected": "Juniper",
+          "gold_source_id": 8,
+          "group": "new",
+          "answer": "Milo Hart is working on the project called \"The Project\" (specifically, the \"Project\" series of works",
+          "generated_token_ids": [
+            44,
+            17506,
+            22187,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            5606,
+            1,
+            318,
+            49516,
+            722,
+            11,
+            279,
+            328,
+            7601,
+            1,
+            3878,
+            314,
+            4138
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.7006497000111267,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.34716796875,
+          "query_seconds": 0.7013061000034213,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Zara Penn? Reply with only its name.",
+          "expected": "Granite",
+          "gold_source_id": 9,
+          "group": "new",
+          "answer": "Zara Penn",
+          "generated_token_ids": [
+            57,
+            4897,
+            13116,
+            248046
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.18457159999525174,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.15869140625,
+          "query_seconds": 0.1851635999919381,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+          "expected": "Granite",
+          "gold_source_id": 9,
+          "group": "new",
+          "answer": "Zara Penn is working on the project called \"The Great Gatsby\" (specifically the 2013",
+          "generated_token_ids": [
+            57,
+            4897,
+            13116,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            8252,
+            469,
+            34340,
+            1,
+            318,
+            49516,
+            722,
+            279,
+            220,
+            17,
+            15,
+            16,
+            18
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.6975570000067819,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.34716796875,
+          "query_seconds": 0.6981400000222493,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+          "expected": "Saffron",
+          "gold_source_id": 10,
+          "group": "new",
+          "answer": "Oren Fisk is best known for his work in the game development studio **HackerOne**.",
+          "generated_token_ids": [
+            46,
+            1388,
+            426,
+            3086,
+            369,
+            1786,
+            3750,
+            364,
+            780,
+            944,
+            303,
+            279,
+            1746,
+            4257,
+            13626,
+            2972,
+            39,
+            9395,
+            3833,
+            159034,
+            248046
+          ],
+          "prompt_tokens": 44,
+          "generation_seconds": 0.6263812999823131,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.22119140625,
+          "query_seconds": 0.6269836999999825,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+          "expected": "Saffron",
+          "gold_source_id": 10,
+          "group": "new",
+          "answer": "Project: Oren Fisk's work is primarily associated with the **Project 101** initiative, which focuses",
+          "generated_token_ids": [
+            7601,
+            25,
+            496,
+            1388,
+            426,
+            3086,
+            579,
+            944,
+            369,
+            15048,
+            5634,
+            440,
+            279,
+            2972,
+            7601,
+            220,
+            16,
+            15,
+            16,
+            332,
+            19549,
+            11,
+            864,
+            22763
+          ],
+          "prompt_tokens": 50,
+          "generation_seconds": 0.7621559999824967,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.41259765625,
+          "query_seconds": 0.7628515000105835,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Vera Lark? Reply with only its name.",
+          "expected": "Tundra",
+          "gold_source_id": 11,
+          "group": "new",
+          "answer": "Vera Lark is known for her work in the field of **Vera Lark's Project** (often associated",
+          "generated_token_ids": [
+            53,
+            2337,
+            436,
+            812,
+            369,
+            3750,
+            364,
+            1024,
+            944,
+            303,
+            279,
+            2002,
+            314,
+            2972,
+            53,
+            2337,
+            436,
+            812,
+            579,
+            5606,
+            332,
+            318,
+            58768,
+            5634
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.7086100000014994,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.7094514000054915,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+          "expected": "Tundra",
+          "gold_source_id": 11,
+          "group": "new",
+          "answer": "Vera Lark is working on the project called \"The Project\" (specifically, the \"Project\" series of",
+          "generated_token_ids": [
+            53,
+            2337,
+            436,
+            812,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            5606,
+            1,
+            318,
+            49516,
+            722,
+            11,
+            279,
+            328,
+            7601,
+            1,
+            3878,
+            314
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.7092851000197697,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.38134765625,
+          "query_seconds": 0.7099200999946333,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+          "expected": "Nimbus",
+          "gold_source_id": 12,
+          "group": "new",
+          "answer": "The Project Gutenberg Project",
+          "generated_token_ids": [
+            760,
+            5606,
+            49847,
+            5606,
+            248046
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.21180310001363978,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.15869140625,
+          "query_seconds": 0.21251260000281036,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+          "expected": "Nimbus",
+          "gold_source_id": 12,
+          "group": "new",
+          "answer": "The Project Gutenberg Project",
+          "generated_token_ids": [
+            760,
+            5606,
+            49847,
+            5606,
+            248046
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.21099300001515076,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.34716796875,
+          "query_seconds": 0.21156160000828095,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Alma Kent? Reply with only its name.",
+          "expected": "Sequoia",
+          "gold_source_id": 13,
+          "group": "new",
+          "answer": "Alma Kent is a well-known figure in the field of computer science, particularly in the area of artificial intelligence and machine",
+          "generated_token_ids": [
+            2033,
+            1667,
+            17206,
+            369,
+            264,
+            1575,
+            20654,
+            6851,
+            303,
+            279,
+            2002,
+            314,
+            6165,
+            7785,
+            11,
+            7695,
+            303,
+            279,
+            2982,
+            314,
+            19820,
+            10903,
+            321,
+            5484
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.7078176999930292,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.15869140625,
+          "query_seconds": 0.7084036000014748,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+          "expected": "Sequoia",
+          "gold_source_id": 13,
+          "group": "new",
+          "answer": "Alma Kent is working on the project called \"The Great Gatsby\" (specifically, the novel).",
+          "generated_token_ids": [
+            2033,
+            1667,
+            17206,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            8252,
+            469,
+            34340,
+            1,
+            318,
+            49516,
+            722,
+            11,
+            279,
+            11183,
+            553,
+            248046
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.6812965999997687,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.34716796875,
+          "query_seconds": 0.6819386999995913,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Nico Ward? Reply with only its name.",
+          "expected": "Lagoon",
+          "gold_source_id": 14,
+          "group": "new",
+          "answer": "Nico Ward is a well-known figure in the field of computer science, particularly in the area of artificial intelligence and machine",
+          "generated_token_ids": [
+            45,
+            3822,
+            25788,
+            369,
+            264,
+            1575,
+            20654,
+            6851,
+            303,
+            279,
+            2002,
+            314,
+            6165,
+            7785,
+            11,
+            7695,
+            303,
+            279,
+            2982,
+            314,
+            19820,
+            10903,
+            321,
+            5484
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.6995634000049904,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.15869140625,
+          "query_seconds": 0.7002941000100691,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+          "expected": "Lagoon",
+          "gold_source_id": 14,
+          "group": "new",
+          "answer": "Nico Ward is working on the project called \"The Last of Us\".",
+          "generated_token_ids": [
+            45,
+            3822,
+            25788,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            7745,
+            314,
+            3852,
+            3158,
+            248046
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.4921609000011813,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.34716796875,
+          "query_seconds": 0.4927218000229914,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+          "expected": "Silver",
+          "gold_source_id": 15,
+          "group": "new",
+          "answer": "Rhea Pike is a well-known figure in the field of computer science, particularly in the area of artificial intelligence and machine",
+          "generated_token_ids": [
+            49,
+            38609,
+            66407,
+            369,
+            264,
+            1575,
+            20654,
+            6851,
+            303,
+            279,
+            2002,
+            314,
+            6165,
+            7785,
+            11,
+            7695,
+            303,
+            279,
+            2982,
+            314,
+            19820,
+            10903,
+            321,
+            5484
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.7027021999820136,
+          "ended_with_end_token": false,
+          "output_limit_reached": true,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.7033056000072975,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+          "expected": "Silver",
+          "gold_source_id": 15,
+          "group": "new",
+          "answer": "Rhea Pike is working on the project called \"The Great Gatsby\" (specifically, the book adaptation).",
+          "generated_token_ids": [
+            49,
+            38609,
+            66407,
+            369,
+            3133,
+            383,
+            279,
+            2313,
+            2512,
+            328,
+            760,
+            8252,
+            469,
+            34340,
+            1,
+            318,
+            49516,
+            722,
+            11,
+            279,
+            2236,
+            31988,
+            553,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.6980716999969445,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.38134765625,
+          "query_seconds": 0.6986405999923591,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is 2 + 2? Reply with only the number.",
+          "expected": "4",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "4",
+          "generated_token_ids": [
+            19,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.12647540000034496,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.1270393000158947,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is 3 + 5? Reply with only the number.",
+          "expected": "8",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "8",
+          "generated_token_ids": [
+            23,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.12989690000540577,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.13044839998474345,
+          "evidence": [],
+          "lookup_seconds": 3.999739419668913e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is the capital of France? Reply with only the city name.",
+          "expected": "Paris",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "Paris",
+          "generated_token_ids": [
+            57590,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.12961689999792725,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.13057569999364205,
+          "evidence": [],
+          "lookup_seconds": 3.00002284348011e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is the capital of Japan? Reply with only the city name.",
+          "expected": "Tokyo",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "Tokyo",
+          "generated_token_ids": [
+            51076,
+            15560,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.1582742999889888,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.15905809999094345,
+          "evidence": [],
+          "lookup_seconds": 4.999747034162283e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        }
+      ],
+      "adapter_unchanged_during_evaluation": true,
+      "old": {
+        "correct": 0,
+        "total": 16,
+        "exact_and_stopped": 0
+      },
+      "new": {
+        "correct": 0,
+        "total": 16,
+        "exact_and_stopped": 0
+      },
+      "control": {
+        "correct": 4,
+        "total": 4,
+        "exact_and_stopped": 4
+      },
+      "fact_correct": 0,
+      "fact_total": 32,
+      "fact_stopped": 20,
+      "fact_exact_and_stopped": 0,
+      "mean_query_seconds": 0.5150360611118635,
+      "mean_generation_seconds": 0.514261269445544,
+      "mean_prompt_tokens": 45.55555555555556,
+      "controls_changed_from_correct_to_wrong": 0
+    },
+    "O": {
+      "answers": [
+        {
+          "question": "Which project belongs to Tova Renn? Reply with only its name.",
+          "expected": "Maple",
+          "gold_source_id": 0,
+          "group": "old",
+          "answer": "Maple",
+          "generated_token_ids": [
+            2155,
+            273,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.17436400000588037,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.17506119998870417,
+          "evidence": [
+            {
+              "id": 0,
+              "content": "Tova Renn's project is named Maple."
+            }
+          ],
+          "lookup_seconds": 9.00006853044033e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+          "expected": "Maple",
+          "gold_source_id": 0,
+          "group": "old",
+          "answer": "Maple",
+          "generated_token_ids": [
+            2155,
+            273,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.1638262000051327,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.16449700001976453,
+          "evidence": [
+            {
+              "id": 0,
+              "content": "Tova Renn's project is named Maple."
+            }
+          ],
+          "lookup_seconds": 9.00006853044033e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Kian Vale? Reply with only its name.",
+          "expected": "Quartz",
+          "gold_source_id": 1,
+          "group": "old",
+          "answer": "Quartz",
+          "generated_token_ids": [
+            2114,
+            20932,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.166112399980193,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.16677189999609254,
+          "evidence": [
+            {
+              "id": 1,
+              "content": "Kian Vale's project is named Quartz."
+            }
+          ],
+          "lookup_seconds": 1.100008375942707e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+          "expected": "Quartz",
+          "gold_source_id": 1,
+          "group": "old",
+          "answer": "Quartz",
+          "generated_token_ids": [
+            2114,
+            20932,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.16815179999684915,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.168874599999981,
+          "evidence": [
+            {
+              "id": 1,
+              "content": "Kian Vale's project is named Quartz."
+            }
+          ],
+          "lookup_seconds": 1.800013706088066e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+          "expected": "Willow",
+          "gold_source_id": 2,
+          "group": "old",
+          "answer": "Willow",
+          "generated_token_ids": [
+            9651,
+            358,
+            248046
+          ],
+          "prompt_tokens": 66,
+          "generation_seconds": 0.16572070002439432,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9248046875,
+          "query_seconds": 0.16638789998251013,
+          "evidence": [
+            {
+              "id": 2,
+              "content": "Lumi Senn's project is named Willow."
+            }
+          ],
+          "lookup_seconds": 9.999785106629133e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+          "expected": "Willow",
+          "gold_source_id": 2,
+          "group": "old",
+          "answer": "Willow",
+          "generated_token_ids": [
+            9651,
+            358,
+            248046
+          ],
+          "prompt_tokens": 72,
+          "generation_seconds": 0.15775020001456141,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.11328125,
+          "query_seconds": 0.15837200000532903,
+          "evidence": [
+            {
+              "id": 2,
+              "content": "Lumi Senn's project is named Willow."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+          "expected": "Beacon",
+          "gold_source_id": 3,
+          "group": "old",
+          "answer": "Beacon",
+          "generated_token_ids": [
+            3320,
+            21682,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.1580054999794811,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.15861799998674542,
+          "evidence": [
+            {
+              "id": 3,
+              "content": "Arvo Tess's project is named Beacon."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+          "expected": "Beacon",
+          "gold_source_id": 3,
+          "group": "old",
+          "answer": "Beacon",
+          "generated_token_ids": [
+            3320,
+            21682,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.159611799987033,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.1602625000232365,
+          "evidence": [
+            {
+              "id": 3,
+              "content": "Arvo Tess's project is named Beacon."
+            }
+          ],
+          "lookup_seconds": 1.400010660290718e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+          "expected": "Copper",
+          "gold_source_id": 4,
+          "group": "old",
+          "answer": "Copper",
+          "generated_token_ids": [
+            34,
+            17936,
+            248046
+          ],
+          "prompt_tokens": 67,
+          "generation_seconds": 0.1641407999850344,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9560546875,
+          "query_seconds": 0.16483510000398383,
+          "evidence": [
+            {
+              "id": 4,
+              "content": "Nola Fenn's project is named Copper."
+            }
+          ],
+          "lookup_seconds": 1.300009898841381e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+          "expected": "Copper",
+          "gold_source_id": 4,
+          "group": "old",
+          "answer": "Copper",
+          "generated_token_ids": [
+            34,
+            17936,
+            248046
+          ],
+          "prompt_tokens": 73,
+          "generation_seconds": 0.15395549999084324,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.14599609375,
+          "query_seconds": 0.15461070000310428,
+          "evidence": [
+            {
+              "id": 4,
+              "content": "Nola Fenn's project is named Copper."
+            }
+          ],
+          "lookup_seconds": 1.0999792721122503e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Davi Moss? Reply with only its name.",
+          "expected": "Orchid",
+          "gold_source_id": 5,
+          "group": "old",
+          "answer": "Orchid",
+          "generated_token_ids": [
+            2126,
+            329,
+            306,
+            248046
+          ],
+          "prompt_tokens": 66,
+          "generation_seconds": 0.1911571999953594,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9248046875,
+          "query_seconds": 0.1919326000206638,
+          "evidence": [
+            {
+              "id": 5,
+              "content": "Davi Moss's project is named Orchid."
+            }
+          ],
+          "lookup_seconds": 1.100008375942707e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+          "expected": "Orchid",
+          "gold_source_id": 5,
+          "group": "old",
+          "answer": "Orchid",
+          "generated_token_ids": [
+            2126,
+            329,
+            306,
+            248046
+          ],
+          "prompt_tokens": 72,
+          "generation_seconds": 0.23951029998715967,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.11328125,
+          "query_seconds": 0.2402148999972269,
+          "evidence": [
+            {
+              "id": 5,
+              "content": "Davi Moss's project is named Orchid."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+          "expected": "Falcon",
+          "gold_source_id": 6,
+          "group": "old",
+          "answer": "Falcon",
+          "generated_token_ids": [
+            37,
+            44673,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.16197200000169687,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.16290190001018345,
+          "evidence": [
+            {
+              "id": 6,
+              "content": "Eira Dunn's project is named Falcon."
+            }
+          ],
+          "lookup_seconds": 1.400010660290718e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+          "expected": "Falcon",
+          "gold_source_id": 6,
+          "group": "old",
+          "answer": "Falcon",
+          "generated_token_ids": [
+            37,
+            44673,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.16347729999688454,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.16418149997480214,
+          "evidence": [
+            {
+              "id": 6,
+              "content": "Eira Dunn's project is named Falcon."
+            }
+          ],
+          "lookup_seconds": 1.0999792721122503e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+          "expected": "Marble",
+          "gold_source_id": 7,
+          "group": "old",
+          "answer": "Marble",
+          "generated_token_ids": [
+            11718,
+            863,
+            248046
+          ],
+          "prompt_tokens": 67,
+          "generation_seconds": 0.16061019999324344,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9560546875,
+          "query_seconds": 0.16127209999831393,
+          "evidence": [
+            {
+              "id": 7,
+              "content": "Ravi Keel's project is named Marble."
+            }
+          ],
+          "lookup_seconds": 1.100008375942707e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+          "expected": "Marble",
+          "gold_source_id": 7,
+          "group": "old",
+          "answer": "Marble",
+          "generated_token_ids": [
+            11718,
+            863,
+            248046
+          ],
+          "prompt_tokens": 73,
+          "generation_seconds": 0.16352840000763535,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.14599609375,
+          "query_seconds": 0.16420590001507662,
+          "evidence": [
+            {
+              "id": 7,
+              "content": "Ravi Keel's project is named Marble."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Milo Hart? Reply with only its name.",
+          "expected": "Juniper",
+          "gold_source_id": 8,
+          "group": "new",
+          "answer": "Juniper",
+          "generated_token_ids": [
+            34413,
+            12489,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.1626263999787625,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.1632627000217326,
+          "evidence": [
+            {
+              "id": 8,
+              "content": "Milo Hart's project is named Juniper."
+            }
+          ],
+          "lookup_seconds": 1.300009898841381e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+          "expected": "Juniper",
+          "gold_source_id": 8,
+          "group": "new",
+          "answer": "Juniper",
+          "generated_token_ids": [
+            34413,
+            12489,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.16319389999262057,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.16381019999971613,
+          "evidence": [
+            {
+              "id": 8,
+              "content": "Milo Hart's project is named Juniper."
+            }
+          ],
+          "lookup_seconds": 1.0999792721122503e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Zara Penn? Reply with only its name.",
+          "expected": "Granite",
+          "gold_source_id": 9,
+          "group": "new",
+          "answer": "Granite",
+          "generated_token_ids": [
+            87600,
+            614,
+            248046
+          ],
+          "prompt_tokens": 64,
+          "generation_seconds": 0.159847400005674,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.853515625,
+          "query_seconds": 0.16048859999864362,
+          "evidence": [
+            {
+              "id": 9,
+              "content": "Zara Penn's project is named Granite."
+            }
+          ],
+          "lookup_seconds": 1.100008375942707e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+          "expected": "Granite",
+          "gold_source_id": 9,
+          "group": "new",
+          "answer": "Granite",
+          "generated_token_ids": [
+            87600,
+            614,
+            248046
+          ],
+          "prompt_tokens": 70,
+          "generation_seconds": 0.15817239999887533,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.05078125,
+          "query_seconds": 0.15878800000064075,
+          "evidence": [
+            {
+              "id": 9,
+              "content": "Zara Penn's project is named Granite."
+            }
+          ],
+          "lookup_seconds": 1.100008375942707e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+          "expected": "Saffron",
+          "gold_source_id": 10,
+          "group": "new",
+          "answer": "Saffron",
+          "generated_token_ids": [
+            50,
+            2562,
+            2176,
+            248046
+          ],
+          "prompt_tokens": 69,
+          "generation_seconds": 0.18840909999562427,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.01953125,
+          "query_seconds": 0.18912430002819747,
+          "evidence": [
+            {
+              "id": 10,
+              "content": "Oren Fisk's project is named Saffron."
+            }
+          ],
+          "lookup_seconds": 1.300009898841381e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+          "expected": "Saffron",
+          "gold_source_id": 10,
+          "group": "new",
+          "answer": "Saffron",
+          "generated_token_ids": [
+            50,
+            2562,
+            2176,
+            248046
+          ],
+          "prompt_tokens": 75,
+          "generation_seconds": 0.18382209999253973,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.20849609375,
+          "query_seconds": 0.18444219999946654,
+          "evidence": [
+            {
+              "id": 10,
+              "content": "Oren Fisk's project is named Saffron."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Vera Lark? Reply with only its name.",
+          "expected": "Tundra",
+          "gold_source_id": 11,
+          "group": "new",
+          "answer": "Tundra",
+          "generated_token_ids": [
+            51,
+            76038,
+            248046
+          ],
+          "prompt_tokens": 67,
+          "generation_seconds": 0.16773789998842403,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9560546875,
+          "query_seconds": 0.16843369998969138,
+          "evidence": [
+            {
+              "id": 11,
+              "content": "Vera Lark's project is named Tundra."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+          "expected": "Tundra",
+          "gold_source_id": 11,
+          "group": "new",
+          "answer": "Tundra",
+          "generated_token_ids": [
+            51,
+            76038,
+            248046
+          ],
+          "prompt_tokens": 73,
+          "generation_seconds": 0.16655369999352843,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.14599609375,
+          "query_seconds": 0.1672064999875147,
+          "evidence": [
+            {
+              "id": 11,
+              "content": "Vera Lark's project is named Tundra."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+          "expected": "Nimbus",
+          "gold_source_id": 12,
+          "group": "new",
+          "answer": "Nimbus",
+          "generated_token_ids": [
+            45,
+            91930,
+            248046
+          ],
+          "prompt_tokens": 64,
+          "generation_seconds": 0.16439610000816174,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.853515625,
+          "query_seconds": 0.16601459999219514,
+          "evidence": [
+            {
+              "id": 12,
+              "content": "Enzo Reed's project is named Nimbus."
+            }
+          ],
+          "lookup_seconds": 1.2999807950109243e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+          "expected": "Nimbus",
+          "gold_source_id": 12,
+          "group": "new",
+          "answer": "Nimbus",
+          "generated_token_ids": [
+            45,
+            91930,
+            248046
+          ],
+          "prompt_tokens": 70,
+          "generation_seconds": 0.16576720000011846,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.05078125,
+          "query_seconds": 0.16638849998707883,
+          "evidence": [
+            {
+              "id": 12,
+              "content": "Enzo Reed's project is named Nimbus."
+            }
+          ],
+          "lookup_seconds": 1.00000761449337e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Alma Kent? Reply with only its name.",
+          "expected": "Sequoia",
+          "gold_source_id": 13,
+          "group": "new",
+          "answer": "Sequoia",
+          "generated_token_ids": [
+            1460,
+            25664,
+            667,
+            248046
+          ],
+          "prompt_tokens": 66,
+          "generation_seconds": 0.20014760000049137,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9248046875,
+          "query_seconds": 0.20077159997890703,
+          "evidence": [
+            {
+              "id": 13,
+              "content": "Alma Kent's project is named Sequoia."
+            }
+          ],
+          "lookup_seconds": 9.999785106629133e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+          "expected": "Sequoia",
+          "gold_source_id": 13,
+          "group": "new",
+          "answer": "Sequoia",
+          "generated_token_ids": [
+            1460,
+            25664,
+            667,
+            248046
+          ],
+          "prompt_tokens": 72,
+          "generation_seconds": 0.19915490000857972,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.11328125,
+          "query_seconds": 0.19977710000239313,
+          "evidence": [
+            {
+              "id": 13,
+              "content": "Alma Kent's project is named Sequoia."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Nico Ward? Reply with only its name.",
+          "expected": "Lagoon",
+          "gold_source_id": 14,
+          "group": "new",
+          "answer": "Lagoon",
+          "generated_token_ids": [
+            43,
+            65138,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.17463839999982156,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.17525869997916743,
+          "evidence": [
+            {
+              "id": 14,
+              "content": "Nico Ward's project is named Lagoon."
+            }
+          ],
+          "lookup_seconds": 1.1999800335615873e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+          "expected": "Lagoon",
+          "gold_source_id": 14,
+          "group": "new",
+          "answer": "Lagoon",
+          "generated_token_ids": [
+            43,
+            65138,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.17528039999888279,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.1760126000153832,
+          "evidence": [
+            {
+              "id": 14,
+              "content": "Nico Ward's project is named Lagoon."
+            }
+          ],
+          "lookup_seconds": 1.200009137392044e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+          "expected": "Silver",
+          "gold_source_id": 15,
+          "group": "new",
+          "answer": "Silver",
+          "generated_token_ids": [
+            50584,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.1499160999956075,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.15069489998859353,
+          "evidence": [
+            {
+              "id": 15,
+              "content": "Rhea Pike's project is named Silver."
+            }
+          ],
+          "lookup_seconds": 1.400010660290718e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+          "expected": "Silver",
+          "gold_source_id": 15,
+          "group": "new",
+          "answer": "Silver",
+          "generated_token_ids": [
+            50584,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.14306780000333674,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.1437263000116218,
+          "evidence": [
+            {
+              "id": 15,
+              "content": "Rhea Pike's project is named Silver."
+            }
+          ],
+          "lookup_seconds": 1.300009898841381e-06,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is 2 + 2? Reply with only the number.",
+          "expected": "4",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "4",
+          "generated_token_ids": [
+            19,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.1368479000229854,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.1373881000035908,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is 3 + 5? Reply with only the number.",
+          "expected": "8",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "8",
+          "generated_token_ids": [
+            23,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.1290222999814432,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.12956440000561997,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is the capital of France? Reply with only the city name.",
+          "expected": "Paris",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "Paris",
+          "generated_token_ids": [
+            57590,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.13341009998111986,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.13397550000809133,
+          "evidence": [],
+          "lookup_seconds": 3.00002284348011e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is the capital of Japan? Reply with only the city name.",
+          "expected": "Tokyo",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "Tokyo",
+          "generated_token_ids": [
+            51076,
+            15560,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.15312689999700524,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.1536709000065457,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        }
+      ],
+      "adapter_unchanged_during_evaluation": true,
+      "old": {
+        "correct": 16,
+        "total": 16,
+        "exact_and_stopped": 16
+      },
+      "new": {
+        "correct": 16,
+        "total": 16,
+        "exact_and_stopped": 16
+      },
+      "control": {
+        "correct": 4,
+        "total": 4,
+        "exact_and_stopped": 4
+      },
+      "fact_correct": 32,
+      "fact_total": 32,
+      "fact_stopped": 32,
+      "fact_exact_and_stopped": 32,
+      "mean_query_seconds": 0.1669944222230697,
+      "mean_generation_seconds": 0.16630646944152735,
+      "mean_prompt_tokens": 65.83333333333333,
+      "recall_at_1": 1.0,
+      "control_evidence_injections": 0,
+      "controls_changed_from_correct_to_wrong": 0
+    },
+    "R": {
+      "answers": [
+        {
+          "question": "Which project belongs to Tova Renn? Reply with only its name.",
+          "expected": "Maple",
+          "gold_source_id": 0,
+          "group": "old",
+          "answer": "Maple",
+          "generated_token_ids": [
+            2155,
+            273,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.16119750001234934,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.1624393000092823,
+          "evidence": [
+            {
+              "id": 0,
+              "content": "Tova Renn's project is named Maple."
+            }
+          ],
+          "lookup_seconds": 0.00016209998284466565,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+          "expected": "Maple",
+          "gold_source_id": 0,
+          "group": "old",
+          "answer": "Maple",
+          "generated_token_ids": [
+            2155,
+            273,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.16391509998356923,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.16472120000980794,
+          "evidence": [
+            {
+              "id": 0,
+              "content": "Tova Renn's project is named Maple."
+            }
+          ],
+          "lookup_seconds": 0.00011190000805072486,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Kian Vale? Reply with only its name.",
+          "expected": "Quartz",
+          "gold_source_id": 1,
+          "group": "old",
+          "answer": "Quartz",
+          "generated_token_ids": [
+            2114,
+            20932,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.16291140002431348,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.16368889997829683,
+          "evidence": [
+            {
+              "id": 1,
+              "content": "Kian Vale's project is named Quartz."
+            }
+          ],
+          "lookup_seconds": 0.00010919998749159276,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+          "expected": "Quartz",
+          "gold_source_id": 1,
+          "group": "old",
+          "answer": "Quartz",
+          "generated_token_ids": [
+            2114,
+            20932,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.16852720000315458,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.1693082999845501,
+          "evidence": [
+            {
+              "id": 1,
+              "content": "Kian Vale's project is named Quartz."
+            }
+          ],
+          "lookup_seconds": 0.00012179999612271786,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+          "expected": "Willow",
+          "gold_source_id": 2,
+          "group": "old",
+          "answer": "Willow",
+          "generated_token_ids": [
+            9651,
+            358,
+            248046
+          ],
+          "prompt_tokens": 66,
+          "generation_seconds": 0.15949489999911748,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9248046875,
+          "query_seconds": 0.16027480000047944,
+          "evidence": [
+            {
+              "id": 2,
+              "content": "Lumi Senn's project is named Willow."
+            }
+          ],
+          "lookup_seconds": 0.00011480000102892518,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+          "expected": "Willow",
+          "gold_source_id": 2,
+          "group": "old",
+          "answer": "Willow",
+          "generated_token_ids": [
+            9651,
+            358,
+            248046
+          ],
+          "prompt_tokens": 72,
+          "generation_seconds": 0.16252680000616238,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.11328125,
+          "query_seconds": 0.16339849997893907,
+          "evidence": [
+            {
+              "id": 2,
+              "content": "Lumi Senn's project is named Willow."
+            }
+          ],
+          "lookup_seconds": 0.00014109999756328762,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+          "expected": "Beacon",
+          "gold_source_id": 3,
+          "group": "old",
+          "answer": "Beacon",
+          "generated_token_ids": [
+            3320,
+            21682,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.15975720001733862,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.16048689998569898,
+          "evidence": [
+            {
+              "id": 3,
+              "content": "Arvo Tess's project is named Beacon."
+            }
+          ],
+          "lookup_seconds": 0.00011449999874457717,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+          "expected": "Beacon",
+          "gold_source_id": 3,
+          "group": "old",
+          "answer": "Beacon",
+          "generated_token_ids": [
+            3320,
+            21682,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.15828659999533556,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.1590497000142932,
+          "evidence": [
+            {
+              "id": 3,
+              "content": "Arvo Tess's project is named Beacon."
+            }
+          ],
+          "lookup_seconds": 0.00011850000009872019,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+          "expected": "Copper",
+          "gold_source_id": 4,
+          "group": "old",
+          "answer": "Copper",
+          "generated_token_ids": [
+            34,
+            17936,
+            248046
+          ],
+          "prompt_tokens": 67,
+          "generation_seconds": 0.21236260002478957,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9560546875,
+          "query_seconds": 0.21310189997893758,
+          "evidence": [
+            {
+              "id": 4,
+              "content": "Nola Fenn's project is named Copper."
+            }
+          ],
+          "lookup_seconds": 0.00011549997725524008,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+          "expected": "Copper",
+          "gold_source_id": 4,
+          "group": "old",
+          "answer": "Copper",
+          "generated_token_ids": [
+            34,
+            17936,
+            248046
+          ],
+          "prompt_tokens": 73,
+          "generation_seconds": 0.17558509999071248,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.14599609375,
+          "query_seconds": 0.1763850999996066,
+          "evidence": [
+            {
+              "id": 4,
+              "content": "Nola Fenn's project is named Copper."
+            }
+          ],
+          "lookup_seconds": 0.000146100006531924,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Davi Moss? Reply with only its name.",
+          "expected": "Orchid",
+          "gold_source_id": 5,
+          "group": "old",
+          "answer": "Orchid",
+          "generated_token_ids": [
+            2126,
+            329,
+            306,
+            248046
+          ],
+          "prompt_tokens": 66,
+          "generation_seconds": 0.19285940000554547,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9248046875,
+          "query_seconds": 0.19364519999362528,
+          "evidence": [
+            {
+              "id": 5,
+              "content": "Davi Moss's project is named Orchid."
+            }
+          ],
+          "lookup_seconds": 0.00011619998258538544,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+          "expected": "Orchid",
+          "gold_source_id": 5,
+          "group": "old",
+          "answer": "Orchid",
+          "generated_token_ids": [
+            2126,
+            329,
+            306,
+            248046
+          ],
+          "prompt_tokens": 72,
+          "generation_seconds": 0.20847309997770935,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.11328125,
+          "query_seconds": 0.20922709998558275,
+          "evidence": [
+            {
+              "id": 5,
+              "content": "Davi Moss's project is named Orchid."
+            }
+          ],
+          "lookup_seconds": 0.00011570000788196921,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+          "expected": "Falcon",
+          "gold_source_id": 6,
+          "group": "old",
+          "answer": "Falcon",
+          "generated_token_ids": [
+            37,
+            44673,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.1628410999837797,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.16362519998801872,
+          "evidence": [
+            {
+              "id": 6,
+              "content": "Eira Dunn's project is named Falcon."
+            }
+          ],
+          "lookup_seconds": 0.00012060001608915627,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+          "expected": "Falcon",
+          "gold_source_id": 6,
+          "group": "old",
+          "answer": "Falcon",
+          "generated_token_ids": [
+            37,
+            44673,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.1613968999881763,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.16515990000334568,
+          "evidence": [
+            {
+              "id": 6,
+              "content": "Eira Dunn's project is named Falcon."
+            }
+          ],
+          "lookup_seconds": 0.00013050000416114926,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+          "expected": "Marble",
+          "gold_source_id": 7,
+          "group": "old",
+          "answer": "Marble",
+          "generated_token_ids": [
+            11718,
+            863,
+            248046
+          ],
+          "prompt_tokens": 67,
+          "generation_seconds": 0.1633799999835901,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9560546875,
+          "query_seconds": 0.16424300000653602,
+          "evidence": [
+            {
+              "id": 7,
+              "content": "Ravi Keel's project is named Marble."
+            }
+          ],
+          "lookup_seconds": 0.00011480000102892518,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+          "expected": "Marble",
+          "gold_source_id": 7,
+          "group": "old",
+          "answer": "Marble",
+          "generated_token_ids": [
+            11718,
+            863,
+            248046
+          ],
+          "prompt_tokens": 73,
+          "generation_seconds": 0.1668467999843415,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.14599609375,
+          "query_seconds": 0.1679151999996975,
+          "evidence": [
+            {
+              "id": 7,
+              "content": "Ravi Keel's project is named Marble."
+            }
+          ],
+          "lookup_seconds": 0.00018000000272877514,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Milo Hart? Reply with only its name.",
+          "expected": "Juniper",
+          "gold_source_id": 8,
+          "group": "new",
+          "answer": "Juniper",
+          "generated_token_ids": [
+            34413,
+            12489,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.16881949998787604,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.16956300000310875,
+          "evidence": [
+            {
+              "id": 8,
+              "content": "Milo Hart's project is named Juniper."
+            }
+          ],
+          "lookup_seconds": 0.00011860000086016953,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+          "expected": "Juniper",
+          "gold_source_id": 8,
+          "group": "new",
+          "answer": "Juniper",
+          "generated_token_ids": [
+            34413,
+            12489,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.1684504000004381,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.16923230001702905,
+          "evidence": [
+            {
+              "id": 8,
+              "content": "Milo Hart's project is named Juniper."
+            }
+          ],
+          "lookup_seconds": 0.00011780002387240529,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Zara Penn? Reply with only its name.",
+          "expected": "Granite",
+          "gold_source_id": 9,
+          "group": "new",
+          "answer": "Granite",
+          "generated_token_ids": [
+            87600,
+            614,
+            248046
+          ],
+          "prompt_tokens": 64,
+          "generation_seconds": 0.16056480002589524,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.853515625,
+          "query_seconds": 0.16131559998029843,
+          "evidence": [
+            {
+              "id": 9,
+              "content": "Zara Penn's project is named Granite."
+            }
+          ],
+          "lookup_seconds": 0.0001066999975591898,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+          "expected": "Granite",
+          "gold_source_id": 9,
+          "group": "new",
+          "answer": "Granite",
+          "generated_token_ids": [
+            87600,
+            614,
+            248046
+          ],
+          "prompt_tokens": 70,
+          "generation_seconds": 0.16837530001066625,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.05078125,
+          "query_seconds": 0.16915969998808578,
+          "evidence": [
+            {
+              "id": 9,
+              "content": "Zara Penn's project is named Granite."
+            }
+          ],
+          "lookup_seconds": 0.0001241999852936715,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+          "expected": "Saffron",
+          "gold_source_id": 10,
+          "group": "new",
+          "answer": "Saffron",
+          "generated_token_ids": [
+            50,
+            2562,
+            2176,
+            248046
+          ],
+          "prompt_tokens": 69,
+          "generation_seconds": 0.2010195000038948,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.01953125,
+          "query_seconds": 0.20178559998748824,
+          "evidence": [
+            {
+              "id": 10,
+              "content": "Oren Fisk's project is named Saffron."
+            }
+          ],
+          "lookup_seconds": 0.00011779999476857483,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+          "expected": "Saffron",
+          "gold_source_id": 10,
+          "group": "new",
+          "answer": "Saffron",
+          "generated_token_ids": [
+            50,
+            2562,
+            2176,
+            248046
+          ],
+          "prompt_tokens": 75,
+          "generation_seconds": 0.18882670000311919,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.20849609375,
+          "query_seconds": 0.1895797000033781,
+          "evidence": [
+            {
+              "id": 10,
+              "content": "Oren Fisk's project is named Saffron."
+            }
+          ],
+          "lookup_seconds": 0.00011829999857582152,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Vera Lark? Reply with only its name.",
+          "expected": "Tundra",
+          "gold_source_id": 11,
+          "group": "new",
+          "answer": "Tundra",
+          "generated_token_ids": [
+            51,
+            76038,
+            248046
+          ],
+          "prompt_tokens": 67,
+          "generation_seconds": 0.16489380001439713,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9560546875,
+          "query_seconds": 0.16566540001076646,
+          "evidence": [
+            {
+              "id": 11,
+              "content": "Vera Lark's project is named Tundra."
+            }
+          ],
+          "lookup_seconds": 0.00012260000221431255,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+          "expected": "Tundra",
+          "gold_source_id": 11,
+          "group": "new",
+          "answer": "Tundra",
+          "generated_token_ids": [
+            51,
+            76038,
+            248046
+          ],
+          "prompt_tokens": 73,
+          "generation_seconds": 0.1662413000012748,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.14599609375,
+          "query_seconds": 0.16706360000534914,
+          "evidence": [
+            {
+              "id": 11,
+              "content": "Vera Lark's project is named Tundra."
+            }
+          ],
+          "lookup_seconds": 0.00011359999189153314,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+          "expected": "Nimbus",
+          "gold_source_id": 12,
+          "group": "new",
+          "answer": "Nimbus",
+          "generated_token_ids": [
+            45,
+            91930,
+            248046
+          ],
+          "prompt_tokens": 64,
+          "generation_seconds": 0.1643906999961473,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.853515625,
+          "query_seconds": 0.1660021000134293,
+          "evidence": [
+            {
+              "id": 12,
+              "content": "Enzo Reed's project is named Nimbus."
+            }
+          ],
+          "lookup_seconds": 0.00031289999606087804,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+          "expected": "Nimbus",
+          "gold_source_id": 12,
+          "group": "new",
+          "answer": "Nimbus",
+          "generated_token_ids": [
+            45,
+            91930,
+            248046
+          ],
+          "prompt_tokens": 70,
+          "generation_seconds": 0.16928339999867603,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.05078125,
+          "query_seconds": 0.17003539999132045,
+          "evidence": [
+            {
+              "id": 12,
+              "content": "Enzo Reed's project is named Nimbus."
+            }
+          ],
+          "lookup_seconds": 0.00012060001608915627,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Alma Kent? Reply with only its name.",
+          "expected": "Sequoia",
+          "gold_source_id": 13,
+          "group": "new",
+          "answer": "Sequoia",
+          "generated_token_ids": [
+            1460,
+            25664,
+            667,
+            248046
+          ],
+          "prompt_tokens": 66,
+          "generation_seconds": 0.1913019999919925,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.9248046875,
+          "query_seconds": 0.1920408000005409,
+          "evidence": [
+            {
+              "id": 13,
+              "content": "Alma Kent's project is named Sequoia."
+            }
+          ],
+          "lookup_seconds": 0.0001134999911300838,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+          "expected": "Sequoia",
+          "gold_source_id": 13,
+          "group": "new",
+          "answer": "Sequoia",
+          "generated_token_ids": [
+            1460,
+            25664,
+            667,
+            248046
+          ],
+          "prompt_tokens": 72,
+          "generation_seconds": 0.19154560001334175,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.11328125,
+          "query_seconds": 0.1923081999993883,
+          "evidence": [
+            {
+              "id": 13,
+              "content": "Alma Kent's project is named Sequoia."
+            }
+          ],
+          "lookup_seconds": 0.00011039999662898481,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Nico Ward? Reply with only its name.",
+          "expected": "Lagoon",
+          "gold_source_id": 14,
+          "group": "new",
+          "answer": "Lagoon",
+          "generated_token_ids": [
+            43,
+            65138,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.15543039998738095,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.15616189999855123,
+          "evidence": [
+            {
+              "id": 14,
+              "content": "Nico Ward's project is named Lagoon."
+            }
+          ],
+          "lookup_seconds": 0.00011510000331327319,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+          "expected": "Lagoon",
+          "gold_source_id": 14,
+          "group": "new",
+          "answer": "Lagoon",
+          "generated_token_ids": [
+            43,
+            65138,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.1649666999874171,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.16570039998623542,
+          "evidence": [
+            {
+              "id": 14,
+              "content": "Nico Ward's project is named Lagoon."
+            }
+          ],
+          "lookup_seconds": 0.0001115999766625464,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+          "expected": "Silver",
+          "gold_source_id": 15,
+          "group": "new",
+          "answer": "Silver",
+          "generated_token_ids": [
+            50584,
+            248046
+          ],
+          "prompt_tokens": 65,
+          "generation_seconds": 0.13572839999687858,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1500.8935546875,
+          "query_seconds": 0.13647080000373535,
+          "evidence": [
+            {
+              "id": 15,
+              "content": "Rhea Pike's project is named Silver."
+            }
+          ],
+          "lookup_seconds": 0.00010770000517368317,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+          "expected": "Silver",
+          "gold_source_id": 15,
+          "group": "new",
+          "answer": "Silver",
+          "generated_token_ids": [
+            50584,
+            248046
+          ],
+          "prompt_tokens": 71,
+          "generation_seconds": 0.13608579998253845,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1501.08203125,
+          "query_seconds": 0.13692980000632815,
+          "evidence": [
+            {
+              "id": 15,
+              "content": "Rhea Pike's project is named Silver."
+            }
+          ],
+          "lookup_seconds": 0.0001230000052601099,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is 2 + 2? Reply with only the number.",
+          "expected": "4",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "4",
+          "generated_token_ids": [
+            19,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.12893249999615364,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.12965290001011454,
+          "evidence": [],
+          "lookup_seconds": 0.00011210000957362354,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is 3 + 5? Reply with only the number.",
+          "expected": "8",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "8",
+          "generated_token_ids": [
+            23,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.1312366999918595,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.13194300001487136,
+          "evidence": [],
+          "lookup_seconds": 0.0001052000152412802,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is the capital of France? Reply with only the city name.",
+          "expected": "Paris",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "Paris",
+          "generated_token_ids": [
+            57590,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.13345630001276731,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.1341336999903433,
+          "evidence": [],
+          "lookup_seconds": 0.00010529998689889908,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is the capital of Japan? Reply with only the city name.",
+          "expected": "Tokyo",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "Tokyo",
+          "generated_token_ids": [
+            51076,
+            15560,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.1512939000094775,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1496.18994140625,
+          "query_seconds": 0.15200750000076368,
+          "evidence": [],
+          "lookup_seconds": 0.00011290001566521823,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        }
+      ],
+      "adapter_unchanged_during_evaluation": true,
+      "old": {
+        "correct": 16,
+        "total": 16,
+        "exact_and_stopped": 16
+      },
+      "new": {
+        "correct": 16,
+        "total": 16,
+        "exact_and_stopped": 16
+      },
+      "control": {
+        "correct": 4,
+        "total": 4,
+        "exact_and_stopped": 4
+      },
+      "fact_correct": 32,
+      "fact_total": 32,
+      "fact_stopped": 32,
+      "fact_exact_and_stopped": 32,
+      "mean_query_seconds": 0.167039488886884,
+      "mean_generation_seconds": 0.16614459444422713,
+      "mean_prompt_tokens": 65.83333333333333,
+      "recall_at_1": 1.0,
+      "control_evidence_injections": 0,
+      "controls_changed_from_correct_to_wrong": 0
+    },
+    "W": {
+      "answers": [
+        {
+          "question": "Which project belongs to Tova Renn? Reply with only its name.",
+          "expected": "Maple",
+          "gold_source_id": 0,
+          "group": "old",
+          "answer": "Maple Saffron",
+          "generated_token_ids": [
+            2155,
+            273,
+            326,
+            2562,
+            2176,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.33030860000872053,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.331115899985889,
+          "evidence": [],
+          "lookup_seconds": 3.999739419668913e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": true
+        },
+        {
+          "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+          "expected": "Maple",
+          "gold_source_id": 0,
+          "group": "old",
+          "answer": "Maple Squirrel",
+          "generated_token_ids": [
+            2155,
+            273,
+            326,
+            83649,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.2877325000008568,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.14892578125,
+          "query_seconds": 0.28835510002681985,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": true
+        },
+        {
+          "question": "Which project belongs to Kian Vale? Reply with only its name.",
+          "expected": "Quartz",
+          "gold_source_id": 1,
+          "group": "old",
+          "answer": "Quartz",
+          "generated_token_ids": [
+            2114,
+            20932,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.2097191999782808,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.21154660001047887,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+          "expected": "Quartz",
+          "gold_source_id": 1,
+          "group": "old",
+          "answer": "Quartz",
+          "generated_token_ids": [
+            2114,
+            20932,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.20419000001857057,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.14892578125,
+          "query_seconds": 0.20486139997956343,
+          "evidence": [],
+          "lookup_seconds": 4.999747034162283e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+          "expected": "Willow",
+          "gold_source_id": 2,
+          "group": "old",
+          "answer": "Willow",
+          "generated_token_ids": [
+            9651,
+            358,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.2084634999919217,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.20910599999479018,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+          "expected": "Willow",
+          "gold_source_id": 2,
+          "group": "old",
+          "answer": "Willow",
+          "generated_token_ids": [
+            9651,
+            358,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.2319957000145223,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.14892578125,
+          "query_seconds": 0.23255259997677058,
+          "evidence": [],
+          "lookup_seconds": 3.999739419668913e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+          "expected": "Beacon",
+          "gold_source_id": 3,
+          "group": "old",
+          "answer": "Beacon",
+          "generated_token_ids": [
+            3320,
+            21682,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.21692159998929128,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.21748150000348687,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+          "expected": "Beacon",
+          "gold_source_id": 3,
+          "group": "old",
+          "answer": "Beacon",
+          "generated_token_ids": [
+            3320,
+            21682,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.20456000001286156,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.14892578125,
+          "query_seconds": 0.20511879998957738,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+          "expected": "Copper",
+          "gold_source_id": 4,
+          "group": "old",
+          "answer": "Copper",
+          "generated_token_ids": [
+            34,
+            17936,
+            248046
+          ],
+          "prompt_tokens": 44,
+          "generation_seconds": 0.2194420000014361,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.98876953125,
+          "query_seconds": 0.22003539997967891,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+          "expected": "Copper",
+          "gold_source_id": 4,
+          "group": "old",
+          "answer": "Copper",
+          "generated_token_ids": [
+            34,
+            17936,
+            248046
+          ],
+          "prompt_tokens": 50,
+          "generation_seconds": 0.27370089999749325,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.18017578125,
+          "query_seconds": 0.27446089999284595,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Davi Moss? Reply with only its name.",
+          "expected": "Orchid",
+          "gold_source_id": 5,
+          "group": "old",
+          "answer": "Orchid",
+          "generated_token_ids": [
+            2126,
+            329,
+            306,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.28689160000067204,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.28754679998382926,
+          "evidence": [],
+          "lookup_seconds": 5.999754648655653e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+          "expected": "Orchid",
+          "gold_source_id": 5,
+          "group": "old",
+          "answer": "Orchid",
+          "generated_token_ids": [
+            2126,
+            329,
+            306,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.24904499997501262,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.14892578125,
+          "query_seconds": 0.24964369999361224,
+          "evidence": [],
+          "lookup_seconds": 3.00002284348011e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+          "expected": "Falcon",
+          "gold_source_id": 6,
+          "group": "old",
+          "answer": "Falcon 2",
+          "generated_token_ids": [
+            37,
+            44673,
+            220,
+            17,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.31121510002412833,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.31188140000449494,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": true
+        },
+        {
+          "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+          "expected": "Falcon",
+          "gold_source_id": 6,
+          "group": "old",
+          "answer": "Falcon 2",
+          "generated_token_ids": [
+            37,
+            44673,
+            220,
+            17,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.3723182999819983,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.14892578125,
+          "query_seconds": 0.37294800000381656,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": true
+        },
+        {
+          "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+          "expected": "Marble",
+          "gold_source_id": 7,
+          "group": "old",
+          "answer": "Marble",
+          "generated_token_ids": [
+            11718,
+            863,
+            248046
+          ],
+          "prompt_tokens": 44,
+          "generation_seconds": 0.21572639999794774,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.98876953125,
+          "query_seconds": 0.21635029997560196,
+          "evidence": [],
+          "lookup_seconds": 4.999747034162283e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+          "expected": "Marble",
+          "gold_source_id": 7,
+          "group": "old",
+          "answer": "Marble",
+          "generated_token_ids": [
+            11718,
+            863,
+            248046
+          ],
+          "prompt_tokens": 50,
+          "generation_seconds": 0.21875339999678545,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.18017578125,
+          "query_seconds": 0.21934650000184774,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Milo Hart? Reply with only its name.",
+          "expected": "Juniper",
+          "gold_source_id": 8,
+          "group": "new",
+          "answer": "Juniper",
+          "generated_token_ids": [
+            34413,
+            12489,
+            248046
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.22672949999105185,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.92626953125,
+          "query_seconds": 0.22803410000051372,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Milo Hart is working on. Reply with only its name.",
+          "expected": "Juniper",
+          "gold_source_id": 8,
+          "group": "new",
+          "answer": "Juniper",
+          "generated_token_ids": [
+            34413,
+            12489,
+            248046
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.22968889999901876,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.11474609375,
+          "query_seconds": 0.23051850000047125,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Zara Penn? Reply with only its name.",
+          "expected": "Granite",
+          "gold_source_id": 9,
+          "group": "new",
+          "answer": "Granite",
+          "generated_token_ids": [
+            87600,
+            614,
+            248046
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.22305450000567362,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.92626953125,
+          "query_seconds": 0.22370760000194423,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Zara Penn is working on. Reply with only its name.",
+          "expected": "Granite",
+          "gold_source_id": 9,
+          "group": "new",
+          "answer": "Sequoia",
+          "generated_token_ids": [
+            1460,
+            25664,
+            667,
+            248046
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.25973300001351163,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.11474609375,
+          "query_seconds": 0.26029960002051666,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Oren Fisk? Reply with only its name.",
+          "expected": "Saffron",
+          "gold_source_id": 10,
+          "group": "new",
+          "answer": "Saffron",
+          "generated_token_ids": [
+            50,
+            2562,
+            2176,
+            248046
+          ],
+          "prompt_tokens": 44,
+          "generation_seconds": 0.2622454999946058,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.98876953125,
+          "query_seconds": 0.26279460001387633,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Oren Fisk is working on. Reply with only its name.",
+          "expected": "Saffron",
+          "gold_source_id": 10,
+          "group": "new",
+          "answer": "Saffron",
+          "generated_token_ids": [
+            50,
+            2562,
+            2176,
+            248046
+          ],
+          "prompt_tokens": 50,
+          "generation_seconds": 0.26639520001481287,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.18017578125,
+          "query_seconds": 0.2669901000044774,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Vera Lark? Reply with only its name.",
+          "expected": "Tundra",
+          "gold_source_id": 11,
+          "group": "new",
+          "answer": "Tundra",
+          "generated_token_ids": [
+            51,
+            76038,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.2667479000228923,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.2674426000157837,
+          "evidence": [],
+          "lookup_seconds": 7.00005330145359e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Vera Lark is working on. Reply with only its name.",
+          "expected": "Tundra",
+          "gold_source_id": 11,
+          "group": "new",
+          "answer": "Tundra",
+          "generated_token_ids": [
+            51,
+            76038,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.2247561999829486,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.14892578125,
+          "query_seconds": 0.22547279999707825,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Enzo Reed? Reply with only its name.",
+          "expected": "Nimbus",
+          "gold_source_id": 12,
+          "group": "new",
+          "answer": "Nimbus",
+          "generated_token_ids": [
+            45,
+            91930,
+            248046
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.21489659999497235,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.92626953125,
+          "query_seconds": 0.2154778000258375,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Enzo Reed is working on. Reply with only its name.",
+          "expected": "Nimbus",
+          "gold_source_id": 12,
+          "group": "new",
+          "answer": "Nimbus 2",
+          "generated_token_ids": [
+            45,
+            91930,
+            220,
+            17,
+            248046
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.30939919999218546,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.11474609375,
+          "query_seconds": 0.30999310000333935,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": true
+        },
+        {
+          "question": "Which project belongs to Alma Kent? Reply with only its name.",
+          "expected": "Sequoia",
+          "gold_source_id": 13,
+          "group": "new",
+          "answer": "Sequoia",
+          "generated_token_ids": [
+            1460,
+            25664,
+            667,
+            248046
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.2711385999864433,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.92626953125,
+          "query_seconds": 0.27177070002653636,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Alma Kent is working on. Reply with only its name.",
+          "expected": "Sequoia",
+          "gold_source_id": 13,
+          "group": "new",
+          "answer": "Sequoia",
+          "generated_token_ids": [
+            1460,
+            25664,
+            667,
+            248046
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.2595111000118777,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.11474609375,
+          "query_seconds": 0.26007940000272356,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Nico Ward? Reply with only its name.",
+          "expected": "Lagoon",
+          "gold_source_id": 14,
+          "group": "new",
+          "answer": "Lagoon",
+          "generated_token_ids": [
+            43,
+            65138,
+            248046
+          ],
+          "prompt_tokens": 42,
+          "generation_seconds": 0.2294928000192158,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.92626953125,
+          "query_seconds": 0.23015719998511486,
+          "evidence": [],
+          "lookup_seconds": 3.00002284348011e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Nico Ward is working on. Reply with only its name.",
+          "expected": "Lagoon",
+          "gold_source_id": 14,
+          "group": "new",
+          "answer": "Lagoon",
+          "generated_token_ids": [
+            43,
+            65138,
+            248046
+          ],
+          "prompt_tokens": 48,
+          "generation_seconds": 0.22730919998139143,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.11474609375,
+          "query_seconds": 0.2281436999910511,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Which project belongs to Rhea Pike? Reply with only its name.",
+          "expected": "Silver",
+          "gold_source_id": 15,
+          "group": "new",
+          "answer": "Silver",
+          "generated_token_ids": [
+            50584,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.1900786999904085,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.19065429997863248,
+          "evidence": [],
+          "lookup_seconds": 3.999739419668913e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "Give the name of the project that Rhea Pike is working on. Reply with only its name.",
+          "expected": "Silver",
+          "gold_source_id": 15,
+          "group": "new",
+          "answer": "Silver Sequoia",
+          "generated_token_ids": [
+            50584,
+            24027,
+            78,
+            667,
+            248046
+          ],
+          "prompt_tokens": 49,
+          "generation_seconds": 0.39051530000870116,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1525.14892578125,
+          "query_seconds": 0.3911929000169039,
+          "evidence": [],
+          "lookup_seconds": 6.00004568696022e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": true
+        },
+        {
+          "question": "What is 2 + 2? Reply with only the number.",
+          "expected": "4",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "4",
+          "generated_token_ids": [
+            19,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.19426439999369904,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.19485630001872778,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is 3 + 5? Reply with only the number.",
+          "expected": "8",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "8",
+          "generated_token_ids": [
+            23,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.19289679999928921,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.19351020001340657,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is the capital of France? Reply with only the city name.",
+          "expected": "Paris",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "Beacon",
+          "generated_token_ids": [
+            3320,
+            21682,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.2483899999933783,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.24908880001748912,
+          "evidence": [],
+          "lookup_seconds": 5.00003807246685e-07,
+          "exact_match": false,
+          "exact_and_stopped": false,
+          "correct_prefix_with_extra_text": false
+        },
+        {
+          "question": "What is the capital of Japan? Reply with only the city name.",
+          "expected": "Tokyo",
+          "group": "control",
+          "gold_source_id": null,
+          "answer": "Tokyo",
+          "generated_token_ids": [
+            51076,
+            15560,
+            248046
+          ],
+          "prompt_tokens": 43,
+          "generation_seconds": 0.23224730000947602,
+          "ended_with_end_token": true,
+          "output_limit_reached": false,
+          "peak_allocated_mib": 1524.95751953125,
+          "query_seconds": 0.23279680000268854,
+          "evidence": [],
+          "lookup_seconds": 4.00003045797348e-07,
+          "exact_match": true,
+          "exact_and_stopped": true,
+          "correct_prefix_with_extra_text": false
+        }
+      ],
+      "adapter_unchanged_during_evaluation": true,
+      "old": {
+        "correct": 12,
+        "total": 16,
+        "exact_and_stopped": 12
+      },
+      "new": {
+        "correct": 13,
+        "total": 16,
+        "exact_and_stopped": 13
+      },
+      "control": {
+        "correct": 3,
+        "total": 4,
+        "exact_and_stopped": 3
+      },
+      "fact_correct": 25,
+      "fact_total": 32,
+      "fact_stopped": 32,
+      "fact_exact_and_stopped": 25,
+      "mean_query_seconds": 0.24959255555667267,
+      "mean_generation_seconds": 0.2489020694443348,
+      "mean_prompt_tokens": 45.55555555555556,
+      "controls_changed_from_correct_to_wrong": 1
+    }
+  },
+  "directory": "runs/memory-1789143609186993800",
+  "initial_checkpoint": "runs/acquisition-1789131725328701100/confirmation-qa-42.safetensors",
+  "initial_checkpoint_sha256": "8528dce9f9d3617fb271c18a467c9a3d4d01149f84b30013ea9ff4499438877e",
+  "base_sha256_before": "e688359ff145012ef37eba75aa5fd3db12690acf22b80e33441be418973bfc17",
+  "selection": "Diagnostic reuse of existing facts and previously observed better replay16 setting; not fresh confirmation or an optimal parameter-memory claim.",
+  "weight_protocol": "Reload acquisition seed42 QA64; repeat retention-v1 50% replay for 16 steps, answer-only labels, fresh AdamW per step. No new method selection.",
+  "retrieval_protocol": "SQLite whole-name lookup, top1; no evidence on zero or multiple matching names. Only the question is passed to retrieve(). Not semantic search.",
+  "generation_protocol": "Same original system prompt, greedy decoding, 24-token limit, im_end EOS, fresh full prefill per query. O/R add one raw source turn and Understood. F/W do not receive evidence.",
+  "cost_scope": "Generation excludes model loading; query time includes lookup and prompt preparation. W update time excludes historical acquisition, evaluation and checkpoint IO. SQLite write time excludes model loading; full local costs are reported separately.",
+  "source_sha256": {
+    "qwenbrain/experiment_memory.py": "b768e23d3df641c889d88f3b93084a9f6bf3c398a77cd9796456411f2bef08c2",
+    "qwenbrain/memory.py": "442da8b05c305542728e93b0257756d99070f46371b890026c23c920461c1b9a",
+    "qwenbrain/chat.py": "5d1496064cf1fd73a2abd33273dfa1694a43a764afd67f734f4f599bbca8c6a6",
+    "qwenbrain/experiment_acquisition.py": "c1086805435373f2deaebaca2c633695ae8a8ec6afd1f740df91ab8e8ad99847",
+    "qwenbrain/learning.py": "74a6b12aa21acbf4a7ce2285156069625fc8b9cdfd1d9f404f22d535f2069469",
+    "configs/chat.json": "6b6fedb93ceabb6a8a17c9fbe2c29d6efeb8f212df177e825f9c1b63626c47b1",
+    "reports/retention-results.json": "feff3ccf1297b21dc9a3d941e001639d5d0a38e3d756c40bb2a3b592d301c07a",
+    "uv.lock": "bc5a6eab941d8d784d6442c6388c97d8bcbb79aeffe5e98cf955092f0520371a"
+  },
+  "sqlite_write_seconds": 0.010501799988560379,
+  "sqlite_bytes": 8192,
+  "sqlite_sha256_before": "3852dcbd86caba2a3ae0e64a108f04c714a718b760947036b3657e34a2eeda4d",
+  "weight_before": {
+    "answers": [
+      {
+        "question": "Which project belongs to Tova Renn? Reply with only its name.",
+        "expected": "Maple",
+        "gold_source_id": 0,
+        "group": "old",
+        "answer": "Maple",
+        "generated_token_ids": [
+          2155,
+          273,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.24378259998047724,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.24459329998353496,
+        "evidence": [],
+        "lookup_seconds": 5.00003807246685e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Give the name of the project that Tova Renn is working on. Reply with only its name.",
+        "expected": "Maple",
+        "gold_source_id": 0,
+        "group": "old",
+        "answer": "Maple",
+        "generated_token_ids": [
+          2155,
+          273,
+          248046
+        ],
+        "prompt_tokens": 49,
+        "generation_seconds": 0.2136443999770563,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1517.02392578125,
+        "query_seconds": 0.21447979999356903,
+        "evidence": [],
+        "lookup_seconds": 3.00002284348011e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Which project belongs to Kian Vale? Reply with only its name.",
+        "expected": "Quartz",
+        "gold_source_id": 1,
+        "group": "old",
+        "answer": "Quartz",
+        "generated_token_ids": [
+          2114,
+          20932,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.22215410001808777,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.2227085999911651,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Give the name of the project that Kian Vale is working on. Reply with only its name.",
+        "expected": "Quartz",
+        "gold_source_id": 1,
+        "group": "old",
+        "answer": "Quartz",
+        "generated_token_ids": [
+          2114,
+          20932,
+          248046
+        ],
+        "prompt_tokens": 49,
+        "generation_seconds": 0.21795319998636842,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1517.02392578125,
+        "query_seconds": 0.21851769997738302,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Which project belongs to Lumi Senn? Reply with only its name.",
+        "expected": "Willow",
+        "gold_source_id": 2,
+        "group": "old",
+        "answer": "Willow",
+        "generated_token_ids": [
+          9651,
+          358,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.2082384999957867,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.20877719999407418,
+        "evidence": [],
+        "lookup_seconds": 5.00003807246685e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Give the name of the project that Lumi Senn is working on. Reply with only its name.",
+        "expected": "Willow",
+        "gold_source_id": 2,
+        "group": "old",
+        "answer": "Willow",
+        "generated_token_ids": [
+          9651,
+          358,
+          248046
+        ],
+        "prompt_tokens": 49,
+        "generation_seconds": 0.20811569999204949,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1517.02392578125,
+        "query_seconds": 0.20867960000759922,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Which project belongs to Arvo Tess? Reply with only its name.",
+        "expected": "Beacon",
+        "gold_source_id": 3,
+        "group": "old",
+        "answer": "Beacon",
+        "generated_token_ids": [
+          3320,
+          21682,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.21398420000332408,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.2145508000103291,
+        "evidence": [],
+        "lookup_seconds": 5.00003807246685e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Give the name of the project that Arvo Tess is working on. Reply with only its name.",
+        "expected": "Beacon",
+        "gold_source_id": 3,
+        "group": "old",
+        "answer": "Beacon",
+        "generated_token_ids": [
+          3320,
+          21682,
+          248046
+        ],
+        "prompt_tokens": 49,
+        "generation_seconds": 0.22292000000015832,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1517.02392578125,
+        "query_seconds": 0.2235387999971863,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Which project belongs to Nola Fenn? Reply with only its name.",
+        "expected": "Copper",
+        "gold_source_id": 4,
+        "group": "old",
+        "answer": "Copper",
+        "generated_token_ids": [
+          34,
+          17936,
+          248046
+        ],
+        "prompt_tokens": 44,
+        "generation_seconds": 0.2182864999922458,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.86376953125,
+        "query_seconds": 0.21888649999164045,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Give the name of the project that Nola Fenn is working on. Reply with only its name.",
+        "expected": "Copper",
+        "gold_source_id": 4,
+        "group": "old",
+        "answer": "Copper",
+        "generated_token_ids": [
+          34,
+          17936,
+          248046
+        ],
+        "prompt_tokens": 50,
+        "generation_seconds": 0.20636400001239963,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1517.05517578125,
+        "query_seconds": 0.20713850000174716,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Which project belongs to Davi Moss? Reply with only its name.",
+        "expected": "Orchid",
+        "gold_source_id": 5,
+        "group": "old",
+        "answer": "Orchid.",
+        "generated_token_ids": [
+          2126,
+          329,
+          306,
+          13,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.309382600011304,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.3100507000053767,
+        "evidence": [],
+        "lookup_seconds": 6.00004568696022e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Give the name of the project that Davi Moss is working on. Reply with only its name.",
+        "expected": "Orchid",
+        "gold_source_id": 5,
+        "group": "old",
+        "answer": "Orchid.",
+        "generated_token_ids": [
+          2126,
+          329,
+          306,
+          13,
+          248046
+        ],
+        "prompt_tokens": 49,
+        "generation_seconds": 0.2945313999953214,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1517.02392578125,
+        "query_seconds": 0.2950970999954734,
+        "evidence": [],
+        "lookup_seconds": 5.00003807246685e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Which project belongs to Eira Dunn? Reply with only its name.",
+        "expected": "Falcon",
+        "gold_source_id": 6,
+        "group": "old",
+        "answer": "Falcon 2",
+        "generated_token_ids": [
+          37,
+          44673,
+          220,
+          17,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.38037279999116436,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.3812163000111468,
+        "evidence": [],
+        "lookup_seconds": 7.00005330145359e-07,
+        "exact_match": false,
+        "exact_and_stopped": false,
+        "correct_prefix_with_extra_text": true
+      },
+      {
+        "question": "Give the name of the project that Eira Dunn is working on. Reply with only its name.",
+        "expected": "Falcon",
+        "gold_source_id": 6,
+        "group": "old",
+        "answer": "Falcon 2",
+        "generated_token_ids": [
+          37,
+          44673,
+          220,
+          17,
+          248046
+        ],
+        "prompt_tokens": 49,
+        "generation_seconds": 0.3140438999980688,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1517.02392578125,
+        "query_seconds": 0.3146009999909438,
+        "evidence": [],
+        "lookup_seconds": 5.00003807246685e-07,
+        "exact_match": false,
+        "exact_and_stopped": false,
+        "correct_prefix_with_extra_text": true
+      },
+      {
+        "question": "Which project belongs to Ravi Keel? Reply with only its name.",
+        "expected": "Marble",
+        "gold_source_id": 7,
+        "group": "old",
+        "answer": "Marble",
+        "generated_token_ids": [
+          11718,
+          863,
+          248046
+        ],
+        "prompt_tokens": 44,
+        "generation_seconds": 0.21379549999255687,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.86376953125,
+        "query_seconds": 0.21433680001064204,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "Give the name of the project that Ravi Keel is working on. Reply with only its name.",
+        "expected": "Marble",
+        "gold_source_id": 7,
+        "group": "old",
+        "answer": "Marble",
+        "generated_token_ids": [
+          11718,
+          863,
+          248046
+        ],
+        "prompt_tokens": 50,
+        "generation_seconds": 0.20376569998916239,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1517.05517578125,
+        "query_seconds": 0.2043353000190109,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "What is 2 + 2? Reply with only the number.",
+        "expected": "4",
+        "group": "control",
+        "gold_source_id": null,
+        "answer": "4",
+        "generated_token_ids": [
+          19,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.1698420999746304,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.17066329999943264,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "What is 3 + 5? Reply with only the number.",
+        "expected": "8",
+        "group": "control",
+        "gold_source_id": null,
+        "answer": "8",
+        "generated_token_ids": [
+          23,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.16471079998882487,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.1652763000165578,
+        "evidence": [],
+        "lookup_seconds": 3.00002284348011e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "What is the capital of France? Reply with only the city name.",
+        "expected": "Paris",
+        "group": "control",
+        "gold_source_id": null,
+        "answer": "Paris",
+        "generated_token_ids": [
+          57590,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.16711569999461062,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.16782440000679344,
+        "evidence": [],
+        "lookup_seconds": 5.00003807246685e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      },
+      {
+        "question": "What is the capital of Japan? Reply with only the city name.",
+        "expected": "Tokyo",
+        "group": "control",
+        "gold_source_id": null,
+        "answer": "Tokyo",
+        "generated_token_ids": [
+          51076,
+          15560,
+          248046
+        ],
+        "prompt_tokens": 43,
+        "generation_seconds": 0.21335070001077838,
+        "ended_with_end_token": true,
+        "output_limit_reached": false,
+        "peak_allocated_mib": 1516.83251953125,
+        "query_seconds": 0.21395360000315122,
+        "evidence": [],
+        "lookup_seconds": 4.00003045797348e-07,
+        "exact_match": true,
+        "exact_and_stopped": true,
+        "correct_prefix_with_extra_text": false
+      }
+    ],
+    "adapter_unchanged_during_evaluation": true,
+    "old": {
+      "correct": 14,
+      "total": 16,
+      "exact_and_stopped": 14
+    },
+    "control": {
+      "correct": 4,
+      "total": 4,
+      "exact_and_stopped": 4
+    },
+    "fact_correct": 14,
+    "fact_total": 16,
+    "fact_stopped": 16,
+    "fact_exact_and_stopped": 14,
+    "mean_query_seconds": 0.23096128000033786,
+    "mean_generation_seconds": 0.2303177199952188,
+    "mean_prompt_tokens": 45.6
+  },
+  "weight_steps": [
+    {
+      "step": 1,
+      "seconds": 0.8096570999769028,
+      "loss": 4.923186302185059,
+      "target_tokens": 17
+    },
+    {
+      "step": 2,
+      "seconds": 0.7978070999961346,
+      "loss": 3.7478153705596924,
+      "target_tokens": 17
+    },
+    {
+      "step": 3,
+      "seconds": 0.6954259000194725,
+      "loss": 2.3724913597106934,
+      "target_tokens": 17
+    },
+    {
+      "step": 4,
+      "seconds": 0.7147125999908894,
+      "loss": 2.1362948417663574,
+      "target_tokens": 17
+    },
+    {
+      "step": 5,
+      "seconds": 0.693263900000602,
+      "loss": 1.1996815204620361,
+      "target_tokens": 17
+    },
+    {
+      "step": 6,
+      "seconds": 0.7168057000089902,
+      "loss": 1.0768038034439087,
+      "target_tokens": 17
+    },
+    {
+      "step": 7,
+      "seconds": 0.7116417000070214,
+      "loss": 0.5202203989028931,
+      "target_tokens": 17
+    },
+    {
+      "step": 8,
+      "seconds": 0.7601557000016328,
+      "loss": 0.5541532635688782,
+      "target_tokens": 17
+    },
+    {
+      "step": 9,
+      "seconds": 0.7100103000120725,
+      "loss": 0.16728001832962036,
+      "target_tokens": 17
+    },
+    {
+      "step": 10,
+      "seconds": 0.730321900016861,
+      "loss": 0.03675607591867447,
+      "target_tokens": 17
+    },
+    {
+      "step": 11,
+      "seconds": 0.7078639000246767,
+      "loss": 0.05005624517798424,
+      "target_tokens": 17
+    },
+    {
+      "step": 12,
+      "seconds": 0.7585624000057578,
+      "loss": 0.03116597793996334,
+      "target_tokens": 17
+    },
+    {
+      "step": 13,
+      "seconds": 0.7503183000080753,
+      "loss": 0.0038816083688288927,
+      "target_tokens": 17
+    },
+    {
+      "step": 14,
+      "seconds": 0.684483499993803,
+      "loss": 0.002055352320894599,
+      "target_tokens": 17
+    },
+    {
+      "step": 15,
+      "seconds": 0.6887369000178296,
+      "loss": 0.0009137412998825312,
+      "target_tokens": 17
+    },
+    {
+      "step": 16,
+      "seconds": 0.6995923999929801,
+      "loss": 0.00047696824185550213,
+      "target_tokens": 17
+    }
+  ],
+  "weight_training_length": 46,
+  "weight_update_wall_seconds": 12.538998099975288,
+  "weight_update_compute_seconds": 11.629359300073702,
+  "weight_checkpoint_write_seconds": 0.035283399978652596,
+  "weight_checkpoint_bytes": 21694944,
+  "weight_checkpoint_sha256": "c327b77c96b61b8f7d8c215986bba9ecc65ed8ead83bc32847360c62e21b08f1",
+  "weight_checkpoint_reload_matches": true,
+  "sqlite_sha256_after": "3852dcbd86caba2a3ae0e64a108f04c714a718b760947036b3657e34a2eeda4d",
+  "oracle_retrieval_outputs_identical": true,
+  "base_sha256_after": "e688359ff145012ef37eba75aa5fd3db12690acf22b80e33441be418973bfc17",
+  "live_checkpoint_unchanged": true
+}

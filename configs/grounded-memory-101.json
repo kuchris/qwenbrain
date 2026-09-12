@@ -1,0 +1,271 @@
+{
+  "protocol": "grounded-memory-v1",
+  "max_new_tokens": 24,
+  "subjects": [
+    "Quin Nash",
+    "Runa Thorne",
+    "Soren Stone",
+    "Tali Moor",
+    "Ulan Umber",
+    "Vina Oak",
+    "Wren Ridge",
+    "Xara Pine"
+  ],
+  "records": [
+    {
+      "id": 1,
+      "subject": "Quin Nash",
+      "value": "Obsidian",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Quin Nash's project is named Obsidian."
+    },
+    {
+      "id": 2,
+      "subject": "Runa Thorne",
+      "value": "Driftwood",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Runa Thorne's project is named Driftwood."
+    },
+    {
+      "id": 3,
+      "subject": "Soren Stone",
+      "value": "Jubilee",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Soren Stone's project is named Jubilee."
+    },
+    {
+      "id": 4,
+      "subject": "Tali Moor",
+      "value": "Pollen",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Tali Moor's project is named Pollen."
+    },
+    {
+      "id": 5,
+      "subject": "Ulan Umber",
+      "value": "Wisteria",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Ulan Umber's project is named Wisteria."
+    },
+    {
+      "id": 6,
+      "subject": "Vina Oak",
+      "value": "Zinnia",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Vina Oak's project is named Zinnia."
+    },
+    {
+      "id": 7,
+      "subject": "Wren Ridge",
+      "value": "Ginkgo",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Wren Ridge's project is named Ginkgo."
+    },
+    {
+      "id": 8,
+      "subject": "Xara Pine",
+      "value": "Kelp",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Xara Pine's project is named Kelp."
+    },
+    {
+      "id": 9,
+      "subject": "Quin Nash",
+      "value": "Freesia",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Quin Nash's project is named Freesia."
+    },
+    {
+      "id": 10,
+      "subject": "Runa Thorne",
+      "value": "Cairn",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Runa Thorne's project is named Cairn."
+    },
+    {
+      "id": 11,
+      "subject": "Soren Stone",
+      "value": "Islet",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Soren Stone's project is named Islet."
+    },
+    {
+      "id": 12,
+      "subject": "Tali Moor",
+      "value": "Aviary",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Tali Moor's project is named Aviary."
+    },
+    {
+      "id": 13,
+      "subject": "Ulan Umber",
+      "value": "Fable",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Ulan Umber's project is named Fable."
+    },
+    {
+      "id": 14,
+      "subject": "Vina Oak",
+      "value": "Bramble",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Vina Oak's project is named Bramble."
+    },
+    {
+      "id": 15,
+      "subject": "Wren Ridge",
+      "value": "Xenon",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Wren Ridge's project is named Xenon."
+    },
+    {
+      "id": 16,
+      "subject": "Xara Pine",
+      "value": "Linden",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Xara Pine's project is named Linden."
+    },
+    {
+      "id": 17,
+      "subject": "Quin Nash",
+      "value": "Utopia",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-02-01: Quin Nash's project is named Utopia."
+    },
+    {
+      "id": 18,
+      "subject": "Runa Thorne",
+      "value": "Helix",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-02-01: Runa Thorne's project is named Helix."
+    },
+    {
+      "id": 19,
+      "subject": "Soren Stone",
+      "value": "Mistral",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-01-01: Soren Stone's project is named Mistral."
+    },
+    {
+      "id": 20,
+      "subject": "Tali Moor",
+      "value": "Thistle",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-01-01: Tali Moor's project is named Thistle."
+    }
+  ],
+  "system_prompt": "You are a helpful assistant. For personal questions, use only the supplied memory records. A record must support the requested attribute and date. If the records do not establish the answer, reply exactly UNKNOWN. Do not guess. For general knowledge and arithmetic questions, answer normally. Follow the requested short answer format.",
+  "phases": [
+    {
+      "name": "initial",
+      "known_at": "2026-01-02",
+      "current_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_ids": null
+    },
+    {
+      "name": "changed",
+      "known_at": "2026-02-02",
+      "current_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "historical_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "corrected",
+      "known_at": "2026-02-10",
+      "current_ids": [
+        17,
+        18,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "historical_ids": [
+        1,
+        2,
+        19,
+        20,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "unknown_subjects": [
+    "Quin Thorne",
+    "Runa Nash",
+    "Una Haven",
+    "Zev Meadow"
+  ],
+  "historical_date": "2026-01-15",
+  "before_date": "2025-12-01",
+  "future_date": "2026-12-01",
+  "controls": [
+    {
+      "question": "What is 2 + 2? Reply with only the number.",
+      "answer": "4"
+    },
+    {
+      "question": "What is 3 + 5? Reply with only the number.",
+      "answer": "8"
+    },
+    {
+      "question": "What is the capital of France? Reply with only the city name.",
+      "answer": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan? Reply with only the city name.",
+      "answer": "Tokyo"
+    }
+  ],
+  "data_seed": 101,
+  "fixture_scope": "Fresh person/project assignments; query templates and timeline structure retained. Seeds randomize names and values, not model training."
+}

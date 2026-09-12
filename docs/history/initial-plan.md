@@ -1,9 +1,11 @@
 # QwenBrain: per-message adaptation experiment
 
+> Historical plan for the original per-message learner. For the current project scope and results, see [the project overview](../../README.md).
+
 Status: persistent local GPU chat and the sequential automatic adaptation loop
-are implemented. See [milestone 1 evidence](reports/milestone-1.md) and
-[milestone 3 evidence](reports/milestone-3.md).
-The separate [one-message LoRA check](reports/milestone-2.md) also passes: the
+are implemented. See [milestone 1 evidence](milestone-1.md) and
+[milestone 3 evidence](milestone-3.md).
+The separate [one-message LoRA check](milestone-2.md) also passes: the
 adapter changes, base weights remain bit-identical, and disk reload reproduces
 the updated model. The fresh-context probes do not establish project-name recall.
 The user requires **every submitted chat message to

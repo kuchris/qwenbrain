@@ -68,10 +68,10 @@ answers through the existing chat path; they are not part of the training loss.
 
 ## Files and reproduction
 
-- [Configuration](../configs/update-check.json)
-- [Full checks, gradients, hashes, and probe answers](update-checks.json)
-- [Learning code](../qwenbrain/learning.py)
-- [Verification code](../qwenbrain/check_update.py)
+- [Configuration](../../configs/update-check.json)
+- [Full checks, gradients, hashes, and probe answers](../../reports/update-checks.json)
+- [Learning code](../../qwenbrain/learning.py)
+- [Verification code](../../qwenbrain/check_update.py)
 
 Double-click `check-update.bat`, or run from the repository root:
 

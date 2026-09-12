@@ -1,0 +1,271 @@
+{
+  "protocol": "grounded-memory-v1",
+  "max_new_tokens": 24,
+  "subjects": [
+    "Yori Bell",
+    "Zina Cove",
+    "Ari Vail",
+    "Bora Dell",
+    "Ceri Yarrow",
+    "Dena Zephyr",
+    "Evan East",
+    "Fia West"
+  ],
+  "records": [
+    {
+      "id": 1,
+      "subject": "Yori Bell",
+      "value": "Wisteria",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Yori Bell's project is named Wisteria."
+    },
+    {
+      "id": 2,
+      "subject": "Zina Cove",
+      "value": "Asteria",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Zina Cove's project is named Asteria."
+    },
+    {
+      "id": 3,
+      "subject": "Ari Vail",
+      "value": "Aviary",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Ari Vail's project is named Aviary."
+    },
+    {
+      "id": 4,
+      "subject": "Bora Dell",
+      "value": "Mistral",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Bora Dell's project is named Mistral."
+    },
+    {
+      "id": 5,
+      "subject": "Ceri Yarrow",
+      "value": "Bramble",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Ceri Yarrow's project is named Bramble."
+    },
+    {
+      "id": 6,
+      "subject": "Dena Zephyr",
+      "value": "Quince",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Dena Zephyr's project is named Quince."
+    },
+    {
+      "id": 7,
+      "subject": "Evan East",
+      "value": "Kelp",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Evan East's project is named Kelp."
+    },
+    {
+      "id": 8,
+      "subject": "Fia West",
+      "value": "Citadel",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-01-02",
+      "content": "As of 2026-01-01, Fia West's project is named Citadel."
+    },
+    {
+      "id": 9,
+      "subject": "Yori Bell",
+      "value": "Driftwood",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Yori Bell's project is named Driftwood."
+    },
+    {
+      "id": 10,
+      "subject": "Zina Cove",
+      "value": "Pollen",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Zina Cove's project is named Pollen."
+    },
+    {
+      "id": 11,
+      "subject": "Ari Vail",
+      "value": "Ember",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Ari Vail's project is named Ember."
+    },
+    {
+      "id": 12,
+      "subject": "Bora Dell",
+      "value": "Nectar",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Bora Dell's project is named Nectar."
+    },
+    {
+      "id": 13,
+      "subject": "Ceri Yarrow",
+      "value": "Xenon",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Ceri Yarrow's project is named Xenon."
+    },
+    {
+      "id": 14,
+      "subject": "Dena Zephyr",
+      "value": "Thistle",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Dena Zephyr's project is named Thistle."
+    },
+    {
+      "id": 15,
+      "subject": "Evan East",
+      "value": "Zinnia",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Evan East's project is named Zinnia."
+    },
+    {
+      "id": 16,
+      "subject": "Fia West",
+      "value": "Estuary",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-02",
+      "content": "As of 2026-02-01, Fia West's project is named Estuary."
+    },
+    {
+      "id": 17,
+      "subject": "Yori Bell",
+      "value": "Solstice",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-02-01: Yori Bell's project is named Solstice."
+    },
+    {
+      "id": 18,
+      "subject": "Zina Cove",
+      "value": "Ripple",
+      "valid_from": "2026-02-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-02-01: Zina Cove's project is named Ripple."
+    },
+    {
+      "id": 19,
+      "subject": "Ari Vail",
+      "value": "Linden",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-01-01: Ari Vail's project is named Linden."
+    },
+    {
+      "id": 20,
+      "subject": "Bora Dell",
+      "value": "Cairn",
+      "valid_from": "2026-01-01",
+      "recorded_at": "2026-02-10",
+      "content": "Correction to the project name effective 2026-01-01: Bora Dell's project is named Cairn."
+    }
+  ],
+  "system_prompt": "You are a helpful assistant. For personal questions, use only the supplied memory records. A record must support the requested attribute and date. If the records do not establish the answer, reply exactly UNKNOWN. Do not guess. For general knowledge and arithmetic questions, answer normally. Follow the requested short answer format.",
+  "phases": [
+    {
+      "name": "initial",
+      "known_at": "2026-01-02",
+      "current_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_ids": null
+    },
+    {
+      "name": "changed",
+      "known_at": "2026-02-02",
+      "current_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "historical_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "corrected",
+      "known_at": "2026-02-10",
+      "current_ids": [
+        17,
+        18,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "historical_ids": [
+        1,
+        2,
+        19,
+        20,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "unknown_subjects": [
+    "Yori Cove",
+    "Zina Bell",
+    "Una Haven",
+    "Zev Meadow"
+  ],
+  "historical_date": "2026-01-15",
+  "before_date": "2025-12-01",
+  "future_date": "2026-12-01",
+  "controls": [
+    {
+      "question": "What is 2 + 2? Reply with only the number.",
+      "answer": "4"
+    },
+    {
+      "question": "What is 3 + 5? Reply with only the number.",
+      "answer": "8"
+    },
+    {
+      "question": "What is the capital of France? Reply with only the city name.",
+      "answer": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan? Reply with only the city name.",
+      "answer": "Tokyo"
+    }
+  ],
+  "data_seed": 137,
+  "fixture_scope": "Fresh person/project assignments; query templates and timeline structure retained. Seeds randomize names and values, not model training."
+}

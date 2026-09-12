@@ -83,8 +83,8 @@ PEFT adapter directory for `PeftModel.from_pretrained`.
   a test checkpoint: it printed one accepted update, saved version 1, reset, and
   exited. Test facts never entered `adapters/live.safetensors`.
 
-Raw results: [GPU checks](online-checks.json) and
-[CLI result](cli-learning-checks.json). Model files, test adapters, and transcripts
+Raw results: [GPU checks](../../reports/online-checks.json) and
+[CLI result](../../reports/cli-learning-checks.json). Model files, test adapters, and transcripts
 remain under this project. Test checkpoints are under `runs/online-check-*/` or
 `runs/cli-check-*/`; the live checkpoint starts fresh on the user's first chat.
 

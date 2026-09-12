@@ -7,8 +7,8 @@ Its most frequent six-word span occurred 14 times.
 
 Running only the second message from a fresh conversation ended normally. The
 two-turn sequence is therefore retained as the regression scenario. Evidence:
-[original failure](repetition-before.json),
-[single-turn minimization](repetition-single-before.json).
+[original failure](../../reports/repetition-before.json),
+[single-turn minimization](../../reports/repetition-single-before.json).
 
 ## Diagnosis
 
@@ -36,13 +36,13 @@ Tokens remain possible; this is neither a hard n-gram ban nor a frequency penalt
 .venv\Scripts\python.exe -X utf8 -m qwenbrain.check_repetition --seeds 42 43 44 45 46
 ```
 
-- [All five seeds passed](repetition-checks.json): no six-word span repeated three
+- [All five seeds passed](../../reports/repetition-checks.json): no six-word span repeated three
   times and no reply hit the output limit in the reported two-turn scenario.
 - The seed-42 identity reply changed from **256 tokens with 14 repeated spans**
   to **55 tokens with no repeated six-word span**, ending naturally.
 - Numerical processor checks cover prompt exclusion, positive/negative scores,
   repeated token IDs, independent batches, and leaving original scores unchanged.
-- The [actual batch launcher](repetition-launcher-checks.json) passed the user's
+- The [actual batch launcher](../../reports/repetition-launcher-checks.json) passed the user's
   two messages, `/reset`, a Japanese greeting, and clean exit. It loaded the model
   once, using local files with Hub offline mode enabled.
 
